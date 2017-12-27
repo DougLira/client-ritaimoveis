@@ -1,0 +1,184 @@
+<mat-horizontal-stepper linear>
+  <mat-step label="Dados do imóvel" [stepControl]="formResidencial">
+
+    <form [formGroup]="formResidencial"
+          (ngSubmit)="onSubmit()"
+          autocomplete="off">
+
+      <div class="row">
+        <div class="col s6">
+          <mat-form-field>
+            <input formControlName="anuncio" matInput type="text" placeholder="Anúncio:">
+            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="valor" matInput class="input-valor" type="number" placeholder="Valor:">
+            <span matSuffix>,00</span>
+            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="cidade" matInput type="text" placeholder="Cidade:">
+            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="bairro" matInput type="text" placeholder="Bairro:">
+            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="endereco" matInput type="text" placeholder="Endereço:">
+            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea formControlName="descricao" matInput rows="8" placeholder="Descrição:"></textarea>
+          </mat-form-field>
+
+          <div class="div-check">
+            <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
+            <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
+          </div>
+
+        </div>
+
+        <div class="col s6">
+
+          <div class="row">
+            <div class="col s6">
+              <mat-form-field>
+                <input formControlName="dormitorios" matInput class="input-caracteristicas" type="number"
+                       placeholder="Dormitórios:">
+                <span matSuffix> </span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="suites" matInput class="input-caracteristicas" type="number"
+                       placeholder="Suítes:">
+                <span matSuffix> </span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="vagas" matInput class="input-caracteristicas" type="number"
+                       placeholder="Vagas:">
+                <span matSuffix> </span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="banheiros" matInput class="input-caracteristicas" type="number"
+                       placeholder="Banheiro:">
+                <span matSuffix> </span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col s6">
+              <mat-form-field>
+                <input formControlName="sala_estar" matInput class="input-caracteristicas" type="number"
+                       placeholder="Salas de estar:">
+                <span matSuffix> </span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="sala_jantar" matInput class="input-caracteristicas" type="number"
+                       placeholder="Salas de jantar:">
+                <span matSuffix> </span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="area_util" matInput class="input-valor" type="number"
+                       placeholder="Área útil:">
+                <span matSuffix> m²</span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="area_construida" matInput class="input-valor" type="number"
+                       placeholder="Área construída:">
+                <span matSuffix> m²</span>
+                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="div-radio">
+            <mat-radio-group formControlName="tipo">
+              <mat-radio-button value="casa" aria-label="Casa">Casa</mat-radio-button>
+              <mat-radio-button value="apartamento" aria-label="Apartamento">Apartamento</mat-radio-button>
+              <mat-radio-button value="terreno" aria-label="Terreno">Terreno</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <mat-checkbox formControlName="condominio">Condomínio</mat-checkbox>
+
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="div-button-next">
+        <button mat-raised-button
+                matStepperNext
+                type="button"
+                [disabled]="!formResidencial.valid"
+                color="primary">Próximo
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Upload de imagens">
+
+    <div class="content">
+
+      <p class="alert-success" *ngIf="fotoPrincipal.message">{{fotoPrincipal.message}}</p>
+      <br>
+      <p style="font-size: 12px; font-weight: bold;">Selecione a foto de capa:</p>
+      <p-fileUpload
+        name="fotoPrincipal"
+        [customUpload]="true"
+        (uploadHandler)="uploadPrincipal($event)"
+        accept="image/*"
+        chooseLabel="Escolher"
+        cancelLabel="Cancelar"
+        uploadLabel="Carregar">
+      </p-fileUpload>
+      <br>
+      <br>
+      <p class="alert-success" *ngIf="fotosSecudarias.message">{{fotosSecudarias.message}}</p>
+      <br>
+      <p style="font-size: 12px; font-weight: bold;">Selecione as fotos secundárias:</p>
+      <p-fileUpload
+        name="fotosSecudarias"
+        [customUpload]="true"
+        (uploadHandler)="uploadSecundarias($event)"
+        accept="image/*"
+        chooseLabel="Escolher"
+        cancelLabel="Cancelar"
+        uploadLabel="Carregar"
+        multiple="multiple">
+      </p-fileUpload>
+    </div>
+    <br>
+    <br>
+    <div class="div-button-back-next">
+      <button mat-raised-button
+              matStepperPrevious>
+        Voltar
+      </button>
+      <button mat-raised-button
+              matStepperNext
+              (click)="onSubmit()"
+              [disabled]="!formResidencial.valid"
+              color="primary">
+        Finalizar
+      </button>
+    </div>
+
+  </mat-step>
+</mat-horizontal-stepper>

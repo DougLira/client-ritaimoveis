@@ -1,0 +1,78 @@
+.header {
+  z-index: 10;
+  height: 60px;
+  /*background: rgba(63, 81, 181, 0.95);*/
+  background: rgba(0, 131, 143, 0.95);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2),
+  0 6px 10px 0 rgba(0, 0, 0, .14),
+  0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+.div-button-menu {
+  width: 120px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+  visibility: hidden;
+}
+
+.div-title {
+  margin-left: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.div-title mat-icon {
+  margin-right: 5px;
+}
+
+.sidenav-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidenav-content {
+  width: 12%;
+  /*background: rgba(63, 81, 181, 0.95);*/
+  background: rgba(0, 131, 143, 0.95);
+}
+
+.sidenav-links {
+  font-size: 12.5px;
+}
+
+.sidenav-links:first-child{
+  font-weight: bolder;
+}
+
+.sidenav-links:last-child{
+  font-weight: bolder;
+}
+
+.exit-icon {
+  margin-right: 25px;
+  margin-top: 3px;
+}
+
+.content {
+  width: 100%;
+
+}
+
+.active{
+  background-color: rgba(255, 255, 255, 0.3);
+}
+

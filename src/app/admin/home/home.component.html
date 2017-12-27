@@ -1,0 +1,37 @@
+<mat-toolbar class="header">
+
+  <div class="div-button-menu">
+    <button class="button-menu"
+            (click)="sidenav.toggle()"
+            mat-icon-button>
+      <mat-icon aria-label="Menu">menu</mat-icon>
+    </button>
+  </div>
+
+  <div class="div-title">
+    <mat-icon>settings</mat-icon>
+    Gerenciamento
+  </div>
+
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav class="sidenav-content"
+               #sidenav
+               mode="side"
+               opened="true">
+    <mat-nav-list>
+      <a class="sidenav-links" mat-list-item [routerLink]="['/']"><mat-icon class="exit-icon">public</mat-icon>WebSite</a>
+      <a class="sidenav-links" mat-list-item [routerLink]="['/admin/home']"><mat-icon class="exit-icon">home</mat-icon>Residencial</a>
+      <a class="sidenav-links" mat-list-item [routerLink]="['comercial']"><mat-icon class="exit-icon">business</mat-icon>Comercial</a>
+      <a class="sidenav-links" mat-list-item [routerLink]="['lancamentos']"><mat-icon class="exit-icon">new_releases</mat-icon>Lançamentos</a>
+      <a class="sidenav-links" mat-list-item [routerLink]="['posts']"><mat-icon class="exit-icon">view_list</mat-icon>Postagens</a>
+      <a class="sidenav-links" mat-list-item [routerLink]="['cadastro']"><mat-icon class="exit-icon">publish</mat-icon>Cadastro</a>
+      <a class="sidenav-links" mat-list-item (click)="logout()"><mat-icon class="exit-icon">exit_to_app</mat-icon>Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

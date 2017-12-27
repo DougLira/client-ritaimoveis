@@ -1,0 +1,80 @@
+.bg-image {
+  background-image: url("../../../imobiliaria.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+}
+
+.banner {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1px;
+  background-color: rgba(146, 59, 22, 0.6);
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 6px 6px 15px -2px rgba(55, 55, 55, .42);
+  -moz-box-shadow: 6px 6px 15px -2px rgba(55, 55, 55, .42);
+  box-shadow: 6px 6px 15px -2px rgba(55, 55, 55, .42);
+}
+
+.banner div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.creci {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.creci p {
+  color: #f7f7f7;
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bolder;
+  text-shadow: 3px 3px 2px rgba(150, 150, 150, 1);
+}
+
+.facebook .icon {
+  background-image: url("../../../facebook.png");
+  width: 32px;
+  height: 32px;
+  margin: 10px 5px 10px 10px;
+}
+
+.linkedin .icon {
+  background-image: url("../../../linkedin.png");
+  width: 32px;
+  height: 32px;
+  margin: 10px 5px 10px 10px;
+}
+
+.email .icon {
+  background-image: url("../../../email.png");
+  width: 32px;
+  height: 32px;
+  margin: 10px 5px 10px 10px;
+}
+
+.phone .icon {
+  background-image: url("../../../phone.png");
+  width: 32px;
+  height: 32px;
+  margin: 10px 5px 10px 10px;
+}
+
+.media a {
+  font-size: 13px;
+  padding: 10px 10px 10px 5px;
+  color: #e7e7e7 !important;
+  text-decoration: none !important;
+  font-weight: bolder;
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+

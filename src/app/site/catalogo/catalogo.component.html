@@ -1,0 +1,86 @@
+<app-modal></app-modal>
+<div class="carrosel">
+  <ngb-carousel>
+    <ng-template ngbSlide>
+      <img
+        src="https://images.homify.com/images/a_0,c_limit,f_auto,h_1024,q_auto,w_1024/v1447816507/p/photo/image/1123069/IMG_2279/fotos-de-casas-moderno-branco-por-camilo-pulido-arquitectos.jpg"
+        alt="Random first slide">
+      <div class="carousel-caption">
+        <h3>First slide label</h3>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img src="https://odis.homeaway.com/odis/listing/540d006b-137f-4cd2-a37d-cc5e51b57342.c10.jpg"
+           alt="Random second slide">
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img
+        src="http://blog.eucontrato.com.br/wp-content/uploads/2016/04/ideia-casa-reforma-fachada-construcao-telhado-platibanda.jpg"
+        alt="Random third slide">
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<div class="conteudo">
+  <div class="filtros">
+    <div class="button-row">
+      <button id="btn-collapse-filter" mat-raised-button (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Filtrar
+      </button>
+    </div>
+    <div id="collapseExample" [ngbCollapse]="!isCollapsed">
+
+      <mat-form-field class="form-select-tipo">
+        <mat-select [(ngModel)]="filter.tipo" placeholder="Tipo do imóvel">
+          <mat-option *ngFor="let tipo of tiposImoveis" [value]="tipo.nome">
+            {{ tipo.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="example-container">
+        <mat-form-field>
+          <input [(ngModel)]="filter.dormitorios" matInput placeholder="Dormitórios" type="number" class="example-right-align">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="filter.banheiros" matInput placeholder="Banheiros" type="number" class="example-right-align">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="filter.valorMinimo" matInput placeholder="Valor mínimo" type="number" class="example-right-align">
+          <span matPrefix>R$&nbsp;</span>
+          <span matSuffix>.00</span>
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="filter.valorMaximo" matInput placeholder="Valor máximo" type="number" class="example-right-align">
+          <span matPrefix>R$&nbsp;</span>
+          <span matSuffix>.00</span>
+        </mat-form-field>
+        <div class="button-row">
+          <button (click)="onFilter()" mat-raised-button>Buscar</button>
+        </div>
+      </div>
+    </div>
+    <mat-form-field class="form-input-busca">
+      <input #buscaAnuncio matInput placeholder="Procurar imóvel...">
+    </mat-form-field>
+    <div class="button-row">
+      <button (click)="searchAnuncio(buscaAnuncio.value)" mat-raised-button>Buscar</button>
+    </div>
+  </div>
+  <section class="paineis">
+    <app-painel *ngFor="let imovel of imoveis" [imovel]="imovel"></app-painel>
+  </section>
+</div>
+<div class="paginacao">
+  <div class="margin-paginacao"></div>
+  <div class="paginacao-content">
+    <div>
+      <app-pagination [collectionSize]="collectionSizeImoveis"></app-pagination>
+    </div>
+  </div>
+</div>

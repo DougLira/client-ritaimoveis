@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<div class="bg-image">
+  <div class="div-login">
+    <div class="login">
+      <div class="row">
+        <h5 class="login-title">Login</h5>
+      </div>
+      <div *ngIf="errorMessage" class="div-error-message"><p>Usuário ou senha inválidos.</p></div>
+      <div class="row">
+        <form [formGroup]="formLogin"
+              (ngSubmit)="onSubmit()"
+              autocomplete="off"
+              class="col s12">
+          <div class="row">
+            <div [ngClass]="applyCssFieldError('login')"
+                 class="input-field col s12">
+              <i class="material-icons prefix">account_box</i>
+              <input [ngClass]="applyCssInputError('login')"
+                     formControlName="login"
+                     id="login"
+                     type="text">
+              <label data-error="Usuário inválido." for="login">Login:</label>
+            </div>
+          </div>
+          <div class="row">
+            <div [ngClass]="applyCssFieldError('password')"
+                 class="input-field col s12">
+              <i (mousedown)="toggleHide()"
+                 (mouseup)="toggleHide()"
+                 (mouseleave)="hide=true"
+                 class="material-icons prefix icon-senha">
+                {{hide? 'visibility_off' : 'visibility'}}
+              </i>
+              <input [ngClass]="applyCssInputError('password')"
+                     formControlName="password"
+                     id="password"
+                     type="{{hide? 'password' : 'text'}}">
+              <label data-error="Senha inválida" for="password">Senha:</label>
+            </div>
+          </div>
+          <div class="div-button">
+            <button class="btn waves-effect waves-light" type="submit">Entrar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

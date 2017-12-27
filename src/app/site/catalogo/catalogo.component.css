@@ -1,0 +1,164 @@
+.carrosel {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(146,59,22,.85);
+  height: fit-content;
+}
+
+.carrosel img {
+  height: 300px !important;
+  object-fit: cover;
+}
+
+.conteudo {
+  padding: 0;
+  display: flex;
+  margin-top: 0;
+  height: fit-content;
+}
+
+#btn-collapse-filter {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.filtros {
+  box-sizing: border-box;
+  width: 17%;
+  background-color: #e7e7e7;
+  height: unset;
+  font-size: 85%;
+}
+
+.form-input-busca,
+.form-select-tipo{
+  width: 99%;
+}
+
+.button-row button {
+  width: 99%;
+  background-color: transparent;
+  color: #923b16;
+  margin-bottom: 30px;
+  border-radius: 0;
+}
+
+.button-row button:hover {
+  background-color: #923b16;
+  color: #e7e7e7;
+}
+
+.example-container > * {
+  width: 99%;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.paineis {
+  background-color: rgba(255, 255, 255, 0.6);
+  box-sizing: border-box;
+  width: 80%;
+  height: fit-content;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.paineis app-painel {
+  max-width: fit-content;
+  height: fit-content;
+  margin: 20px 10px;
+  background-color: #f8f8f8;
+}
+
+.paineis app-painel:hover {
+  -webkit-box-shadow: 0 0 10px 2px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0 0 10px 2px rgba(0,0,0,0.45);
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.45);
+  transform: scale(1.05);
+  transition: all .2s ease-in-out .3s;
+}
+
+.paginacao{
+  display: flex;
+  width: 100%;
+}
+
+.margin-paginacao{
+  width: 17%;
+  background-color: #e7e7e7;
+  height: unset;
+}
+
+.paginacao-content{
+  padding-bottom: 20px;
+  margin: 10px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+/*------------------------- MOBILE ------------------------------*/
+
+@media screen and (max-width: 769px) {
+  .carrosel img {
+    height: 200px !important;
+    object-fit: cover;
+  }
+
+  #btn-collapse-filter {
+    margin-bottom: 5px;
+  }
+
+  .form-input-busca, .form-select-tipo {
+    width: 100%;
+  }
+
+  .conteudo {
+    flex-direction: column;
+    height: fit-content;
+    margin-top: 0;
+  }
+
+  .filtros {
+    -webkit-box-shadow: 2px 1px 9px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 1px 9px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 1px 9px -1px rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #f8f8f8;
+    height: fit-content;
+  }
+
+  .button-row button:last-child {
+    margin-bottom: 5px;
+  }
+
+  .paineis {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+  }
+
+  .paginacao-content{
+    width: 100%;
+  }
+
+  .margin-paginacao{
+    width: 0;
+  }
+}
