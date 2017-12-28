@@ -13,7 +13,7 @@ export class CadastroService {
               private route: Router) {
   }
 
-  cadastrarImovelResidencial(imovel, fotoPrincipal = null, fotosSecundarias = []) {
+  cadastrarImovelResidencial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
 
     let fotos = {
         fotoPrincipal: fotoPrincipal,
@@ -31,7 +31,8 @@ export class CadastroService {
         if (res.status == 201) {
           createdId = res.body;
 
-          return this.http.put(`http://localhost:3000/admin/imoveis/update/images/${createdId}`,
+          return this.http.put(
+            `http://localhost:3000/admin/imoveis/update/images/${createdId}`,
             fotos,
             {
               observe: 'response',
@@ -39,9 +40,19 @@ export class CadastroService {
             })
             .subscribe(res => {
 
-              this.route.navigate(['/admin']);
+              this.message.next({severity: 'success', summary: 'Cadastro Efetuado', detail: 'Imóvel cadastrado com sucesso.'});
+            }, err => {
+
+              console.log(err);
+              this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
             });
         }
+
+        this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+      }, err => {
+
+        console.log(err);
+        this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
       });
   }
 }

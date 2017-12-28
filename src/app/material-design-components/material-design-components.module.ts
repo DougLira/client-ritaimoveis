@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
   MatButtonModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatIconRegistry, MatInputModule, MatListModule,
+  MatMenuModule,
   MatOptionModule,
   MatPaginatorModule, MatRadioModule,
   MatSelectModule, MatSidenavModule, MatStepperModule, MatTabsModule, MatToolbarModule
@@ -24,7 +25,8 @@ import {
     MatTabsModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatMenuModule
   ],
   exports: [
     MatIconModule,
@@ -41,7 +43,8 @@ import {
     MatTabsModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatMenuModule
   ],
   declarations: [],
   providers: [MatIconRegistry]

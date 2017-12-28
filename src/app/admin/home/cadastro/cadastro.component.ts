@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {CadastroService} from './cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -8,13 +7,9 @@ import {CadastroService} from './cadastro.service';
 })
 export class CadastroComponent implements OnInit {
 
-  private serviceMessage: string;
-
-  constructor(private cadastroService: CadastroService) {
+  constructor() {
   }
 
   ngOnInit() {
-
-    this.cadastroService.message.next(msg => this.serviceMessage = msg);
   }
 }

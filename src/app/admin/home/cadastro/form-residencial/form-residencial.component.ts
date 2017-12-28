@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CadastroService} from '../cadastro.service';
+import {MatHorizontalStepper} from '@angular/material';
 
 @Component({
   selector: 'app-form-residencial',
@@ -9,6 +10,7 @@ import {CadastroService} from '../cadastro.service';
 })
 export class FormResidencialComponent implements OnInit {
 
+  @ViewChild('step') step: MatHorizontalStepper;
   private formResidencial: FormGroup;
   private fotoPrincipal = {
     urlBase64: '',
@@ -57,6 +59,14 @@ export class FormResidencialComponent implements OnInit {
         this.fotoPrincipal.urlBase64,
         this.fotosSecudarias.fotos);
     }
+
+    this.cadastroService.message.subscribe(msg => {
+      if (msg.severity === 'success') {
+
+        this.step.selectedIndex = 0;
+        this.formResidencial.reset();
+      }
+    });
   }
 
   getErrorMessage() {

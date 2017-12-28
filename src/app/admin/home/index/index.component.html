@@ -25,7 +25,17 @@
             <span class="secondary-content edit-icon"><i class="material-icons">mode_edit</i></span>
           </div>
           <div class="descricao-icon">
-            <span class="secondary-content delete-icon"><i (click)="delete(imovel)" class="material-icons">delete_forever</i></span>
+            <span class="secondary-content delete-icon"><i [matMenuTriggerFor]="deleteMenu" class="material-icons">delete_forever</i></span>
+            <mat-menu #deleteMenu="matMenu">
+              <button (click)="delete(imovel)" mat-menu-item class="item-delete-menu">
+                <mat-icon color="warn">check_circle</mat-icon>
+                <span >Confirma</span>
+              </button>
+              <button mat-menu-item class="item-delete-menu">
+                <mat-icon color="primary">cancel</mat-icon>
+                <span>Cancela</span>
+              </button>
+            </mat-menu>
           </div>
         </div>
       </div>

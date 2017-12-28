@@ -60,12 +60,16 @@
   cursor: pointer;
 }
 
+.edit-icon{
+color: #5e35b1;
+cursor: pointer;
+}
+
 .delete-icon{
   color: #c62828;
   cursor: pointer;
 }
-
-.edit-icon{
-  color: #5e35b1;
-  cursor: pointer;
+.item-delete-menu{
+  font-size: 12px;
+  font-weight: bolder;
 }
