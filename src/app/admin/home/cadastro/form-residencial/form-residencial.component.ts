@@ -63,8 +63,8 @@ export class FormResidencialComponent implements OnInit {
     this.cadastroService.message.subscribe(msg => {
       if (msg.severity === 'success') {
 
-        this.step.selectedIndex = 0;
         this.formResidencial.reset();
+        this.step.selectedIndex = 0;
       }
     });
   }

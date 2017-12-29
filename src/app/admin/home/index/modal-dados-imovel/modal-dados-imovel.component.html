@@ -1,0 +1,253 @@
+<ng-template #modal_dados let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <mat-icon>mode_edit</mat-icon>
+      Imóvel Residencial
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <!--<form materialize [formGroup]="formResidencial"
+          (ngSubmit)="onSubmit()"
+          autocomplete="off">
+
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field col s12">
+            <input formControlName="anuncio" type="text" id="input-anuncio" class="validate" required>
+            <label for="input-anuncio">Anúncio:</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input formControlName="valor" id="input-valor" type="number" required>
+            <label for="input-valor">Valor:</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input formControlName="cidade" type="text" id="input-cidade" class="validate" required>
+            <label for="input-cidade">Cidade:</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input formControlName="bairro" type="text" id="input-bairro" class="validate" required>
+            <label for="input-bairro">Bairro:</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input formControlName="endereco" type="text" id="input-endereco" class="validate" required>
+            <label for="input-endereco">Endereço:</label>
+          </div>
+
+          <div class="input-field col s12">
+            <textarea formControlName="descricao" rows="8" id="input-descricao" class="materialize-textarea"></textarea>
+            <label for="input-descricao">Descrição:</label>
+          </div>
+
+          <div class="div-check">
+            <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
+            <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
+          </div>
+
+          <div class="col s6">
+
+            <div class="input-field col s12">
+              <input formControlName="dormitorios" class="input-caracteristicas" id="input-dormitorios" type="number"
+                     required>
+              <label for="input-dormitorios">Dormitórios:</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input formControlName="suites" class="input-caracteristicas" id="input-suites" type="number" required>
+              <label for="input-suites">Suítes:</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input formControlName="vagas" class="input-caracteristicas" id="input-vagas" type="number" required>
+              <label for="input-vagas">Vagas:</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input formControlName="banheiros" class="input-caracteristicas" id="input-banheiros" type="number"
+                     required>
+              <label for="input-banheiros">Banheiros:</label>
+            </div>
+
+          </div>
+          <div class="col s6">
+
+            <div class="input-field col s12">
+              <input formControlName="sala_estar" class="input-caracteristicas" id="input-sala_estar" type="number"
+                     required>
+              <label for="input-sala_estar">Salas de estar:</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input formControlName="sala_jantar" class="input-caracteristicas" id="input-sala_jantar" type="number"
+                     required>
+              <label for="input-sala_jantar">Salas de jantar:</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input formControlName="area_util" id="input-area_util"
+                     type="number"
+                     placeholder="m²"
+                     required>
+              <label class="active"
+                     for="input-area_util">Área útil:</label>
+            </div>
+
+            <div class="input-field col s12">
+              <input formControlName="area_construida" id="input-area_construida"
+                     type="number"
+                     placeholder="m²"
+                     required>
+              <label class="active"
+                     for="input-area_construida">Área construída:</label>
+            </div>
+          </div>
+
+          <div class="div-radio">
+            <mat-radio-group formControlName="tipo">
+              <mat-radio-button value="casa" aria-label="Casa">Casa</mat-radio-button>
+              <mat-radio-button value="apartamento" aria-label="Apartamento">Apartamento</mat-radio-button>
+              <mat-radio-button value="terreno" aria-label="Terreno">Terreno</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <mat-checkbox formControlName="condominio">Condomínio</mat-checkbox>
+        </div>
+      </div>
+    </form>-->
+
+    <form [formGroup]="formResidencial"
+          (ngSubmit)="onSubmit()"
+          autocomplete="off">
+
+      <div class="row">
+        <mat-form-field>
+          <input formControlName="anuncio" matInput type="text" placeholder="Anúncio:">
+          <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="valor" matInput class="input-valor" type="number" placeholder="Valor:">
+          <span matSuffix>,00</span>
+          <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="cidade" matInput type="text" placeholder="Cidade:">
+          <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="bairro" matInput type="text" placeholder="Bairro:">
+          <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="endereco" matInput type="text" placeholder="Endereço:">
+          <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea formControlName="descricao" matInput rows="8" placeholder="Descrição:"></textarea>
+        </mat-form-field>
+
+        <div class="div-check">
+          <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
+          <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
+        </div>
+
+
+        <div class="row">
+          <div class="col s6">
+            <mat-form-field>
+              <input formControlName="dormitorios" matInput class="input-caracteristicas" type="number"
+                     placeholder="Dormitórios:">
+              <span matSuffix> </span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="suites" matInput class="input-caracteristicas" type="number"
+                     placeholder="Suítes:">
+              <span matSuffix> </span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="vagas" matInput class="input-caracteristicas" type="number"
+                     placeholder="Vagas:">
+              <span matSuffix> </span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="banheiros" matInput class="input-caracteristicas" type="number"
+                     placeholder="Banheiro:">
+              <span matSuffix> </span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col s6">
+            <mat-form-field>
+              <input formControlName="sala_estar" matInput class="input-caracteristicas" type="number"
+                     placeholder="Salas de estar:">
+              <span matSuffix> </span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="sala_jantar" matInput class="input-caracteristicas" type="number"
+                     placeholder="Salas de jantar:">
+              <span matSuffix> </span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="area_util" matInput class="input-valor" type="number"
+                     placeholder="Área útil:">
+              <span matSuffix> m²</span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="area_construida" matInput class="input-valor" type="number"
+                     placeholder="Área construída:">
+              <span matSuffix> m²</span>
+              <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div class="div-radio">
+          <mat-radio-group formControlName="tipo">
+            <mat-radio-button value="casa" aria-label="Casa">Casa</mat-radio-button>
+            <mat-radio-button value="apartamento" aria-label="Apartamento">Apartamento</mat-radio-button>
+            <mat-radio-button value="terreno" aria-label="Terreno">Terreno</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <mat-checkbox formControlName="condominio">Condomínio</mat-checkbox>
+
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" mat-button class="waves-effect waves-light btn botao-cancelar" (click)="c('Close click')">
+      <mat-icon class="left">cancel</mat-icon>
+      Cancelar
+    </button>
+    <button type="button" mat-button class="waves-effect waves-light btn botao-salvar"
+            (click)="c('Close click'); salvar()">
+      <mat-icon class="left">archive</mat-icon>
+      Salvar
+    </button>
+  </div>
+</ng-template>

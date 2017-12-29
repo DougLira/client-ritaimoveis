@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 
 import {HomeAdminService} from '../home-admin.service';
 import {Imovel} from '../../../models/imovel';
@@ -11,9 +11,12 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
+  @ViewChild('modal_dados') modal_dados;
   private subscriptionImoveis: Subscription;
   private subscriptionPages: Subscription;
   private subscriptionDelete: Subscription;
+  private subscriptionUpdate: Subscription;
+  private msg = [];
   imoveis: Imovel[];
   paginator = {
     length: ''
@@ -25,7 +28,24 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    this.subscriptionUpdate = this.modal_dados.updateView.subscribe(msg => {
 
+      this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
+      setTimeout(() => this.msg = [], 3000);
+      this.obterImoveis();
+    });
+    this.obterImoveis();
+  }
+
+  ngOnDestroy() {
+
+    this.subscriptionImoveis.unsubscribe();
+    if (this.subscriptionPages) this.subscriptionPages.unsubscribe();
+    if (this.subscriptionDelete) this.subscriptionDelete.unsubscribe();
+    if (this.subscriptionUpdate) this.subscriptionUpdate.unsubscribe();
+  }
+
+  obterImoveis() {
     this.subscriptionImoveis = this.homeService.getImoveis()
       .subscribe(res => {
 
@@ -37,13 +57,6 @@ export class IndexComponent implements OnInit, OnDestroy {
 
         }
       });
-  }
-
-  ngOnDestroy() {
-
-    this.subscriptionImoveis.unsubscribe();
-    if (this.subscriptionPages) this.subscriptionPages.unsubscribe();
-    if (this.subscriptionDelete) this.subscriptionDelete.unsubscribe();
   }
 
   onPageChanges(event) {
@@ -79,6 +92,11 @@ export class IndexComponent implements OnInit, OnDestroy {
             }
           });
       });
+  }
+
+  openModalDados(imovel) {
+
+    this.modal_dados.open.next(imovel);
   }
 
 }

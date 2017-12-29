@@ -1,3 +1,4 @@
+@import "~materialize-css/dist/css/materialize.css";
 .content {
   width: 87%;
   padding: 15px;
@@ -69,7 +70,7 @@ cursor: pointer;
   color: #c62828;
   cursor: pointer;
 }
-.item-delete-menu{
+.item-menu{
   font-size: 12px;
   font-weight: bolder;
 }

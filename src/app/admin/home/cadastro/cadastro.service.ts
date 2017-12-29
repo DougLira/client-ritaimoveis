@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
 import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
@@ -9,8 +9,7 @@ export class CadastroService {
 
   message: Subject<any> = new Subject();
 
-  constructor(private http: HttpClient,
-              private route: Router) {
+  constructor(private http: HttpClient) {
   }
 
   cadastrarImovelResidencial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
@@ -32,7 +31,7 @@ export class CadastroService {
           createdId = res.body;
 
           return this.http.put(
-            `http://localhost:3000/admin/imoveis/update/images/${createdId}`,
+            `http://localhost:3000/admin/imoveis/images/${createdId}`,
             fotos,
             {
               observe: 'response',
@@ -54,5 +53,13 @@ export class CadastroService {
         console.log(err);
         this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
       });
+  }
+
+  updateImovelResidencial(imovel, id): Observable<any> | any {
+
+    return this.http.put(
+      `http://localhost:3000/admin/imoveis/${id}`,
+      JSON.stringify(imovel),
+      {observe: 'response'});
   }
 }
