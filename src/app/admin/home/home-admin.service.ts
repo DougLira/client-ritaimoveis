@@ -8,12 +8,14 @@ export class HomeAdminService {
   constructor(private http: HttpClient) {
   }
 
-  private url: string = 'http://localhost:3000/admin';
+  private uri: string = 'http://localhost:3000';
+
+  // uri: string = 'http://api-ritaimoveis-com.umbler.net';
 
   getImoveis(page: string = '1'): Observable<any> | any {
 
 
-    return this.http.get(`${this.url}/imoveis`,
+    return this.http.get(`${this.uri}/admin/imoveis`,
       {
         observe: 'response',
         params: new HttpParams()
@@ -23,6 +25,6 @@ export class HomeAdminService {
 
   deleteImovel(id): Observable<any> | any {
 
-    return this.http.delete(`${this.url}/imoveis/${id}`, {observe: 'response'});
+    return this.http.delete(`${this.uri}/admin/imoveis/${id}`, {observe: 'response'});
   }
 }

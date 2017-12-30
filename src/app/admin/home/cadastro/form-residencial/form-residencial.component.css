@@ -10,10 +10,6 @@ mat-form-field{
   padding: 8px;
 }
 
-.input-valor {
-  text-align: right;
-}
-
 .input-caracteristicas{
   text-align: left;
 }

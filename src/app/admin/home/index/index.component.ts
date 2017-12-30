@@ -12,10 +12,14 @@ import {Subscription} from 'rxjs/Subscription';
 export class IndexComponent implements OnInit, OnDestroy {
 
   @ViewChild('modal_dados') modal_dados;
+  @ViewChild('modal_fotos') modal_fotos;
+  @ViewChild('modal_add_fotos') modal_add_fotos;
   private subscriptionImoveis: Subscription;
   private subscriptionPages: Subscription;
   private subscriptionDelete: Subscription;
-  private subscriptionUpdate: Subscription;
+  private subscriptionUpdateDados: Subscription;
+  private subscriptionUpdateFotos: Subscription;
+  private subscriptionUpdateAddFotos: Subscription;
   private msg = [];
   imoveis: Imovel[];
   paginator = {
@@ -28,13 +32,28 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.subscriptionUpdate = this.modal_dados.updateView.subscribe(msg => {
+    this.obterImoveis();
+
+    this.subscriptionUpdateDados = this.modal_dados.updateView.subscribe(msg => {
 
       this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
       setTimeout(() => this.msg = [], 3000);
       this.obterImoveis();
     });
-    this.obterImoveis();
+
+    this.subscriptionUpdateFotos = this.modal_fotos.updateView.subscribe(msg => {
+
+      this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
+      setTimeout(() => this.msg = [], 3000);
+      this.obterImoveis();
+    });
+
+    this.subscriptionUpdateAddFotos = this.modal_add_fotos.updateView.subscribe(msg => {
+
+      this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
+      setTimeout(() => this.msg = [], 3000);
+      this.obterImoveis();
+    });
   }
 
   ngOnDestroy() {
@@ -42,7 +61,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.subscriptionImoveis.unsubscribe();
     if (this.subscriptionPages) this.subscriptionPages.unsubscribe();
     if (this.subscriptionDelete) this.subscriptionDelete.unsubscribe();
-    if (this.subscriptionUpdate) this.subscriptionUpdate.unsubscribe();
+    if (this.subscriptionUpdateDados) this.subscriptionUpdateDados.unsubscribe();
+    if (this.subscriptionUpdateFotos) this.subscriptionUpdateFotos.unsubscribe();
+    if (this.subscriptionUpdateAddFotos) this.subscriptionUpdateAddFotos.unsubscribe();
   }
 
   obterImoveis() {
@@ -94,9 +115,19 @@ export class IndexComponent implements OnInit, OnDestroy {
       });
   }
 
+  openModalAddFotos(imovel){
+
+    this.modal_add_fotos.openModal.next(imovel);
+  }
+
   openModalDados(imovel) {
 
     this.modal_dados.open.next(imovel);
+  }
+
+  openModalFotos(imovel) {
+
+    this.modal_fotos.open.next(imovel);
   }
 
 }

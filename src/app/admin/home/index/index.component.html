@@ -1,8 +1,12 @@
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+<app-modal-dados-imovel #modal_dados></app-modal-dados-imovel>
+<app-modal-fotos-imovel #modal_fotos></app-modal-fotos-imovel>
+<app-modal-add-fotos #modal_add_fotos></app-modal-add-fotos>
+
 <div class="content">
 
-  <app-modal-dados-imovel #modal_dados></app-modal-dados-imovel>
   <p-messages [(value)]="msg"></p-messages>
+
   <div *ngFor="let imovel of imoveis" class="collection z-depth-3">
     <div class="collection-item painel">
       <img class="imagem"
@@ -22,16 +26,17 @@
         </div>
         <div class="descricao-icons">
           <div class="descricao-icon">
-            <span class="secondary-content add-photo-icon"><i class="material-icons">add_a_photo</i></span>
+            <span class="secondary-content add-photo-icon"><i (click)="openModalAddFotos(imovel)" class="material-icons">add_a_photo</i></span>
           </div>
           <div class="descricao-icon">
-            <span class="secondary-content edit-icon"><i [matMenuTriggerFor]="editMenu" class="material-icons">mode_edit</i></span>
+            <span class="secondary-content edit-icon"><i [matMenuTriggerFor]="editMenu"
+                                                         class="material-icons">mode_edit</i></span>
             <mat-menu #editMenu="matMenu">
               <button (click)="openModalDados(imovel)" mat-menu-item class="item-menu">
                 <mat-icon color="primary">home</mat-icon>
-                <span >Dados do imóvel</span>
+                <span>Dados do imóvel</span>
               </button>
-              <button mat-menu-item class="item-menu">
+              <button (click)="openModalFotos(imovel)" mat-menu-item class="item-menu">
                 <mat-icon color="accent">photo_camera</mat-icon>
                 <span>Fotos</span>
               </button>
@@ -42,7 +47,7 @@
             <mat-menu #deleteMenu="matMenu">
               <button (click)="delete(imovel)" mat-menu-item class="item-menu">
                 <mat-icon color="warn">remove_circle</mat-icon>
-                <span >Confirma</span>
+                <span>Confirma</span>
               </button>
               <button mat-menu-item class="item-menu">
                 <mat-icon color="primary">cancel</mat-icon>

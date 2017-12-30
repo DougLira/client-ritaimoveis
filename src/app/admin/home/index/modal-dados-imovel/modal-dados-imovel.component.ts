@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CadastroService} from '../../cadastro/cadastro.service';
-import {Router} from '@angular/router';
+import {Imovel} from '../../../../models/imovel';
 
 @Component({
   selector: 'app-modal-dados-imovel',
@@ -14,8 +14,8 @@ import {Router} from '@angular/router';
 export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   @ViewChild('modal_dados') modal;
-  open: Subject = new Subject();
-  updateView: Subject = new Subject();
+  open = new Subject();
+  updateView = new Subject();
   private openSubscription: Subscription;
   private updateSubscription: Subscription;
   private formResidencial: FormGroup;
@@ -23,13 +23,12 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,
-              private cadastroService: CadastroService,
-              private route: Router) {
+              private cadastroService: CadastroService) {
   }
 
   ngOnInit() {
 
-    this.openSubscription = this.open.subscribe(imovel => {
+    this.openSubscription = this.open.subscribe((imovel: Imovel)=> {
 
       this.idImovel = imovel._id;
       this.modalService.open(this.modal, {size: 'lg'});

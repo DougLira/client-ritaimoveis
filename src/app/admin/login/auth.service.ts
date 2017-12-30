@@ -7,18 +7,19 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
 
+  uri: string = 'http://localhost:3000';
+
+  // uri: string = 'http://api-ritaimoveis-com.umbler.net';
+
   constructor(private http: HttpClient,
               private route: Router) {
   }
 
   login(user): Observable<any> | any {
 
-    /*TODO
-    * consultar API para autenticar
-    * */
     return this.http
       .post(
-        'http://localhost:3000/authenticate',
+        `${this.uri}/authenticate`,
         JSON.stringify(user),
         {
           observe: 'response'

@@ -106,4 +106,27 @@ export class FormResidencialComponent implements OnInit {
     this.fotosSecudarias.message = 'Fotos carregadas com sucesso.';
     setTimeout(() => this.fotosSecudarias.message = '', 3000);
   }
+
+  clearPrincipal() {
+
+    this.fotoPrincipal.urlBase64 = undefined;
+  }
+
+  clearSecundarias() {
+
+    this.fotosSecudarias.fotos = [];
+  }
+
+  removeSecundarias(event) {
+
+    let file = event.file;
+    let fileReader: FileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onloadend = e => {
+
+      let index = this.fotosSecudarias.fotos.indexOf(fileReader.result);
+      this.fotosSecudarias.fotos.splice(index, 1);
+    };
+  }
 }

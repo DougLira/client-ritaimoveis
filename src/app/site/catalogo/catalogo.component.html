@@ -51,14 +51,12 @@
           <input [(ngModel)]="filter.banheiros" matInput placeholder="Banheiros" type="number" class="example-right-align">
         </mat-form-field>
         <mat-form-field>
-          <input [(ngModel)]="filter.valorMinimo" matInput placeholder="Valor mínimo" type="number" class="example-right-align">
+          <input [(ngModel)]="filter.valorMinimo" matInput placeholder="Valor mínimo" type="number">
           <span matPrefix>R$&nbsp;</span>
-          <span matSuffix>.00</span>
         </mat-form-field>
         <mat-form-field>
-          <input [(ngModel)]="filter.valorMaximo" matInput placeholder="Valor máximo" type="number" class="example-right-align">
+          <input [(ngModel)]="filter.valorMaximo" matInput placeholder="Valor máximo" type="number">
           <span matPrefix>R$&nbsp;</span>
-          <span matSuffix>.00</span>
         </mat-form-field>
         <div class="button-row">
           <button (click)="onFilter()" mat-raised-button>Buscar</button>

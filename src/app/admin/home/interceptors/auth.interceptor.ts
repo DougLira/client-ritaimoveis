@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse} from '@angular/common/http';
+import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
 import {AuthService} from '../../login/auth.service';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -17,10 +17,14 @@ export class AuthInterceptor implements HttpInterceptor {
       const authReq = req.clone({setHeaders: {'x-access-token': this.authService.getTokenHeader()}});
       return next
         .handle(authReq)
-        .do(event => {
+        .do((event: HttpEvent<any>) => {
 
-          if (event instanceof HttpResponse && event.status == 401) {
+          if (event instanceof HttpResponse) {
 
+          }
+        }, (err: any) => {
+
+          if (err instanceof HttpErrorResponse) {
             this.authService.logout();
           }
         });
@@ -28,10 +32,14 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next
       .handle(req)
-      .do(event => {
+      .do((event: HttpEvent<any>) => {
 
-        if (event instanceof HttpResponse && event.status == 401) {
+        if (event instanceof HttpResponse) {
 
+        }
+      }, (err: any) => {
+
+        if (err instanceof HttpErrorResponse) {
           this.authService.logout();
         }
       });

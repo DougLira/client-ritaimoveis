@@ -26,7 +26,8 @@ import {
     MatCheckboxModule,
     MatRadioModule,
     MatStepperModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule
   ],
   exports: [
     MatIconModule,
@@ -44,7 +45,8 @@ import {
     MatCheckboxModule,
     MatRadioModule,
     MatStepperModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule
   ],
   declarations: [],
   providers: [MatIconRegistry]

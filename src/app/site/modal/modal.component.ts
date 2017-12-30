@@ -20,7 +20,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   };
 
   constructor(private imovelService: ImovelService) {
-  }''
+  }
 
   ngOnInit() {
 

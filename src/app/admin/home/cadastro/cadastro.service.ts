@@ -8,6 +8,9 @@ import {Observable} from 'rxjs/Observable';
 export class CadastroService {
 
   message: Subject<any> = new Subject();
+  uri: string = 'http://localhost:3000';
+
+  // uri: string = 'http://api-ritaimoveis-com.umbler.net';
 
   constructor(private http: HttpClient) {
   }
@@ -21,7 +24,7 @@ export class CadastroService {
       createdId;
 
     this.http
-      .post(`http://localhost:3000/admin/imoveis`,
+      .post(`${this.uri}/admin/imoveis`,
         JSON.stringify(imovel),
         {observe: 'response'}
       )
@@ -30,8 +33,8 @@ export class CadastroService {
         if (res.status == 201) {
           createdId = res.body;
 
-          return this.http.put(
-            `http://localhost:3000/admin/imoveis/images/${createdId}`,
+          return this.http.post(
+            `${this.uri}/admin/imoveis/images/${createdId}`,
             fotos,
             {
               observe: 'response',
@@ -58,8 +61,37 @@ export class CadastroService {
   updateImovelResidencial(imovel, id): Observable<any> | any {
 
     return this.http.put(
-      `http://localhost:3000/admin/imoveis/${id}`,
+      `${this.uri}/admin/imoveis/${id}`,
       JSON.stringify(imovel),
       {observe: 'response'});
+  }
+
+  updateImagesResidencial(id, fotoPrincipal = undefined, fotosSecundarias = []): Observable<any> | any {
+
+    let fotos = {
+      fotoPrincipal: fotoPrincipal,
+      fotosSecundarias: fotosSecundarias
+    };
+
+    return this.http
+      .put(
+        `${this.uri}/admin/imoveis/images/${id}`,
+        fotos,
+        {
+          observe: 'response',
+          headers: new HttpHeaders().set('content-type', 'application/octet-stream')
+        });
+  }
+
+  addImagesResidencial(id, fotos): Observable<any> | any {
+
+    return this.http
+      .put(
+        `${this.uri}/admin/imoveis/images/add/${id}`,
+        fotos,
+        {
+          observe: 'response',
+          headers: new HttpHeaders().set('content-type', 'application/octet-stream')
+        });
   }
 }

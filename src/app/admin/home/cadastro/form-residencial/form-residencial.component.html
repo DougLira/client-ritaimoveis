@@ -13,8 +13,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input formControlName="valor" matInput class="input-valor" type="number" placeholder="Valor:">
-            <span matSuffix>,00</span>
+            <input formControlName="valor" matInput type="number" placeholder="Valor:">
             <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
@@ -136,13 +135,15 @@
 
     <div class="content">
 
-      <p class="alert-success" *ngIf="fotoPrincipal.message">{{fotoPrincipal.message}}</p>
+      <p class="alert alert-success" *ngIf="fotoPrincipal.message">{{fotoPrincipal.message}}</p>
       <br>
       <p style="font-size: 12px; font-weight: bold;">Selecione a foto de capa:</p>
       <p-fileUpload
         name="fotoPrincipal"
         [customUpload]="true"
         (uploadHandler)="uploadPrincipal($event)"
+        (onClear)="clearPrincipal()"
+        (onRemove)="clearPrincipal()"
         accept="image/*"
         chooseLabel="Escolher"
         cancelLabel="Cancelar"
@@ -150,13 +151,15 @@
       </p-fileUpload>
       <br>
       <br>
-      <p class="alert-success" *ngIf="fotosSecudarias.message">{{fotosSecudarias.message}}</p>
+      <p class="alert alert-success" *ngIf="fotosSecudarias.message">{{fotosSecudarias.message}}</p>
       <br>
       <p style="font-size: 12px; font-weight: bold;">Selecione as fotos secundárias:</p>
       <p-fileUpload
         name="fotosSecudarias"
         [customUpload]="true"
         (uploadHandler)="uploadSecundarias($event)"
+        (onClear)="clearSecundarias()"
+        (onRemove)="removeSecundarias($event)"
         accept="image/*"
         chooseLabel="Escolher"
         cancelLabel="Cancelar"

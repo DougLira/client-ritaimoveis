@@ -2,7 +2,8 @@ import {Foto} from './foto';
 
 export class Imovel {
 
-  constructor(public anuncio: string,
+  constructor(public _id: string,
+              public anuncio: string,
               public valor: number = 0,
               public fotoPrincipal,
               public fotos: Foto[],

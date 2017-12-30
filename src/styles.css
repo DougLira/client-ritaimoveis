@@ -13,4 +13,6 @@ app-home, app-index {
   height: 100%;
 }
 
-
+.modal{
+  overflow: scroll;
+}
