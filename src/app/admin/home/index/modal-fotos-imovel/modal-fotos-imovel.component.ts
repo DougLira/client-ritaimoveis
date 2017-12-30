@@ -3,7 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Imovel} from '../../../../models/imovel';
-import {CadastroService} from '../../cadastro/cadastro.service';
+import {HomeAdminService} from '../../home-admin.service';
 
 @Component({
   selector: 'app-modal-fotos-imovel',
@@ -27,7 +27,7 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
   private url: string;
 
   constructor(private modalService: NgbModal,
-              private cadastroService: CadastroService) {
+              private homeService: HomeAdminService) {
   }
 
   ngOnInit() {
@@ -49,7 +49,7 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
 
   salvar() {
 
-    this.updateSubscription = this.cadastroService.updateImagesResidencial(
+    this.updateSubscription = this.homeService.updateImagesResidencial(
       this.idImovel,
       this.fotoPrincipal,
       this.fotosFiltradas

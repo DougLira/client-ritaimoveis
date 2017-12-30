@@ -3,8 +3,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CadastroService} from '../../cadastro/cadastro.service';
 import {Imovel} from '../../../../models/imovel';
+import {HomeAdminService} from '../../home-admin.service';
 
 @Component({
   selector: 'app-modal-dados-imovel',
@@ -23,7 +23,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,
-              private cadastroService: CadastroService) {
+              private homeService: HomeAdminService) {
   }
 
   ngOnInit() {
@@ -63,7 +63,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   salvar() {
 
-    this.updateSubscription = this.cadastroService
+    this.updateSubscription = this.homeService
       .updateImovelResidencial(
         this.formResidencial.value,
         this.idImovel)

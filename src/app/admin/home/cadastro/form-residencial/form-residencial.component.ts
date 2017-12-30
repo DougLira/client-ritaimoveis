@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CadastroService} from '../cadastro.service';
 import {MatHorizontalStepper} from '@angular/material';
+import {HomeAdminService} from '../../home-admin.service';
 
 @Component({
   selector: 'app-form-residencial',
@@ -22,7 +22,7 @@ export class FormResidencialComponent implements OnInit {
   };
 
   constructor(private formBuilder: FormBuilder,
-              private cadastroService: CadastroService) {
+              private homeService: HomeAdminService) {
   }
 
   ngOnInit() {
@@ -54,13 +54,13 @@ export class FormResidencialComponent implements OnInit {
 
     if (this.formResidencial.valid) {
 
-      this.cadastroService.cadastrarImovelResidencial(
+      this.homeService.cadastrarImovelResidencial(
         this.formResidencial.value,
         this.fotoPrincipal.urlBase64,
         this.fotosSecudarias.fotos);
     }
 
-    this.cadastroService.message.subscribe(msg => {
+    this.homeService.message.subscribe(msg => {
       if (msg.severity === 'success') {
 
         this.formResidencial.reset();
