@@ -49,7 +49,7 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
 
   salvar() {
 
-    this.updateSubscription = this.homeService.updateImagesResidencial(
+    this.updateSubscription = this.homeService.addImagesResidencial(
       this.idImovel,
       this.fotoPrincipal,
       this.fotosFiltradas

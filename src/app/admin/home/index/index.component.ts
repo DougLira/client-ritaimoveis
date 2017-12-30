@@ -98,7 +98,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   delete(imovel) {
 
-    this.subscriptionDelete = this.homeService.deleteImovelResidencial(imovel._id)
+    this.subscriptionDelete = this.homeService.deleteResidencial(imovel._id)
       .subscribe(res => {
 
         this.subscriptionImoveis = this.homeService.getAllResidencial()

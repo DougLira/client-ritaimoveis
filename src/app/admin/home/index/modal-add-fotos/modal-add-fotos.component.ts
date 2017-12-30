@@ -40,7 +40,7 @@ export class ModalAddFotosComponent implements OnInit, OnDestroy {
 
   salvar(){
 
-    this.homeService.addImagesResidencial(this.idImovel, this.fotos)
+    this.homeService.updateImagesResidencial(this.idImovel, this.fotos)
       .subscribe(res => {
 
         this.updateView.next('Fotos adicionadas com sucesso');

@@ -54,7 +54,7 @@ export class FormResidencialComponent implements OnInit {
 
     if (this.formResidencial.valid) {
 
-      this.homeService.cadastrarImovelResidencial(
+      this.homeService.createResidencial(
         this.formResidencial.value,
         this.fotoPrincipal.urlBase64,
         this.fotosSecudarias.fotos);

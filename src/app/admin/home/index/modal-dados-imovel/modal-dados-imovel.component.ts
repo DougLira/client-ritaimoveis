@@ -64,7 +64,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
   salvar() {
 
     this.updateSubscription = this.homeService
-      .updateImovelResidencial(
+      .updateResidencial(
         this.formResidencial.value,
         this.idImovel)
       .subscribe(res => {
