@@ -19,7 +19,7 @@ export class HomeAdminService {
   getAllResidencial(page: string = '1'): Observable<any> | any {
 
 
-    return this.http.get(`${this.uri}/admin/imoveis`,
+    return this.http.get(`${this.uri}/admin/imoveis/residencial`,
       {
         observe: 'response',
         params: new HttpParams()
@@ -36,7 +36,7 @@ export class HomeAdminService {
       createdId;
 
     this.http
-      .post(`${this.uri}/admin/imoveis`,
+      .post(`${this.uri}/admin/imoveis/residencial`,
         JSON.stringify(imovel),
         {observe: 'response'}
       )
@@ -46,7 +46,7 @@ export class HomeAdminService {
           createdId = res.body;
 
           return this.http.post(
-            `${this.uri}/admin/imoveis/images/${createdId}`,
+            `${this.uri}/admin/imoveis/residencial/images/${createdId}`,
             fotos,
             {
               observe: 'response',
@@ -73,14 +73,14 @@ export class HomeAdminService {
   updateResidencial(imovel, id): Observable<any> | any {
 
     return this.http.put(
-      `${this.uri}/admin/imoveis/${id}`,
+      `${this.uri}/admin/imoveis/residencial/${id}`,
       JSON.stringify(imovel),
       {observe: 'response'});
   }
 
   deleteResidencial(id): Observable<any> | any {
 
-    return this.http.delete(`${this.uri}/admin/imoveis/${id}`, {observe: 'response'});
+    return this.http.delete(`${this.uri}/admin/imoveis/residencial/${id}`, {observe: 'response'});
   }
 
   addImagesResidencial(id, fotoPrincipal = undefined, fotosSecundarias = []): Observable<any> | any {
@@ -92,7 +92,7 @@ export class HomeAdminService {
 
     return this.http
       .put(
-        `${this.uri}/admin/imoveis/images/${id}`,
+        `${this.uri}/admin/imoveis/residencial/images/${id}`,
         fotos,
         {
           observe: 'response',
@@ -104,7 +104,7 @@ export class HomeAdminService {
 
     return this.http
       .put(
-        `${this.uri}/admin/imoveis/images/add/${id}`,
+        `${this.uri}/admin/imoveis/residencial/images/add/${id}`,
         fotos,
         {
           observe: 'response',

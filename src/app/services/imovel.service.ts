@@ -18,7 +18,7 @@ export class ImovelService {
 
   getAll(page, search = ''): Observable<any> {
 
-    return this.http.get(`${this.uri}/imoveis`, {
+    return this.http.get(`${this.uri}/imoveis/residencial`, {
       observe: 'response',
       params: new HttpParams()
         .set('page', page)
@@ -34,7 +34,7 @@ export class ImovelService {
       valorMinimo = filter.valorMinimo ? filter.valorMinimo : 1000,
       valorMaximo = filter.valorMaximo ? filter.valorMaximo : 1000000;
 
-    return this.http.get(`${this.uri}/imoveis/filter`, {
+    return this.http.get(`${this.uri}/imoveis/residencial/filter`, {
       observe: 'response',
       params: new HttpParams()
         .set('tipo', tipo.toString())

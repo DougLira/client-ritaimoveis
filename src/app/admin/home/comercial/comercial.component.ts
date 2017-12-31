@@ -29,15 +29,22 @@ export class ComercialComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+    this.obterImoveis();
   }
 
   ngOnDestroy() {
+
+    this.subscriptionImoveis.unsubscribe();
+    if (this.subscriptionPages) this.subscriptionPages.unsubscribe();
+    if (this.subscriptionDelete) this.subscriptionDelete.unsubscribe();
+    if (this.subscriptionUpdateDados) this.subscriptionUpdateDados.unsubscribe();
+    if (this.subscriptionUpdateFotos) this.subscriptionUpdateFotos.unsubscribe();
+    if (this.subscriptionUpdateAddFotos) this.subscriptionUpdateAddFotos.unsubscribe();
   }
 
-  onPageChanges(event) {
-
-    let page: string = event.pageIndex + 1;
-    this.subscriptionPages = this.homeService.getAllResidencial(page)
+  obterImoveis() {
+    this.subscriptionImoveis = this.homeService.getAllComercial()
       .subscribe(res => {
 
         if (res.status == 200) {
@@ -47,6 +54,41 @@ export class ComercialComponent implements OnInit, OnDestroy {
         } else {
 
         }
+      });
+  }
+
+  onPageChanges(event) {
+
+    let page: string = event.pageIndex + 1;
+    this.subscriptionPages = this.homeService.getAllComercial(page)
+      .subscribe(res => {
+
+        if (res.status == 200) {
+
+          this.imoveis = res.body.content;
+          this.paginator.length = res.body.collectionSize;
+        } else {
+
+        }
+      });
+  }
+
+  delete(imovel) {
+
+    this.subscriptionDelete = this.homeService.deleteResidencial(imovel._id)
+      .subscribe(res => {
+
+        this.subscriptionImoveis = this.homeService.getAllResidencial()
+          .subscribe(res => {
+
+            if (res.status == 200) {
+
+              this.imoveis = res.body.content;
+              this.paginator.length = res.body.collectionSize;
+            } else {
+
+            }
+          });
       });
   }
 }
