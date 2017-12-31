@@ -17,9 +17,9 @@
   left: 5%;
   display: flex;
   flex-direction: column;
-  -webkit-box-shadow: 6px 6px 15px -2px rgba(55, 55, 55, .42);
-  -moz-box-shadow: 6px 6px 15px -2px rgba(55, 55, 55, .42);
-  box-shadow: 6px 6px 15px -2px rgba(55, 55, 55, .42);
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,0.26),
+  0 8px 10px 1px rgba(0,0,0,0.12),
+  0 3px 14px 2px rgba(0,0,0,0.08);
 }
 
 .banner div {
@@ -34,7 +34,7 @@
 }
 
 .creci p {
-  color: #923b16;
+  color: rgba(0,0,0,.74) !important;
   font-size: 18px;
   padding: 10px;
   font-weight: bolder;
@@ -72,7 +72,7 @@
 .media a {
   font-size: 13px;
   padding: 10px 10px 10px 5px;
-  color: #923b16 !important;
+  color: rgba(0,0,0,.54) !important;
   text-decoration: none !important;
   font-weight: bolder;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);

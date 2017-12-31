@@ -52,7 +52,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
 
   private searchAnuncio(search) {
 
-    this.subscriptionSearch = this.imovelService.getAll(1, search)
+    this.subscriptionSearch = this.imovelService.getAllResidencial(1, search)
       .subscribe(resp => {
 
         if (resp.status == 200) {
@@ -67,7 +67,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
 
   private onFilter() {
 
-    this.subscriptionFilter = this.imovelService.filter(this.filter)
+    this.subscriptionFilter = this.imovelService.filterResidencial(this.filter)
       .subscribe(resp => {
 
         if (resp.status == 200) {

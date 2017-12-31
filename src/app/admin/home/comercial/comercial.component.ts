@@ -75,10 +75,10 @@ export class ComercialComponent implements OnInit, OnDestroy {
 
   delete(imovel) {
 
-    this.subscriptionDelete = this.homeService.deleteResidencial(imovel._id)
+    this.subscriptionDelete = this.homeService.deleteComercial(imovel._id)
       .subscribe(res => {
 
-        this.subscriptionImoveis = this.homeService.getAllResidencial()
+        this.subscriptionImoveis = this.homeService.getAllComercial()
           .subscribe(res => {
 
             if (res.status == 200) {

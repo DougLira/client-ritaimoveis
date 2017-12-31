@@ -4,6 +4,19 @@
   padding: 15px;
 }
 
+.colecao{
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.26),
+  0 2px 2px 0 rgba(0,0,0,0.12),
+  0 3px 1px -2px rgba(0,0,0,0.08);
+}
+
+.colecao:hover{
+  transition: all .2s ease ;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,0.26),
+  0 8px 10px 1px rgba(0,0,0,0.12),
+  0 3px 14px 2px rgba(0,0,0,0.08);
+}
+
 .painel {
   display: flex;
 }

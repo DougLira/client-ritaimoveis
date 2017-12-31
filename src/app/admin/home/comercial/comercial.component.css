@@ -1,7 +1,21 @@
 @import "~materialize-css/dist/css/materialize.css";
+
 .content {
   width: 87%;
   padding: 15px;
+}
+
+.colecao{
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.26),
+  0 2px 2px 0 rgba(0,0,0,0.12),
+  0 3px 1px -2px rgba(0,0,0,0.08);
+}
+
+.colecao:hover{
+  transition: all .2s ease ;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,0.26),
+  0 8px 10px 1px rgba(0,0,0,0.12),
+  0 3px 14px 2px rgba(0,0,0,0.08);
 }
 
 .painel {
@@ -36,7 +50,32 @@
   font-weight: bolder;
 }
 
-.localizacao{
+.varejo {
+  font-size: 14px;
+  color: #FBB13C;
+}
+
+.sala-comercial {
+  font-size: 14px;
+  color: #A5044D;
+}
+
+.andar-corrido {
+  font-size: 14px;
+  color: #01416A;
+}
+
+.galpao {
+  font-size: 14px;
+  color: #3e2723;
+}
+
+.terreno {
+  font-size: 14px;
+  color: rgba(0, 0, 0, .74);
+}
+
+.localizacao {
   font-size: 12px;
   color: #00695c;
 }
@@ -56,21 +95,22 @@
   margin-left: 15px;
 }
 
-.add-photo-icon{
+.add-photo-icon {
   color: #49c6a9;
   cursor: pointer;
 }
 
-.edit-icon{
+.edit-icon {
   color: #5e35b1;
   cursor: pointer;
 }
 
-.delete-icon{
+.delete-icon {
   color: #c62828;
   cursor: pointer;
 }
-.item-menu{
+
+.item-menu {
   font-size: 12px;
   font-weight: bolder;
 }

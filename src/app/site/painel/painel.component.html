@@ -1,5 +1,5 @@
 <div class="content">
-  <h4>{{ imovel.anuncio | uppercase }}</h4>
+  <h4>{{ imovel.anuncio }}</h4>
   <img class="img-fluid" src="{{ imovel.fotoPrincipal.url }}" alt="">
 
   <div class="div-detalhes">
@@ -20,6 +20,6 @@
         <p>{{ imovel.banheiros }}</p>
       </div>
     </div>
-    <button (click)="showModal()" class="button">Detalhes</button>
+    <button (click)="showModal()" class="button">Ver mais</button>
   </div>
 </div>

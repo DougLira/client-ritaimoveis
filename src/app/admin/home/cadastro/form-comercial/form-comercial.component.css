@@ -1,0 +1,54 @@
+mat-form-field,
+mat-checkbox,
+mat-radio-button,
+textarea {
+  width: 100%;
+  font-size: 14px;
+}
+
+mat-form-field {
+  padding: 8px;
+}
+
+input.input-valor::-webkit-outer-spin-button,
+input.input-valor::-webkit-inner-spin-button,
+.input-caracteristicas::-webkit-outer-spin-button,
+.input-caracteristicas::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.input-valor,
+input.input-caracteristicas {
+  -moz-appearance: textfield;
+}
+
+.input-valor {
+  text-align: right;
+}
+
+span {
+  color: rgba(0, 0, 0, .70);
+}
+
+mat-radio-group, .div-radio {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 5px;
+  color: rgba(0, 0, 0, .70);
+}
+
+mat-radio-button {
+  line-height: 3em;
+}
+
+.div-button-next {
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.div-button-back-next {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}

@@ -7,7 +7,7 @@
 
   <p-messages [(value)]="msg"></p-messages>
 
-  <div *ngFor="let imovel of imoveis" class="collection z-depth-3">
+  <div *ngFor="let imovel of imoveis" class="collection colecao">
     <div class="collection-item painel">
       <img class="imagem"
            src="{{imovel.fotoPrincipal.url}}"
@@ -16,6 +16,13 @@
         <div class="descricao-conteudo">
           <li class="anuncio">
             {{imovel.anuncio}}
+          </li>
+          <li>
+            <span class="varejo" *ngIf="imovel.varejo">Loja/Varejo</span>
+            <span class="andar-corrido" *ngIf="imovel.andar_corrido">Andar corrido</span>
+            <span class="sala-comercial" *ngIf="imovel.sala_comercial">Sala comercial</span>
+            <span class="galpao" *ngIf="imovel.galpao">Galpão</span>
+            <span class="terreno" *ngIf="imovel.terreno">Terreno</span>
           </li>
           <li class="localizacao">
             <span>{{imovel.cidade}} - {{imovel.bairro}}</span>

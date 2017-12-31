@@ -16,7 +16,7 @@ export class FormResidencialComponent implements OnInit {
     urlBase64: '',
     message: ''
   };
-  private fotosSecudarias = {
+  private fotosSecundarias = {
     fotos: [],
     message: ''
   };
@@ -57,7 +57,7 @@ export class FormResidencialComponent implements OnInit {
       this.homeService.createResidencial(
         this.formResidencial.value,
         this.fotoPrincipal.urlBase64,
-        this.fotosSecudarias.fotos);
+        this.fotosSecundarias.fotos);
     }
 
     this.homeService.message.subscribe(msg => {
@@ -89,7 +89,7 @@ export class FormResidencialComponent implements OnInit {
 
   uploadSecundarias(event) {
 
-    this.fotosSecudarias.fotos = [];
+    this.fotosSecundarias.fotos = [];
     let files: File[] = event.files;
 
     for (let file of files) {
@@ -99,12 +99,12 @@ export class FormResidencialComponent implements OnInit {
 
       fileReader.onloadend = e => {
 
-        this.fotosSecudarias.fotos.push(fileReader.result);
+        this.fotosSecundarias.fotos.push(fileReader.result);
       };
     }
 
-    this.fotosSecudarias.message = 'Fotos carregadas com sucesso.';
-    setTimeout(() => this.fotosSecudarias.message = '', 3000);
+    this.fotosSecundarias.message = 'Fotos carregadas com sucesso.';
+    setTimeout(() => this.fotosSecundarias.message = '', 3000);
   }
 
   clearPrincipal() {
@@ -114,7 +114,7 @@ export class FormResidencialComponent implements OnInit {
 
   clearSecundarias() {
 
-    this.fotosSecudarias.fotos = [];
+    this.fotosSecundarias.fotos = [];
   }
 
   removeSecundarias(event) {
@@ -125,8 +125,8 @@ export class FormResidencialComponent implements OnInit {
 
     fileReader.onloadend = e => {
 
-      let index = this.fotosSecudarias.fotos.indexOf(fileReader.result);
-      this.fotosSecudarias.fotos.splice(index, 1);
+      let index = this.fotosSecundarias.fotos.indexOf(fileReader.result);
+      this.fotosSecundarias.fotos.splice(index, 1);
     };
   }
 }

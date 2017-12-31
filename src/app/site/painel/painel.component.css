@@ -6,10 +6,9 @@
 h4 {
   text-align: center;
   padding: 10px;
-  background-color: #923b16;
-  color: #f8f8f8;
   margin-bottom: 2px;
-  font-size: 18px;
+  font-size: 1.25em;
+  color: rgba(0,0,0,.74);
 }
 
 img {
@@ -27,21 +26,22 @@ img {
 .div-bairro{
   font-size: 16px;
   padding: 8px 8px 4px 8px;
+  color: rgba(0,0,0,.74);
 }
 
 .div-cidade{
   font-size: 10px;
   padding: 4px 8px 8px 8px;
+  color: rgba(0,0,0,.54);
 }
 
 .div-detalhes h2 {
   padding: 10px 10px 10px 8px;
-  font-size: 20px;
-  color: #333333;
+  font-size: 1.25em;
+  color: rgba(0,0,0,.54);
 }
 
 .div-detalhes button {
-  padding: 4px;
   background-color: inherit;
   margin-top: 30px;
   margin-bottom: 5px;
@@ -50,7 +50,7 @@ img {
   color: #923b16;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
-  font-size: 18px;
+  font-size: .975em;
   width: 95%;
   align-self: center;
 }
@@ -85,8 +85,9 @@ img {
 
 .icones p{
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
   color: #f8f8f8;
-  font-size: 18px;
+  font-size: .975em;
   text-align: center;
   height: fit-content;
   width: 35px;

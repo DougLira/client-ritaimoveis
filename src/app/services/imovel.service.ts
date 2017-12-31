@@ -16,7 +16,7 @@ export class ImovelService {
   constructor(private http: HttpClient) {
   }
 
-  getAll(page, search = ''): Observable<any> {
+  getAllResidencial(page, search = ''): Observable<any> {
 
     return this.http.get(`${this.uri}/imoveis/residencial`, {
       observe: 'response',
@@ -26,7 +26,7 @@ export class ImovelService {
     });
   }
 
-  filter(filter: Filter): Observable<any> {
+  filterResidencial(filter: Filter): Observable<any> {
 
     let tipo = filter.tipo ? filter.tipo : 'Casa',
       dormitorios = filter.dormitorios ? filter.dormitorios : 1,
@@ -42,6 +42,16 @@ export class ImovelService {
         .set('banheiros', banheiros.toString())
         .set('minimo', valorMinimo.toString())
         .set('maximo', valorMaximo.toString())
+    });
+  }
+
+  getAllComercial(page, search = ''): Observable<any> {
+
+    return this.http.get(`${this.uri}/imoveis/comercial`, {
+      observe: 'response',
+      params: new HttpParams()
+        .set('page', page)
+        .set('search', search)
     });
   }
 }

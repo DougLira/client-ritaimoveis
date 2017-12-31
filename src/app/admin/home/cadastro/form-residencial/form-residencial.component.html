@@ -151,11 +151,11 @@
       </p-fileUpload>
       <br>
       <br>
-      <p class="alert alert-success" *ngIf="fotosSecudarias.message">{{fotosSecudarias.message}}</p>
+      <p class="alert alert-success" *ngIf="fotosSecundarias.message">{{fotosSecundarias.message}}</p>
       <br>
       <p style="font-size: 12px; font-weight: bold;">Selecione as fotos secundárias:</p>
       <p-fileUpload
-        name="fotosSecudarias"
+        name="fotosSecundarias"
         [customUpload]="true"
         (uploadHandler)="uploadSecundarias($event)"
         (onClear)="clearSecundarias()"

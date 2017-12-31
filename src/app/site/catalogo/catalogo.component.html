@@ -37,7 +37,7 @@
     <div id="collapseExample" [ngbCollapse]="!isCollapsed">
 
       <mat-form-field class="form-select-tipo">
-        <mat-select [(ngModel)]="filter.tipo" placeholder="Tipo do imóvel">
+        <mat-select [(ngModel)]="filterResidencial.tipo" placeholder="Tipo do imóvel">
           <mat-option *ngFor="let tipo of tiposImoveis" [value]="tipo.nome">
             {{ tipo.nome }}
           </mat-option>
@@ -45,17 +45,17 @@
       </mat-form-field>
       <div class="example-container">
         <mat-form-field>
-          <input [(ngModel)]="filter.dormitorios" matInput placeholder="Dormitórios" type="number" class="example-right-align">
+          <input [(ngModel)]="filterResidencial.dormitorios" matInput placeholder="Dormitórios" type="number" class="example-right-align">
         </mat-form-field>
         <mat-form-field>
-          <input [(ngModel)]="filter.banheiros" matInput placeholder="Banheiros" type="number" class="example-right-align">
+          <input [(ngModel)]="filterResidencial.banheiros" matInput placeholder="Banheiros" type="number" class="example-right-align">
         </mat-form-field>
         <mat-form-field>
-          <input [(ngModel)]="filter.valorMinimo" matInput placeholder="Valor mínimo" type="number">
+          <input [(ngModel)]="filterResidencial.valorMinimo" matInput placeholder="Valor mínimo" type="number">
           <span matPrefix>R$&nbsp;</span>
         </mat-form-field>
         <mat-form-field>
-          <input [(ngModel)]="filter.valorMaximo" matInput placeholder="Valor máximo" type="number">
+          <input [(ngModel)]="filterResidencial.valorMaximo" matInput placeholder="Valor máximo" type="number">
           <span matPrefix>R$&nbsp;</span>
         </mat-form-field>
         <div class="button-row">

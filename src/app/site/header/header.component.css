@@ -1,6 +1,9 @@
 .cabecalho{
   background-color: #f8f8f8;
   overflow: hidden;
+  box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.26),
+  inset 0 2px 2px 0 rgba(0,0,0,0.12),
+  inset 0 3px 1px -2px rgba(0,0,0,0.08);
 }
 
 .div-titulo h1, .div-titulo h4{
@@ -9,6 +12,9 @@
 
 .div-titulo{
   min-width: 17%;
+  box-shadow: inset 0 1px 5px 0 rgba(0,0,0,0.26),
+  inset 0 2px 2px 0 rgba(0,0,0,0.12),
+  inset 0 3px 1px -2px rgba(0,0,0,0.08);
 }
 
 .navegacao-link:before{

@@ -54,19 +54,19 @@ export class HomeAdminService {
             })
             .subscribe(res => {
 
-              this.message.next({severity: 'success', summary: 'Cadastro Efetuado', detail: 'Imóvel cadastrado com sucesso.'});
+              this.message.next({severity: 'success', summary: 'Imóvel Residencial:', detail: 'Imóvel cadastrado com sucesso.'});
             }, err => {
 
               console.log(err);
-              this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+              this.message.next({severity: 'error', summary: 'Imóvel Residencial:', detail: 'Não foi possível cadastrar o imóvel.'});
             });
         }
 
-        this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+        this.message.next({severity: 'error', summary: 'Imóvel Residencial:', detail: 'Não foi possível cadastrar o imóvel.'});
       }, err => {
 
         console.log(err);
-        this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+        this.message.next({severity: 'error', summary: 'Imóvel Residencial:', detail: 'Não foi possível cadastrar o imóvel.'});
       });
   }
 
@@ -151,19 +151,19 @@ export class HomeAdminService {
             })
             .subscribe(res => {
 
-              this.message.next({severity: 'success', summary: 'Cadastro Efetuado', detail: 'Imóvel cadastrado com sucesso.'});
+              this.message.next({severity: 'success', summary: 'Imóvel Comercial', detail: 'Imóvel cadastrado com sucesso.'});
             }, err => {
 
               console.log(err);
-              this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+              this.message.next({severity: 'error', summary: 'Imóvel Comercial', detail: 'Não foi possível cadastrar o imóvel.'});
             });
         }
 
-        this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+        this.message.next({severity: 'error', summary: 'Imóvel Comercial', detail: 'Não foi possível cadastrar o imóvel.'});
       }, err => {
 
         console.log(err);
-        this.message.next({severity: 'error', summary: 'Cadastro Não Efetuado', detail: 'Não foi possível cadastrar o imóvel.'});
+        this.message.next({severity: 'error', summary: 'Imóvel Comercial', detail: 'Não foi possível cadastrar o imóvel.'});
       });
   }
 
