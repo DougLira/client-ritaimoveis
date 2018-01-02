@@ -10,7 +10,7 @@
 .banner {
   width: fit-content;
   height: fit-content;
-  border-radius: 1px;
+  border-radius: 10px;
   background-color: rgba(200, 200, 200, 0.6);
   position: absolute;
   top: 10%;

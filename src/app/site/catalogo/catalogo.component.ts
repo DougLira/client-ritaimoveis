@@ -23,7 +23,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
   private subscriptionResolver: Subscription;
   private subscriptionSearch: Subscription;
   private subscriptionFilter: Subscription;
-  private filter: Filter = new Filter();
+  private filterResidencial: Filter = new Filter();
   private imoveis: Imovel[];
   private collectionSizeImoveis: number;
 
@@ -67,7 +67,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
 
   private onFilter() {
 
-    this.subscriptionFilter = this.imovelService.filterResidencial(this.filter)
+    this.subscriptionFilter = this.imovelService.filterResidencial(this.filterResidencial)
       .subscribe(resp => {
 
         if (resp.status == 200) {
