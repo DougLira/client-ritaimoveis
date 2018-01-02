@@ -7,6 +7,13 @@
 
   <p-messages [(value)]="msg"></p-messages>
 
+  <div class="row">
+    <div class="input-field col s12">
+      <input (keyup)="searchComercial()" [(ngModel)]="search" id="procurar" type="text">
+      <label for="procurar">Pesquisar...</label>
+    </div>
+  </div>
+
   <div *ngFor="let imovel of imoveis" class="collection colecao">
     <div class="collection-item painel">
       <img class="imagem"

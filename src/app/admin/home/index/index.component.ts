@@ -3,6 +3,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {HomeAdminService} from '../home-admin.service';
 import {Imovel} from '../../../models/imovel';
 import {Subscription} from 'rxjs/Subscription';
+import {ImovelService} from '../../../services/imovel.service';
 
 @Component({
   selector: 'app-index',
@@ -20,13 +21,16 @@ export class IndexComponent implements OnInit, OnDestroy {
   private subscriptionUpdateDados: Subscription;
   private subscriptionUpdateFotos: Subscription;
   private subscriptionUpdateAddFotos: Subscription;
+  private subscriptionSearch: Subscription;
   private msg = [];
+  private search: string;
   imoveis: Imovel[];
   paginator = {
     length: ''
   };
 
-  constructor(private homeService: HomeAdminService) {
+  constructor(private homeService: HomeAdminService,
+              private imovelService: ImovelService) {
   }
 
 
@@ -96,6 +100,24 @@ export class IndexComponent implements OnInit, OnDestroy {
       });
   }
 
+  searchResidencial() {
+
+    setTimeout(() => {
+
+      this.subscriptionSearch = this.imovelService.getAllResidencial(1, this.search)
+        .subscribe(resp => {
+
+          if (resp.status == 200) {
+
+            this.paginator.length = resp.body.collectionSize;
+            this.imoveis = resp.body.content;
+          }
+        }, err => {
+          console.log(err);
+        });
+    }, 500);
+  }
+
   delete(imovel) {
 
     this.subscriptionDelete = this.homeService.deleteResidencial(imovel._id)
@@ -115,7 +137,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       });
   }
 
-  openModalAddFotos(imovel){
+  openModalAddFotos(imovel) {
 
     this.modal_add_fotos.openModal.next(imovel);
   }

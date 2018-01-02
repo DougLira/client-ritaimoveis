@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Imovel} from '../../../models/imovel';
 import {Subscription} from 'rxjs/Subscription';
 import {HomeAdminService} from '../home-admin.service';
+import {ImovelService} from '../../../services/imovel.service';
 
 @Component({
   selector: 'app-comercial',
@@ -19,13 +20,16 @@ export class ComercialComponent implements OnInit, OnDestroy {
   private subscriptionUpdateDados: Subscription;
   private subscriptionUpdateFotos: Subscription;
   private subscriptionUpdateAddFotos: Subscription;
+  private subscriptionSearch: Subscription;
+  private search: string;
   private msg = [];
   imoveis: Imovel[];
   paginator = {
     length: ''
   };
 
-  constructor(private homeService: HomeAdminService) {
+  constructor(private homeService: HomeAdminService,
+              private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -71,6 +75,24 @@ export class ComercialComponent implements OnInit, OnDestroy {
 
         }
       });
+  }
+
+  searchComercial() {
+
+    setTimeout(() => {
+
+      this.subscriptionSearch = this.imovelService.getAllComercial(1, this.search)
+        .subscribe(resp => {
+
+          if (resp.status == 200) {
+
+            this.paginator.length = resp.body.collectionSize;
+            this.imoveis = resp.body.content;
+          }
+        }, err => {
+          console.log(err);
+        });
+    }, 500);
   }
 
   delete(imovel) {
