@@ -1,9 +1,17 @@
-<mat-horizontal-stepper #step linear>
-  <mat-step label="Dados do imóvel" [stepControl]="formComercial">
-
-    <form [formGroup]="formComercial"
-          (ngSubmit)="onSubmit()"
-          autocomplete="off">
+<ng-template #modal_dados let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <mat-icon>mode_edit</mat-icon>
+      Imóvel Comercial
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="formComercial"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off">
+    <div class="modal-body">
 
       <div class="row">
         <div class="col s6">
@@ -63,69 +71,21 @@
 
         </div>
       </div>
-      <br>
-      <br>
-      <div class="div-button-next">
-        <button mat-raised-button
-                matStepperNext
-                type="button"
-                [disabled]="!formComercial.valid"
-                color="primary">Próximo
-        </button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step label="Upload de imagens">
 
-    <div class="content">
-
-      <p class="alert alert-success" *ngIf="fotoPrincipal.message">{{fotoPrincipal.message}}</p>
-      <br>
-      <p style="font-size: 12px; font-weight: bold;">Selecione a foto de capa:</p>
-      <p-fileUpload
-        name="fotoPrincipal"
-        [customUpload]="true"
-        (uploadHandler)="uploadPrincipal($event)"
-        (onClear)="clearPrincipal()"
-        (onRemove)="clearPrincipal()"
-        accept="image/*"
-        chooseLabel="Escolher"
-        cancelLabel="Cancelar"
-        uploadLabel="Carregar">
-      </p-fileUpload>
-      <br>
-      <br>
-      <p class="alert alert-success" *ngIf="fotosSecundarias.message">{{fotosSecundarias.message}}</p>
-      <br>
-      <p style="font-size: 12px; font-weight: bold;">Selecione as fotos secundárias:</p>
-      <p-fileUpload
-        name="fotosSecudarias"
-        [customUpload]="true"
-        (uploadHandler)="uploadSecundarias($event)"
-        (onClear)="clearSecundarias()"
-        (onRemove)="removeSecundarias($event)"
-        accept="image/*"
-        chooseLabel="Escolher"
-        cancelLabel="Cancelar"
-        uploadLabel="Carregar"
-        multiple="multiple">
-      </p-fileUpload>
     </div>
-    <br>
-    <br>
-    <div class="div-button-back-next">
-      <button mat-raised-button
-              matStepperPrevious>
-        Voltar
+
+    <div class="modal-footer">
+      <button type="button" mat-button class="waves-effect waves-light btn botao-cancelar" (click)="c('Close click')">
+        <mat-icon class="left">cancel</mat-icon>
+        Cancelar
       </button>
-      <button mat-raised-button
-              matStepperNext
-              (click)="onSubmit()"
-              [disabled]="!formComercial.valid"
-              color="primary">
-        Finalizar
+      <button type="submit" mat-button class="waves-effect waves-light btn botao-salvar"
+              (click)="c('Close click'); salvar()">
+        <mat-icon class="left">archive</mat-icon>
+        Salvar
       </button>
     </div>
 
-  </mat-step>
-</mat-horizontal-stepper>
+  </form>
+
+</ng-template>

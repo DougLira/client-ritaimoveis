@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Imovel} from '../../../models/imovel';
 import {Subscription} from 'rxjs/Subscription';
 import {HomeAdminService} from '../home-admin.service';
@@ -11,9 +11,9 @@ import {ImovelService} from '../../../services/imovel.service';
 })
 export class ComercialComponent implements OnInit, OnDestroy {
 
-  // @ViewChild('modal_dados') modal_dados;
-  // @ViewChild('modal_fotos') modal_fotos;
-  // @ViewChild('modal_add_fotos') modal_add_fotos;
+  @ViewChild('modal_dados') modal_dados;
+  @ViewChild('modal_fotos') modal_fotos;
+  @ViewChild('modal_add_fotos') modal_add_fotos;
   private subscriptionImoveis: Subscription;
   private subscriptionPages: Subscription;
   private subscriptionDelete: Subscription;
@@ -35,6 +35,27 @@ export class ComercialComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.obterImoveis();
+
+    this.subscriptionUpdateDados = this.modal_dados.updateView.subscribe(msg => {
+
+      this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
+      setTimeout(() => this.msg = [], 3000);
+      this.obterImoveis();
+    });
+
+    this.subscriptionUpdateFotos = this.modal_fotos.updateView.subscribe(msg => {
+
+      this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
+      setTimeout(() => this.msg = [], 3000);
+      this.obterImoveis();
+    });
+
+    this.subscriptionUpdateAddFotos = this.modal_add_fotos.updateView.subscribe(msg => {
+
+      this.msg.push({severity: 'success', summary: 'Imóvel Atualizado', detail: msg});
+      setTimeout(() => this.msg = [], 3000);
+      this.obterImoveis();
+    });
   }
 
   ngOnDestroy() {
@@ -112,5 +133,20 @@ export class ComercialComponent implements OnInit, OnDestroy {
             }
           });
       });
+  }
+
+  openModalAddFotos(imovel) {
+
+    this.modal_add_fotos.openModal.next(imovel);
+  }
+
+  openModalDados(imovel) {
+
+    this.modal_dados.open.next(imovel);
+  }
+
+  openModalFotos(imovel) {
+
+    this.modal_fotos.open.next(imovel);
   }
 }

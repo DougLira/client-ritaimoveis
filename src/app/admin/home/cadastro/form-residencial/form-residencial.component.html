@@ -36,9 +36,17 @@
             <textarea formControlName="descricao" matInput rows="8" placeholder="Descrição:"></textarea>
           </mat-form-field>
 
-          <div class="div-check">
-            <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
-            <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
+          <div style="display: flex; flex-direction: column">
+            <div class="div-radio">
+              <mat-radio-group formControlName="locacao">
+                <mat-radio-button value="false" aria-label="Venda">Venda</mat-radio-button>
+                <mat-radio-button value="true" aria-label="Locação">Locação</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="div-check">
+              <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
+              <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
+            </div>
           </div>
 
         </div>

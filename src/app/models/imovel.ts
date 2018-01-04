@@ -24,6 +24,7 @@ export class Imovel {
               public apartamento: boolean,
               public terreno: boolean,
               public condominio: boolean,
+              public locacao: boolean,
               public descricao: string) {
   }
 }

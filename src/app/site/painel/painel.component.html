@@ -1,7 +1,13 @@
 <div class="content">
-  <h4>{{ imovel.anuncio }}</h4>
+  <p class="situacao"
+     [class.venda]="!imovel.locacao"
+     [class.locacao]="imovel.locacao">
+    {{ imovel.locacao? 'Locação' : 'Venda' }}
+  </p>
+  <h4>
+    {{ imovel.anuncio }}
+  </h4>
   <img class="img-fluid" src="{{ imovel.fotoPrincipal.url }}" alt="">
-
   <div class="div-detalhes">
     <div class="div-bairro">{{ imovel.bairro }}</div>
     <div class="div-cidade">{{ imovel.cidade }}</div>

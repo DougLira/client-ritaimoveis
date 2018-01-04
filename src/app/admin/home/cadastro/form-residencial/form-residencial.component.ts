@@ -43,6 +43,7 @@ export class FormResidencialComponent implements OnInit {
       area_util: [null, Validators.required],
       area_construida: [null, Validators.required],
       tipo: [null, Validators.required],
+      locacao: [null, Validators.required],
       churrasqueira: [false],
       piscina: [false],
       condominio: [false]

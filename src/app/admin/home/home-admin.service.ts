@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
@@ -167,7 +167,7 @@ export class HomeAdminService {
       });
   }
 
-  updateComercial(imovel, id): Observable<any> | any {
+  updateComercial(imovel, id): Observable<HttpEvent<Response>> | any {
 
     return this.http.put(
       `${this.uri}/admin/imoveis/comercial/${id}`,

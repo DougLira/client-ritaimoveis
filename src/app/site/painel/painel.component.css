@@ -1,6 +1,7 @@
 .content{
   width: 250px;
   height: auto;
+  position: relative;
 }
 
 h4 {
@@ -21,6 +22,22 @@ img {
   display: flex;
   flex-direction: column;
   align-content: center;
+}
+
+.situacao{
+  text-align: center;
+  width: 4em;
+  font-size: .95em;
+  line-height: 1;
+  padding: 1em 0;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: translate(-.95em, 1.65em) rotate(-45deg);
+  font-style: italic;
+  font-weight: bolder;
 }
 
 .div-bairro{
@@ -95,4 +112,12 @@ img {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+}
+
+.locacao{
+  color: #c62828;
+}
+
+.venda{
+  color: #5e35b1;
 }

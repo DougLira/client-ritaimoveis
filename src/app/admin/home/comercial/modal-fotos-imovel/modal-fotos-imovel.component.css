@@ -1,0 +1,53 @@
+.modal{
+  overflow: scroll;
+}
+
+.modal-header > * {
+  font-size: 20px;
+}
+
+.modal-title {
+  color: #00695c;
+}
+
+.close {
+  cursor: pointer;
+}
+
+p{
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.uploader{
+  margin: 15px 30px 15px 15px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.botao-cancelar,
+.botao-salvar {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.botao-cancelar {
+  background-color: #F44336;
+}
+
+.botao-cancelar:hover {
+  background-color: rgba(244, 67, 54, .7);
+}
+
+.botao-salvar {
+  background-color: #00695c;
+}
+
+.img-hover{
+  width: 500px;
+  height: 450px;
+}
