@@ -35,7 +35,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
 
-    if (sessionStorage.getItem('ID')) {
+    if (this.getTokenHeader()) {
 
       return true;
     } else {

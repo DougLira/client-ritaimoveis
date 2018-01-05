@@ -36,19 +36,6 @@
             <textarea formControlName="descricao" matInput rows="8" placeholder="Descrição:"></textarea>
           </mat-form-field>
 
-          <div style="display: flex; flex-direction: column">
-            <div class="div-radio">
-              <mat-radio-group formControlName="locacao">
-                <mat-radio-button value="false" aria-label="Venda">Venda</mat-radio-button>
-                <mat-radio-button value="true" aria-label="Locação">Locação</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div class="div-check">
-              <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
-              <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
-            </div>
-          </div>
-
         </div>
 
         <div class="col s6">
@@ -115,15 +102,31 @@
 
           </div>
 
-          <div class="div-radio">
-            <mat-radio-group formControlName="tipo">
-              <mat-radio-button value="casa" aria-label="Casa">Casa</mat-radio-button>
-              <mat-radio-button value="apartamento" aria-label="Apartamento">Apartamento</mat-radio-button>
-              <mat-radio-button value="terreno" aria-label="Terreno">Terreno</mat-radio-button>
-            </mat-radio-group>
-          </div>
+          <div style="display: flex; flex-direction: column">
 
-          <mat-checkbox formControlName="condominio">Condomínio</mat-checkbox>
+            <div class="div-check">
+              <mat-checkbox formControlName="churrasqueira">Churrasqueira</mat-checkbox>
+              <mat-checkbox formControlName="piscina">Piscina</mat-checkbox>
+            </div>
+
+            <div class="div-radio">
+              <mat-radio-group formControlName="tipo">
+                <mat-radio-button value="casa" aria-label="Casa">Casa</mat-radio-button>
+                <mat-radio-button value="apartamento" aria-label="Apartamento">Apartamento</mat-radio-button>
+                <mat-radio-button value="terreno" aria-label="Terreno">Terreno</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <mat-checkbox formControlName="condominio">Condomínio</mat-checkbox>
+
+            <div class="div-radio">
+              <mat-radio-group formControlName="locacao">
+                <mat-radio-button value="false" aria-label="Venda">Venda</mat-radio-button>
+                <mat-radio-button value="true" aria-label="Locação">Locação</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+          </div>
 
         </div>
       </div>
