@@ -30,6 +30,11 @@
   font-size: 85%;
 }
 
+.section{
+  display: flex;
+  flex-direction: column;
+}
+
 .form-input-busca,
 .form-select-tipo{
   width: 99%;
@@ -89,6 +94,10 @@ input.example-right-align::-webkit-inner-spin-button {
 
 input.example-right-align {
   -moz-appearance: textfield;
+}
+
+span{
+  color: rgba(0,0,0,.54);
 }
 
 .paineis {

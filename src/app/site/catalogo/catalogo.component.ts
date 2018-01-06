@@ -5,6 +5,7 @@ import {ImovelService} from '../../services/imovel.service';
 import {Filter} from './filter';
 import {Imovel} from '../../models/imovel';
 import {Subscription} from 'rxjs/Subscription';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -14,24 +15,27 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class CatalogoComponent implements OnInit, OnDestroy {
 
-  tiposImoveis = [
-    {nome: 'Casa'},
-    {nome: 'Apartamento'},
-    {nome: 'Terreno'}
-  ];
 
   private subscriptionResolver: Subscription;
   private subscriptionSearch: Subscription;
   private subscriptionFilter: Subscription;
-  private filterResidencial: Filter = new Filter();
+  private filterResidencial: FormGroup;
   private imoveis: Imovel[];
   private collectionSizeImoveis: number;
 
   constructor(private imovelService: ImovelService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+
+    this.filterResidencial = this.formBuilder.group({
+      tipo: ['casa'],
+      locacao: ['venda'],
+      minimo: [''],
+      maximo: [''],
+    });
 
     this.subscriptionResolver = this.route.data.subscribe(resolverRoute => {
 
@@ -50,7 +54,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
     if (this.subscriptionFilter) this.subscriptionFilter.unsubscribe();
   }
 
-  private searchAnuncio(search) {
+  search(search) {
 
     this.subscriptionSearch = this.imovelService.getAllResidencial(1, search)
       .subscribe(resp => {
@@ -65,9 +69,9 @@ export class CatalogoComponent implements OnInit, OnDestroy {
       });
   }
 
-  private onFilter() {
+  onFilter() {
 
-    this.subscriptionFilter = this.imovelService.filterResidencial(this.filterResidencial)
+    this.subscriptionFilter = this.imovelService.filterResidencial(this.filterResidencial.value)
       .subscribe(resp => {
 
         if (resp.status == 200) {

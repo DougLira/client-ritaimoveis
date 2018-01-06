@@ -34,40 +34,50 @@
         Filtrar
       </button>
     </div>
-    <div id="collapseExample" [ngbCollapse]="!isCollapsed">
 
-      <mat-form-field class="form-select-tipo">
-        <mat-select [(ngModel)]="filterResidencial.tipo" placeholder="Tipo do imóvel">
-          <mat-option *ngFor="let tipo of tiposImoveis" [value]="tipo.nome">
-            {{ tipo.nome }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div id="collapseExample" [ngbCollapse]="!isCollapsed">
       <div class="example-container">
-        <mat-form-field>
-          <input [(ngModel)]="filterResidencial.dormitorios" matInput placeholder="Dormitórios" type="number" class="example-right-align">
-        </mat-form-field>
-        <mat-form-field>
-          <input [(ngModel)]="filterResidencial.banheiros" matInput placeholder="Banheiros" type="number" class="example-right-align">
-        </mat-form-field>
-        <mat-form-field>
-          <input [(ngModel)]="filterResidencial.valorMinimo" matInput placeholder="Valor mínimo" type="number">
-          <span matPrefix>R$&nbsp;</span>
-        </mat-form-field>
-        <mat-form-field>
-          <input [(ngModel)]="filterResidencial.valorMaximo" matInput placeholder="Valor máximo" type="number">
-          <span matPrefix>R$&nbsp;</span>
-        </mat-form-field>
-        <div class="button-row">
-          <button (click)="onFilter()" mat-raised-button>Buscar</button>
-        </div>
+        <form [formGroup]="filterResidencial"
+              ngSubmit="onFilter()">
+
+          <mat-form-field class="form-select-tipo">
+            <mat-select formControlName="tipo">
+              <mat-option value="casa">Casa</mat-option>
+              <mat-option value="apartamento">Apartamento</mat-option>
+              <mat-option value="terreno">Terreno</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="form-select-tipo">
+            <mat-select formControlName="locacao">
+              <mat-option value="venda">Venda</mat-option>
+              <mat-option value="locacao">Locação</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="minimo" matInput placeholder="Valor mínimo" type="number">
+            <span matPrefix>R$&nbsp;</span>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="maximo" matInput placeholder="Valor máximo" type="number">
+            <span matPrefix>R$&nbsp;</span>
+          </mat-form-field>
+
+          <div class="button-row">
+            <button (click)="onFilter()" mat-raised-button>Buscar</button>
+          </div>
+
+        </form>
       </div>
     </div>
+
     <mat-form-field class="form-input-busca">
       <input #buscaAnuncio matInput placeholder="Procurar imóvel...">
     </mat-form-field>
     <div class="button-row">
-      <button (click)="searchAnuncio(buscaAnuncio.value)" mat-raised-button>Buscar</button>
+      <button (click)="search(buscaAnuncio.value)" mat-raised-button>Buscar</button>
     </div>
   </div>
   <section class="paineis">

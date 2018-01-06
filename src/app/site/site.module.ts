@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MaterialDesignComponentsModule} from '../material-design-components/material-design-components.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import { SiteRoutingModule } from './site-routing.module';
@@ -23,6 +23,7 @@ import {ImoveisGuard} from './guards/imoveis.guard';
     BrowserAnimationsModule,
     SiteRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialDesignComponentsModule,
     NgbModule.forRoot(),
     HttpClientModule,

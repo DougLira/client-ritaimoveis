@@ -1,8 +1,7 @@
 export class Filter {
 
   tipo: string;
-  dormitorios: number;
-  banheiros: number;
+  locacao: boolean;
   valorMinimo: number;
   valorMaximo: number;
 }
