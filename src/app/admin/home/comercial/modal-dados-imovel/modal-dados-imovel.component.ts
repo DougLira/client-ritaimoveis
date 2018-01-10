@@ -40,7 +40,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
         endereco: [imovel.endereco || null, Validators.required],
         descricao: [imovel.descricao || ''],
         area_util: [imovel.area_util || null, Validators.required],
-        tipo: [this.verificarTipoImovel(imovel) || null, Validators.required]
+        tipo: [imovel.tipo || null, Validators.required]
       });
     });
   }
@@ -68,19 +68,5 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   getErrorMessage(): string {
     return 'Campo obrigatório';
-  }
-
-  verificarTipoImovel(imovel): string {
-    if (imovel.varejo) {
-      return 'varejo';
-    } else if (imovel.sala_comercial) {
-      return 'sala_comercial';
-    } else if (imovel.andar_corrido) {
-      return 'andar_corrido';
-    } else if (imovel.galpao) {
-      return 'galpao';
-    } else {
-      return 'terreno';
-    }
   }
 }

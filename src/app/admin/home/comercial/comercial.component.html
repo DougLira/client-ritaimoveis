@@ -25,11 +25,11 @@
             {{imovel.anuncio}}
           </li>
           <li>
-            <span class="varejo" *ngIf="imovel.varejo">Loja/Varejo</span>
-            <span class="andar-corrido" *ngIf="imovel.andar_corrido">Andar corrido</span>
-            <span class="sala-comercial" *ngIf="imovel.sala_comercial">Sala comercial</span>
-            <span class="galpao" *ngIf="imovel.galpao">Galpão</span>
-            <span class="terreno" *ngIf="imovel.terreno">Terreno</span>
+            <span class="varejo" *ngIf="imovel.tipo === 'varejo'">Loja/Varejo</span>
+            <span class="andar-corrido" *ngIf="imovel.tipo === 'andar_corrido'">Andar corrido</span>
+            <span class="sala-comercial" *ngIf="imovel.tipo === 'sala_comercial'">Sala comercial</span>
+            <span class="galpao" *ngIf="imovel.tipo === 'galpao'">Galpão</span>
+            <span class="terreno" *ngIf="imovel.tipo === 'terreno'">Terreno</span>
           </li>
           <li class="localizacao">
             <span>{{imovel.cidade}} - {{imovel.bairro}}</span>

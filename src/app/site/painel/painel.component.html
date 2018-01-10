@@ -1,9 +1,6 @@
 <div class="content">
-  <p class="situacao"
-     [class.venda]="!imovel.locacao"
-     [class.locacao]="imovel.locacao">
-    {{ imovel.locacao? 'Locação' : 'Venda' }}
-  </p>
+  <p *ngIf="imovel.finalidade === 'venda'" class="finalidade venda">Venda</p>
+  <p *ngIf="imovel.finalidade === 'locacao'" class="finalidade locacao">Locação</p>
   <h4>
     {{ imovel.anuncio }}
   </h4>

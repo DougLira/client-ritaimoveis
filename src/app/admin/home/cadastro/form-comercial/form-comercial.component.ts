@@ -35,7 +35,6 @@ export class FormComercialComponent implements OnInit {
       endereco: [null, Validators.required],
       descricao: [''],
       area_util: [null, Validators.required],
-      // area_construida: [null, Validators.required],
       tipo: [null, Validators.required],
     });
   }

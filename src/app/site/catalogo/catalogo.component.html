@@ -49,18 +49,18 @@
           </mat-form-field>
 
           <mat-form-field class="form-select-tipo">
-            <mat-select formControlName="locacao">
+            <mat-select formControlName="finalidade">
               <mat-option value="venda">Venda</mat-option>
               <mat-option value="locacao">Locação</mat-option>
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="valores-filtro">
             <input formControlName="minimo" matInput placeholder="Valor mínimo" type="number">
             <span matPrefix>R$&nbsp;</span>
           </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="valores-filtro">
             <input formControlName="maximo" matInput placeholder="Valor máximo" type="number">
             <span matPrefix>R$&nbsp;</span>
           </mat-form-field>

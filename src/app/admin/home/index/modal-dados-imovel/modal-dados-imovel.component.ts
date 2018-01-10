@@ -47,8 +47,8 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
         sala_jantar: [imovel.sala_jantar || null, Validators.required],
         area_util: [imovel.area_util || null, Validators.required],
         area_construida: [imovel.area_construida || null, Validators.required],
-        tipo: [this.verificarTipoImovel(imovel) || null, Validators.required],
-        locacao: [this.verificarLocacao(imovel) || null, Validators.required],
+        tipo: [imovel.tipo || null, Validators.required],
+        finalidade: [imovel.finalidade || null, Validators.required],
         churrasqueira: [imovel.churrasqueira || false],
         piscina: [imovel.piscina || false],
         condominio: [imovel.condominio || false]
@@ -79,21 +79,5 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   getErrorMessage() {
     return 'Campo obrigatório';
-  }
-
-  verificarTipoImovel(imovel) {
-    if (imovel.apartamento) {
-      return 'apartamento';
-    } else if (imovel.casa) {
-      return 'casa';
-    } else {
-      return 'terreno';
-    }
-  }
-
-  verificarLocacao(imovel){
-    if (imovel.locacao) return 'true';
-
-    return 'false';
   }
 }

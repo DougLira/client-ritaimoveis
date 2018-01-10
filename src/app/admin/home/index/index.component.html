@@ -25,8 +25,8 @@
             {{imovel.anuncio}}
           </li>
           <li>
-            <span class="locacao" *ngIf="imovel.locacao == true">Locação</span>
-            <span class="venda" *ngIf="imovel.locacao == false">Venda</span>
+            <span class="locacao" *ngIf="imovel.finalidade === 'locacao'">Locação</span>
+            <span class="venda" *ngIf="imovel.finalidade === 'venda'">Venda</span>
           </li>
           <li class="localizacao">
             <span>{{imovel.cidade}} - {{imovel.bairro}}</span>

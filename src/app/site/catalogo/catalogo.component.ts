@@ -31,7 +31,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
 
     this.filterResidencial = this.formBuilder.group({
       tipo: ['casa'],
-      locacao: ['venda'],
+      finalidade: ['venda'],
       minimo: [''],
       maximo: [''],
     });

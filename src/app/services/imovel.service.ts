@@ -1,8 +1,8 @@
-import {EventEmitter, Injectable} from '@angular/core';
-import {HttpClient, HttpEvent, HttpParams, HttpResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
-import {Filter} from '../site/catalogo/filter';
+import {FilterResidencial} from '../models/filterResidencial';
 import {Subject} from 'rxjs/Subject';
 
 @Injectable()
@@ -26,10 +26,10 @@ export class ImovelService {
     });
   }
 
-  filterResidencial(filter): Observable<any> {
+  filterResidencial(filter: FilterResidencial): Observable<any> {
 
-    let tipo = filter.tipo ? filter.tipo : 'undefined',
-      locacao = filter.locacao ? filter.locacao : 'undefined',
+    let tipo = filter.tipo,
+      finalidade = filter.finalidade,
       minimo = filter.minimo ? filter.minimo : 1000,
       maximo = filter.maximo ? filter.maximo : 1000000;
 
@@ -37,7 +37,7 @@ export class ImovelService {
       observe: 'response',
       params: new HttpParams()
         .set('tipo', tipo.toString())
-        .set('locacao', locacao.toString())
+        .set('finalidade', finalidade.toString())
         .set('minimo', minimo.toString())
         .set('maximo', maximo.toString())
     });

@@ -20,11 +20,9 @@ export class Imovel {
               public cidade: string,
               public bairro: string,
               public endereco: string,
-              public casa: boolean,
-              public apartamento: boolean,
-              public terreno: boolean,
+              public tipo: string,
               public condominio: boolean,
-              public locacao: boolean,
+              public finalidade: string,
               public descricao: string) {
   }
 }
