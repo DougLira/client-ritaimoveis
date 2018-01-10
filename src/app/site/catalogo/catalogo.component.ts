@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {ImovelService} from '../../services/imovel.service';
-import {Filter} from './filter';
 import {Imovel} from '../../models/imovel';
 import {Subscription} from 'rxjs/Subscription';
 import {FormBuilder, FormGroup} from '@angular/forms';

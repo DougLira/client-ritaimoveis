@@ -30,16 +30,16 @@ export class ImovelService {
 
     let tipo = filter.tipo ? filter.tipo : 'undefined',
       locacao = filter.locacao ? filter.locacao : 'undefined',
-      valorMinimo = filter.valorMinimo ? filter.valorMinimo : 1000,
-      valorMaximo = filter.valorMaximo ? filter.valorMaximo : 1000000;
+      minimo = filter.minimo ? filter.minimo : 1000,
+      maximo = filter.maximo ? filter.maximo : 1000000;
 
     return this.http.get(`${this.uri}/imoveis/residencial/filter`, {
       observe: 'response',
       params: new HttpParams()
         .set('tipo', tipo.toString())
         .set('locacao', locacao.toString())
-        .set('minimo', valorMinimo.toString())
-        .set('maximo', valorMaximo.toString())
+        .set('minimo', minimo.toString())
+        .set('maximo', maximo.toString())
     });
   }
 
