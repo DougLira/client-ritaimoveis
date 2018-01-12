@@ -13,11 +13,8 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   @ViewChild(ModalDirective) directive: ModalDirective;
 
-  private subscription: Subscription;
-  private imovel = {
-    fotoPrincipal: {url: ''},
-    fotos: []
-  };
+  subscription: Subscription;
+  imovel = new Imovel();
 
   constructor(private imovelService: ImovelService) {
   }

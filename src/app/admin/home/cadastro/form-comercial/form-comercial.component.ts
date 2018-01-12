@@ -11,12 +11,12 @@ import {HomeAdminService} from '../../home-admin.service';
 export class FormComercialComponent implements OnInit {
 
   @ViewChild('step') step: MatHorizontalStepper;
-  private formComercial: FormGroup;
-  private fotoPrincipal = {
+  formComercial: FormGroup;
+  fotoPrincipal = {
     urlBase64: '',
     message: ''
   };
-  private fotosSecundarias = {
+  fotosSecundarias = {
     fotos: [],
     message: ''
   };

@@ -9,7 +9,7 @@ import {Imovel} from '../../models/imovel';
 })
 export class PainelComponent implements OnInit {
 
-  @Input() imovel:Imovel;
+  @Input() imovel: Imovel;
 
   constructor(private imovelService: ImovelService) {
   }

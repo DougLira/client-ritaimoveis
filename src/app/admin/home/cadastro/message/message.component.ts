@@ -9,7 +9,7 @@ import {HomeAdminService} from '../../home-admin.service';
 })
 export class MessageComponent implements OnInit {
 
-  private msg: Message[] = [];
+  msg: Message[] = [];
 
   constructor(private homeService: HomeAdminService) {
   }

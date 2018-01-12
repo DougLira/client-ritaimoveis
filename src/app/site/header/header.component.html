@@ -1,12 +1,15 @@
 <header id="cabecalho" class="cabecalho">
   <a routerLink="/" class="active div-titulo">
     <h1>Rita de Cássia</h1>
-    <h4>Corretora de Imóveis</h4>
+    <div>
+      <h4>Corretora de Imóveis</h4>
+      <h4>CRECI: 158821-F</h4>
+    </div>
   </a>
-  <a class="navegacao-link" [routerLink]="['catalogo/page/1']">Residencial<span class="navegacao-link"></span></a>
-  <a class="navegacao-link" routerLink="">Comercial<span class="navegacao-link"></span></a>
-  <a class="navegacao-link" routerLink="">Lançamentos<span class="navegacao-link"></span></a>
-  <a class="navegacao-link" routerLink="">Sobre Mim <span class="navegacao-link"></span></a>
-  <a class="navegacao-link" routerLink="">Contato <span class="navegacao-link"></span></a>
-  <a class="icon" (click)="toggleNavbar()">&#9776;</a>
+  <a class="navegacao-link ativo" [routerLink]="['catalogo/page/1']">Residencial<span class="navegacao-link"></span></a>
+  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Comercial<strong> : Em Breve</strong><span class="navegacao-link"></span></a>
+  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Lançamentos<strong> : Em Breve</strong><span class="navegacao-link"></span></a>
+  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Sobre Mim<strong> : Em Breve</strong><span class="navegacao-link"></span></a>
+  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Contato<strong> : Em Breve</strong><span class="navegacao-link"></span></a>
+  <a style="color: rgba(0, 0, 0, .54)" class="icon" (click)="toggleNavbar()">&#9776;</a>
 </header>

@@ -16,15 +16,15 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
   @ViewChild('modal_hover') modalHover;
   open = new Subject();
   updateView = new Subject();
-  private openSubscription: Subscription;
-  private updateSubscription: Subscription;
-  private fotoPrincipal = undefined;
-  private fotosSecundarias = [];
-  private fotosSecundariasSelecionadas = [];
-  private fotosFiltradas = [];
-  private idImovel: string;
-  private mensagem: string;
-  private url: string;
+  openSubscription: Subscription;
+  updateSubscription: Subscription;
+  fotoPrincipal = undefined;
+  fotosSecundarias = [];
+  fotosSecundariasSelecionadas = [];
+  fotosFiltradas = [];
+  idImovel: string;
+  mensagem: string;
+  url: string;
 
   constructor(private modalService: NgbModal,
               private homeService: HomeAdminService) {

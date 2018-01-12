@@ -15,12 +15,13 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class CatalogoComponent implements OnInit, OnDestroy {
 
 
-  private subscriptionResolver: Subscription;
-  private subscriptionSearch: Subscription;
-  private subscriptionFilter: Subscription;
-  private filterResidencial: FormGroup;
-  private imoveis: Imovel[];
-  private collectionSizeImoveis: number;
+  subscriptionResolver: Subscription;
+  subscriptionSearch: Subscription;
+  subscriptionFilter: Subscription;
+  filterResidencial: FormGroup;
+  imoveis: Imovel[];
+  collectionSizeImoveis: number;
+  isCollapsed: boolean = false;
 
   constructor(private imovelService: ImovelService,
               private route: ActivatedRoute,

@@ -15,15 +15,15 @@ export class IndexComponent implements OnInit, OnDestroy {
   @ViewChild('modal_dados') modal_dados;
   @ViewChild('modal_fotos') modal_fotos;
   @ViewChild('modal_add_fotos') modal_add_fotos;
-  private subscriptionImoveis: Subscription;
-  private subscriptionPages: Subscription;
-  private subscriptionDelete: Subscription;
-  private subscriptionUpdateDados: Subscription;
-  private subscriptionUpdateFotos: Subscription;
-  private subscriptionUpdateAddFotos: Subscription;
-  private subscriptionSearch: Subscription;
-  private msg = [];
-  private search: string;
+  subscriptionImoveis: Subscription;
+  subscriptionPages: Subscription;
+  subscriptionDelete: Subscription;
+  subscriptionUpdateDados: Subscription;
+  subscriptionUpdateFotos: Subscription;
+  subscriptionUpdateAddFotos: Subscription;
+  subscriptionSearch: Subscription;
+  msg = [];
+  search: string;
   imoveis: Imovel[];
   paginator = {
     length: ''

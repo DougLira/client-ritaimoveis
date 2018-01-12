@@ -1,13 +1,11 @@
-.carrosel {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(146,59,22,.85);
-  height: fit-content;
-}
-
-.carrosel img {
-  height: 300px !important;
-  object-fit: cover;
+.bg-image{
+  background-image: url("../../../catalogo-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: auto;
+  height: 500px;
+  position: relative;
 }
 
 .conteudo {

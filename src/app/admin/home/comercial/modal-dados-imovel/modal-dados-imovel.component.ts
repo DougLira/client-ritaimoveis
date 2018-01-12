@@ -16,10 +16,10 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
   @ViewChild('modal_dados') modal;
   open = new Subject();
   updateView = new Subject();
-  private openSubscription: Subscription;
-  private updateSubscription: Subscription;
-  private formComercial: FormGroup;
-  private idImovel: string;
+  openSubscription: Subscription;
+  updateSubscription: Subscription;
+  formComercial: FormGroup;
+  idImovel: string;
 
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,

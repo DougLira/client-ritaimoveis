@@ -11,10 +11,10 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  private errorMessage: boolean = false;
-  private hide: boolean = true;
-  private formLogin: FormGroup;
-  private subscription: Subscription;
+  errorMessage: boolean = false;
+  hide: boolean = true;
+  formLogin: FormGroup;
+  subscription: Subscription;
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder) {

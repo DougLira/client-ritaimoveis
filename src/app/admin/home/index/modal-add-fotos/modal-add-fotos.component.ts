@@ -16,9 +16,9 @@ export class ModalAddFotosComponent implements OnInit, OnDestroy {
   openModal = new Subject();
   updateView = new Subject();
   openSubscription: Subscription;
-  private idImovel: string;
-  private fotos = [];
-  private mensagem: string;
+  idImovel: string;
+  fotos = [];
+  mensagem: string;
 
   constructor(private modalService: NgbModal,
               private homeService: HomeAdminService) {
