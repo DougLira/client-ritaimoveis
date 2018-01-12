@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           [
             Validators.required,
             Validators.minLength(3),
-            Validators.maxLength(10)
+            Validators.maxLength(15)
           ]
         ],
         password: [null,

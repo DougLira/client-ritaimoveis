@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpEvent, HttpHeaders, HttpParams} from '@angular/common/http';
+
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class HomeAdminService {
 
   message: Subject<any> = new Subject();
-  private uri: string = 'http://localhost:3000';
-
-  // private uri: string = 'http://api-ritaimoveis-com.umbler.net';
+  private uri: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {
   }

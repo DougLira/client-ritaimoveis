@@ -1,17 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
 
-import {FilterResidencial} from '../models/filterResidencial';
+import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
+import {FilterResidencial} from '../models/filterResidencial';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ImovelService {
 
   imovelModal = new Subject();
-  uri: string = 'http://localhost:3000';
-
-  // uri: string = 'http://api-ritaimoveis-com.umbler.net';
+  uri: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {
   }
