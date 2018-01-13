@@ -21,6 +21,12 @@
   background-size: cover;
 }
 
+.linkedin a {
+  width: max-content;
+  height: max-content;
+  content: '';
+}
+
 .media a, .media {
   font-size: 13px;
   color: rgba(0, 0, 0, .54);
