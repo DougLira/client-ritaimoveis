@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: #ffd740;
 }
 
 .contatos-mobile {
@@ -30,6 +30,7 @@
 .media a, .media {
   font-size: 13px;
   color: rgba(0, 0, 0, .54);
+  font-weight: bolder;
 }
 
 .email, .phone {
@@ -132,7 +133,7 @@ div {
   display: block;
   color: #f8f8f8;
   text-align: center;
-  padding: 14px 16px;
+  padding: 5px;
   text-decoration: none;
   font-size: 14px;
   position: relative;
