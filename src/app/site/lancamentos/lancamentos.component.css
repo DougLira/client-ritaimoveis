@@ -52,6 +52,7 @@ form.filtro {
 .card-imagem {
   width: 300px;
   height: 250px;
+  border-radius: 5px 2px 2px 5px;
 }
 
 .card-content {
