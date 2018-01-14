@@ -21,4 +21,11 @@ export class HeaderComponent implements OnInit {
       cabecalho.className = 'cabecalho';
     }
   }
+
+  linkClick() {
+    let cabecalho = document.getElementById('cabecalho');
+    if (cabecalho.className === 'cabecalho responsive') {
+      cabecalho.className = 'cabecalho';
+    }
+  }
 }

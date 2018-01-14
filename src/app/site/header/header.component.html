@@ -1,50 +1,68 @@
-<header id="cabecalho" class="cabecalho">
-  <a routerLink="/" class="active div-titulo">
-    <h1>Rita de Cássia</h1>
-    <div>
-      <h4>Corretora de Imóveis</h4>
-      <h4>CRECI: 158821-F</h4>
-    </div>
-  </a>
-  <a class="navegacao-link ativo" [routerLink]="['/catalogo/page/1']">Residencial<span class="navegacao-link"></span></a>
-  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Comercial<strong> : Em Breve</strong><span
-    class="navegacao-link"></span></a>
-  <a class="navegacao-link ativo" [routerLink]="['/lancamentos']">Lançamentos<span
-    class="navegacao-link"></span></a>
-  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Sobre Mim<strong> : Em Breve</strong><span
-    class="navegacao-link"></span></a>
-  <a style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Contato<strong> : Em Breve</strong><span
-    class="navegacao-link"></span></a>
-  <a style="color: rgba(0, 0, 0, .54)" class="icon" (click)="toggleNavbar()">
-    <mat-icon>menu</mat-icon>
-  </a>
-</header>
-<section class="contatos-mobile">
-  <ul class="phone">
-    <li class="icon"></li>
-    <li class="media"><a>(VIVO) 9 5779-7214</a></li>
-  </ul>
-  <ul class="facebook-linkedin">
-    <a href="https://www.facebook.com/rita.decassia.18294"><li class="icon facebook"></li></a>
-    <a href="https://www.linkedin.com/in/ritadecassia-corretora/"><li class="icon linkedin"></li></a>
-  </ul>
-</section>
-<section class="contatos-desktop">
-  <ul class="phone">
-    <li class="icon"></li>
-    <li class="media"><a>(VIVO) 9 5779-7214</a></li>
-  </ul>
-  <ul class="phone">
-    <li class="icon"></li>
-    <li class="media"><a>(TIM) 9 8515-6427</a></li>
-  </ul>
-  <ul class="email">
-    <li class="icon"></li>
-    <li class="media"><a>rita.cassiamiro@gmail.com</a></li>
-  </ul>
-  <ul class="facebook-linkedin">
-    <li class="media">Redes Sociais: </li>
-    <a href="https://www.facebook.com/rita.decassia.18294"><li class="icon facebook"></li></a>
-    <a href="https://www.linkedin.com/in/ritadecassia-corretora/"><li class="icon linkedin"></li></a>
-  </ul>
-</section>
+<div class="content">
+
+  <div class="linha-cabecalho">
+    <header id="cabecalho" class="cabecalho">
+      <a routerLink="/" class="active div-titulo" (click)="linkClick()">
+        <h1>Rita de Cássia</h1>
+        <div>
+          <h4>Corretora de Imóveis</h4>
+          <h4>CRECI: 158821-F</h4>
+        </div>
+      </a>
+      <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/catalogo/page/1']">Residencial<span
+        class="navegacao-link"></span></a>
+      <a (click)="linkClick()" style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Comercial<strong> : Em
+        Breve</strong><span
+        class="navegacao-link"></span></a>
+      <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/lancamentos']">Lançamentos<span
+        class="navegacao-link"></span></a>
+      <a (click)="linkClick()" style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Sobre Mim<strong> : Em
+        Breve</strong><span
+        class="navegacao-link"></span></a>
+      <a (click)="linkClick()" style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Contato<strong> : Em Breve</strong><span
+        class="navegacao-link"></span></a>
+      <a style="color: rgba(0, 0, 0, .54)" class="icon" (click)="toggleNavbar()">
+        <mat-icon>menu</mat-icon>
+      </a>
+    </header>
+  </div>
+  <div class="linha-contatos">
+    <section class="contatos-mobile">
+      <ul class="phone">
+        <li class="icon"></li>
+        <li class="media"><a>(VIVO) 9 5779-7214</a></li>
+      </ul>
+      <ul class="facebook-linkedin">
+        <a href="https://www.facebook.com/rita.decassia.18294">
+          <li class="icon facebook"></li>
+        </a>
+        <a href="https://www.linkedin.com/in/ritadecassia-corretora/">
+          <li class="icon linkedin"></li>
+        </a>
+      </ul>
+    </section>
+    <section class="contatos-desktop">
+      <ul class="phone">
+        <li class="icon"></li>
+        <li class="media"><a>(VIVO) 9 5779-7214</a></li>
+      </ul>
+      <ul class="phone">
+        <li class="icon"></li>
+        <li class="media"><a>(TIM) 9 8515-6427</a></li>
+      </ul>
+      <ul class="email">
+        <li class="icon"></li>
+        <li class="media"><a>rita.cassiamiro@gmail.com</a></li>
+      </ul>
+      <ul class="facebook-linkedin">
+        <li class="media">Redes Sociais:</li>
+        <a href="https://www.facebook.com/rita.decassia.18294">
+          <li class="icon facebook"></li>
+        </a>
+        <a href="https://www.linkedin.com/in/ritadecassia-corretora/">
+          <li class="icon linkedin"></li>
+        </a>
+      </ul>
+    </section>
+  </div>
+</div>
