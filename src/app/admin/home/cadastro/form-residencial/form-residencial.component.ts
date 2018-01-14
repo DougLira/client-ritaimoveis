@@ -66,6 +66,8 @@ export class FormResidencialComponent implements OnInit {
 
         this.formResidencial.reset();
         this.step.selectedIndex = 0;
+        this.fotoPrincipal.urlBase64 = undefined;
+        this.fotosSecundarias.fotos = [];
       }
     });
   }

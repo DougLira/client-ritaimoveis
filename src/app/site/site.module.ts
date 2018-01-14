@@ -16,6 +16,7 @@ import {PainelModule} from './painel/painel.module';
 import { IndexComponent } from './index/index.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import {ImoveisGuard} from './guards/imoveis.guard';
+import { LancamentosComponent } from './lancamentos/lancamentos.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {ImoveisGuard} from './guards/imoveis.guard';
     CatalogoComponent,
     HeaderComponent,
     IndexComponent,
-    PaginationComponent
+    PaginationComponent,
+    LancamentosComponent
   ],
   exports: [
     SiteComponent

@@ -29,7 +29,8 @@ export class HomeAdminService {
 
   createResidencial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
 
-    let fotos = {
+    let
+      fotos = {
         fotoPrincipal: fotoPrincipal,
         fotosSecundarias: fotosSecundarias
       },
@@ -183,7 +184,7 @@ export class HomeAdminService {
         {observe: 'response'});
   }
 
-  addImagesComercial(id, fotoPrincipal = undefined, fotosSecundarias = []):Observable<any> | any {
+  addImagesComercial(id, fotoPrincipal = undefined, fotosSecundarias = []): Observable<any> | any {
 
     let fotos = {
       fotoPrincipal: fotoPrincipal,
@@ -200,7 +201,7 @@ export class HomeAdminService {
         });
   }
 
-  updateImagesComercial(id, fotos):Observable<any> | any {
+  updateImagesComercial(id, fotos): Observable<any> | any {
 
     return this.http
       .put(
