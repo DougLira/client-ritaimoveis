@@ -1,0 +1,70 @@
+.content {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.meu-card-container {
+  margin-top: 20px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: inline-flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  margin-bottom: 60px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.26),
+  0 2px 2px 0 rgba(0, 0, 0, 0.12),
+  0 3px 1px -2px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.26),
+  0 8px 10px 1px rgba(0, 0, 0, 0.12),
+  0 3px 14px 2px rgba(0, 0, 0, 0.08);
+}
+
+.card-image img {
+  width: 200px;
+  height: 200px;
+}
+
+.card-content {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  padding: 7px;
+}
+
+.card-details {
+  height: 100%;
+  padding-bottom: 7px;
+}
+
+.card-action {
+  display: inline-flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+.card-action button {
+  width: 100%;
+  color: rgba(146, 59, 22, .5);
+}
+
+.card-details-title {
+  text-align: center;
+  color: rgba(0, 0, 0, .74);
+  border-bottom: 1px solid rgba(0, 0, 0, .14);
+  line-height: 1.75em;
+}
+

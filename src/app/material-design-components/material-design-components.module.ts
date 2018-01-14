@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  MatButtonModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatIconRegistry, MatInputModule, MatListModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatIconRegistry, MatInputModule,
+  MatListModule,
   MatMenuModule,
   MatOptionModule,
   MatPaginatorModule, MatRadioModule,
@@ -27,7 +28,8 @@ import {
     MatRadioModule,
     MatStepperModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   exports: [
     MatIconModule,
@@ -46,7 +48,8 @@ import {
     MatRadioModule,
     MatStepperModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   declarations: [],
   providers: [MatIconRegistry]

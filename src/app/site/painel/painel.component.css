@@ -70,6 +70,7 @@ img {
   font-size: .975em;
   width: 95%;
   align-self: center;
+  border-radius: 2px;
 }
 
 .div-detalhes button:hover{
