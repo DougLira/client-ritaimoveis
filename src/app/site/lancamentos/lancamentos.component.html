@@ -1,15 +1,30 @@
 <div class="content">
+
+
+  <form class="filtro" [formGroup]="formLancamentos">
+    <span>Filtrar: </span>
+    <div class="div-checkbox">
+      <mat-checkbox formControlName="residencial" (change)="onFilter()">Residencial</mat-checkbox>
+    </div>
+    <div class="div-checkbox">
+      <mat-checkbox formControlName="comercial" (change)="onFilter()">Comercial</mat-checkbox>
+    </div>
+  </form>
+
+
   <div class="meu-card-container">
 
     <!-- ngFor irá na div.card -->
     <div class="card">
-      <div class="card-image">
-        <img src="https://i.pinimg.com/736x/22/a2/19/22a21941d8e5fce3c6e9e3a8a258cef4--galaxy-cat-hipster-cat.jpg" alt="">
-      </div>
+      <img
+        class="card-imagem"
+        src="https://imoveisemceara.com.br/wp-content/uploads/2013/08/3-Apto-alto-luxo-na-Beira-Mar240m3-suites-com-closetandar-alto-Fortaleza.jpg"
+        alt="">
+
       <div class="card-content">
         <div class="card-details">
 
-          <h5 class="card-details-title">- Apartamento: Residencial Auto Mar -</h5>
+          <h5 class="card-details-title">- Apartamento: Residencial Alto Mar -</h5>
 
         </div>
         <div class="card-action">
@@ -23,4 +38,5 @@
       [length]="paginator.length">
     </app-paginator>-->
   </div>
+
 </div>

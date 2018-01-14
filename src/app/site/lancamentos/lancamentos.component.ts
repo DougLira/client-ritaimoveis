@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-lancamentos',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LancamentosComponent implements OnInit {
 
-  constructor() { }
+  formLancamentos: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
+
+    this.formLancamentos = this.formBuilder.group({
+      residencial: [false],
+      comercial: [false]
+    });
+  }
+
+  onFilter(){
+
+    console.log(this.formLancamentos.value);
   }
 
 }
