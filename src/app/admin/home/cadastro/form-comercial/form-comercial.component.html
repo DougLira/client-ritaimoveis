@@ -9,34 +9,34 @@
         <div class="col s6">
           <mat-form-field>
             <input formControlName="anuncio" matInput type="text" placeholder="Anúncio:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="verifyValidTouched('anuncio')">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="valor" matInput type="number" placeholder="Valor:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="verifyValidTouched('valor')">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="cidade" matInput type="text" placeholder="Cidade:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="verifyValidTouched('cidade')">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="bairro" matInput type="text" placeholder="Bairro:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="verifyValidTouched('bairro')">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="endereco" matInput type="text" placeholder="Endereço:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="verifyValidTouched('endereco')">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="area_util" matInput class="input-valor" type="number"
                    placeholder="Área útil:">
             <span matSuffix> m²</span>
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="verifyValidTouched('area_util')">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
         </div>
@@ -119,6 +119,7 @@
         Voltar
       </button>
       <button mat-raised-button
+              type="reset"
               matStepperNext
               (click)="onSubmit()"
               [disabled]="!formComercial.valid"

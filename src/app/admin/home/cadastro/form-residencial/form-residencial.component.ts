@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatHorizontalStepper} from '@angular/material';
 import {HomeAdminService} from '../../home-admin.service';
 
@@ -64,12 +64,25 @@ export class FormResidencialComponent implements OnInit {
     this.homeService.message.subscribe(msg => {
       if (msg.severity === 'success') {
 
-        console.log('Resetando o form!');
-        this.formResidencial.reset();
+        this.resetForm(this.formResidencial);
         this.step.selectedIndex = 0;
         this.clearPrincipal();
         this.clearSecundarias();
       }
+    });
+  }
+
+  verifyValidTouched(field) {
+    return !this.formResidencial.get(field).valid && this.formResidencial.get(field).touched;
+  }
+
+  resetForm(formGroup: FormGroup) {
+    let control: AbstractControl = null;
+    formGroup.reset();
+    formGroup.markAsUntouched();
+    Object.keys(formGroup.controls).forEach((name) => {
+      control = formGroup.controls[name];
+      control.setErrors(null);
     });
   }
 

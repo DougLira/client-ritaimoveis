@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatHorizontalStepper} from '@angular/material';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HomeAdminService} from '../../home-admin.service';
 
 @Component({
@@ -52,9 +52,25 @@ export class FormComercialComponent implements OnInit {
     this.homeService.message.subscribe(msg => {
       if (msg.severity === 'success') {
 
-        this.formComercial.reset();
+        this.resetForm(this.formComercial);
         this.step.selectedIndex = 0;
+        this.clearPrincipal();
+        this.clearSecundarias();
       }
+    });
+  }
+
+  verifyValidTouched(field) {
+    return !this.formComercial.get(field).valid && this.formComercial.get(field).touched;
+  }
+
+  resetForm(formGroup: FormGroup) {
+    let control: AbstractControl = null;
+    formGroup.reset();
+    formGroup.markAsUntouched();
+    Object.keys(formGroup.controls).forEach((name) => {
+      control = formGroup.controls[name];
+      control.setErrors(null);
     });
   }
 
@@ -64,8 +80,8 @@ export class FormComercialComponent implements OnInit {
 
   uploadPrincipal(event) {
 
-    let file: File = event.files[0];
-    let fileReader: FileReader = new FileReader();
+    const file: File = event.files[0];
+    const fileReader: FileReader = new FileReader();
     fileReader.readAsDataURL(file);
 
     fileReader.onloadend = e => {
@@ -79,11 +95,11 @@ export class FormComercialComponent implements OnInit {
   uploadSecundarias(event) {
 
     this.fotosSecundarias.fotos = [];
-    let files: File[] = event.files;
+    const files: File[] = event.files;
 
-    for (let file of files) {
+    for (const file of files) {
 
-      let fileReader: FileReader = new FileReader();
+      const fileReader: FileReader = new FileReader();
       fileReader.readAsDataURL(file);
 
       fileReader.onloadend = e => {
@@ -108,13 +124,13 @@ export class FormComercialComponent implements OnInit {
 
   removeSecundarias(event) {
 
-    let file = event.file;
-    let fileReader: FileReader = new FileReader();
+    const file = event.file;
+    const fileReader: FileReader = new FileReader();
     fileReader.readAsDataURL(file);
 
     fileReader.onloadend = e => {
 
-      let index = this.fotosSecundarias.fotos.indexOf(fileReader.result);
+      const index = this.fotosSecundarias.fotos.indexOf(fileReader.result);
       this.fotosSecundarias.fotos.splice(index, 1);
     };
   }
