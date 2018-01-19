@@ -2,13 +2,11 @@
 
 
   <form class="filtro" [formGroup]="formLancamentos">
-    <span>Filtrar: </span>
-    <div class="div-checkbox">
-      <mat-checkbox formControlName="residencial" (change)="onFilter()">Residencial</mat-checkbox>
-    </div>
-    <div class="div-checkbox">
-      <mat-checkbox formControlName="comercial" (change)="onFilter()">Comercial</mat-checkbox>
-    </div>
+    <span class="right-margin">Filtrar: </span>
+    <mat-radio-group formControlName="tipo" (change)="onFilter()">
+      <mat-radio-button class="right-margin" [value]="{residencial: true}">Residencial</mat-radio-button>
+      <mat-radio-button [value]="{comercial: true}">Comercial</mat-radio-button>
+    </mat-radio-group>
   </form>
 
 

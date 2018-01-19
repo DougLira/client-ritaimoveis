@@ -6,7 +6,7 @@ import {AccordionModule, FileUploadModule, MessagesModule} from 'primeng/primeng
 
 import {MaterialDesignComponentsModule} from '../../../material-design-components/material-design-components.module';
 import { IndexComponent } from './index.component';
-import {PaginatorModule} from '../paginator/paginator.module';
+import {PaginatorModule} from '../../../shared/paginator/paginator.module';
 import { ModalDadosImovelComponent } from './modal-dados-imovel/modal-dados-imovel.component';
 import { ModalFotosImovelComponent } from './modal-fotos-imovel/modal-fotos-imovel.component';
 import { ModalAddFotosComponent } from './modal-add-fotos/modal-add-fotos.component';

@@ -9,27 +9,27 @@
         <div class="col s6">
           <mat-form-field>
             <input formControlName="anuncio" matInput type="text" placeholder="Anúncio:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="formResidencial.get('anuncio').invalid && formResidencial.get('anuncio').touched">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="valor" matInput type="number" placeholder="Valor:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="formResidencial.get('valor').invalid && formResidencial.get('valor').touched">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="cidade" matInput type="text" placeholder="Cidade:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="formResidencial.get('cidade').invalid && formResidencial.get('cidade').touched">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="bairro" matInput type="text" placeholder="Bairro:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="formResidencial.get('bairro').invalid && formResidencial.get('bairro').touched">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <input formControlName="endereco" matInput type="text" placeholder="Endereço:">
-            <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+            <mat-error *ngIf="formResidencial.get('endereco').invalid && formResidencial.get('endereco').touched">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -46,28 +46,28 @@
                 <input formControlName="dormitorios" matInput class="input-caracteristicas" type="number"
                        placeholder="Dormitórios:">
                 <span matSuffix> </span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('dormitorios').invalid && formResidencial.get('dormitorios').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <input formControlName="suites" matInput class="input-caracteristicas" type="number"
                        placeholder="Suítes:">
                 <span matSuffix> </span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('suites').invalid && formResidencial.get('suites').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <input formControlName="vagas" matInput class="input-caracteristicas" type="number"
                        placeholder="Vagas:">
                 <span matSuffix> </span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('vagas').invalid && formResidencial.get('vagas').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <input formControlName="banheiros" matInput class="input-caracteristicas" type="number"
                        placeholder="Banheiro:">
                 <span matSuffix> </span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('banheiros').invalid && formResidencial.get('banheiros').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
             </div>
             <div class="col s6">
@@ -75,28 +75,28 @@
                 <input formControlName="sala_estar" matInput class="input-caracteristicas" type="number"
                        placeholder="Salas de estar:">
                 <span matSuffix> </span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('sala_estar').invalid && formResidencial.get('sala_estar').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <input formControlName="sala_jantar" matInput class="input-caracteristicas" type="number"
                        placeholder="Salas de jantar:">
                 <span matSuffix> </span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('sala_jantar').invalid && formResidencial.get('sala_jantar').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <input formControlName="area_util" matInput class="input-valor" type="number"
                        placeholder="Área útil:">
                 <span matSuffix> m²</span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('area_util').invalid && formResidencial.get('area_util').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <input formControlName="area_construida" matInput class="input-valor" type="number"
                        placeholder="Área construída:">
                 <span matSuffix> m²</span>
-                <mat-error *ngIf="'!anuncio.valid'">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="formResidencial.get('area_construida').invalid && formResidencial.get('area_construida').touched">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
             </div>
 

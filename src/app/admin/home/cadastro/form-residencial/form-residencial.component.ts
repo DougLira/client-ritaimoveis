@@ -64,10 +64,11 @@ export class FormResidencialComponent implements OnInit {
     this.homeService.message.subscribe(msg => {
       if (msg.severity === 'success') {
 
+        console.log('Resetando o form!');
         this.formResidencial.reset();
         this.step.selectedIndex = 0;
-        this.fotoPrincipal.urlBase64 = undefined;
-        this.fotosSecundarias.fotos = [];
+        this.clearPrincipal();
+        this.clearSecundarias();
       }
     });
   }
@@ -78,8 +79,8 @@ export class FormResidencialComponent implements OnInit {
 
   uploadPrincipal(event) {
 
-    let file: File = event.files[0];
-    let fileReader: FileReader = new FileReader();
+    const file: File = event.files[0];
+    const fileReader: FileReader = new FileReader();
     fileReader.readAsDataURL(file);
 
     fileReader.onloadend = e => {
@@ -93,11 +94,11 @@ export class FormResidencialComponent implements OnInit {
   uploadSecundarias(event) {
 
     this.fotosSecundarias.fotos = [];
-    let files: File[] = event.files;
+    const files: File[] = event.files;
 
-    for (let file of files) {
+    for (const file of files) {
 
-      let fileReader: FileReader = new FileReader();
+      const fileReader: FileReader = new FileReader();
       fileReader.readAsDataURL(file);
 
       fileReader.onloadend = e => {

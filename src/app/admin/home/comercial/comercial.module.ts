@@ -5,7 +5,7 @@ import {MaterialDesignComponentsModule} from '../../../material-design-component
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AccordionModule, FileUploadModule, MessagesModule} from 'primeng/primeng';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {PaginatorModule} from '../paginator/paginator.module';
+import {PaginatorModule} from '../../../shared/paginator/paginator.module';
 import {ModalFotosImovelComponent} from './modal-fotos-imovel/modal-fotos-imovel.component';
 import {ModalAddFotosComponent} from './modal-add-fotos/modal-add-fotos.component';
 import {ModalDadosImovelComponent} from './modal-dados-imovel/modal-dados-imovel.component';

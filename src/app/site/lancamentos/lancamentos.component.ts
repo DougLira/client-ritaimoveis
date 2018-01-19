@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+// import * as watermark from 'watermarkjs/dist/watermark.min.js';
 
 @Component({
   selector: 'app-lancamentos',
@@ -16,12 +17,11 @@ export class LancamentosComponent implements OnInit {
   ngOnInit() {
 
     this.formLancamentos = this.formBuilder.group({
-      residencial: [false],
-      comercial: [false]
+      tipo: [false]
     });
   }
 
-  onFilter(){
+  onFilter() {
 
     console.log(this.formLancamentos.value);
   }

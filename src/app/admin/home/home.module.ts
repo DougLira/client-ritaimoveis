@@ -12,6 +12,7 @@ import {ImovelService} from '../../services/imovel.service';
 import {CadastroModule} from './cadastro/cadastro.module';
 import {MaterializeModule} from 'angular2-materialize';
 import {ComercialModule} from './comercial/comercial.module';
+import {PaginatorModule} from '../../shared/paginator/paginator.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {ComercialModule} from './comercial/comercial.module';
     MaterialDesignComponentsModule,
     CadastroModule,
     MaterializeModule,
-    ComercialModule
+    ComercialModule,
+    PaginatorModule
   ],
   declarations: [
     HomeComponent

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginatorComponent } from './paginator.component';
-import {MaterialDesignComponentsModule} from '../../../material-design-components/material-design-components.module';
+import {MaterialDesignComponentsModule} from '../../material-design-components/material-design-components.module';
 import {MatPaginatorIntl} from '@angular/material';
 
 @NgModule({
