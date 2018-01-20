@@ -28,8 +28,8 @@ export class FormComercialComponent implements OnInit {
   ngOnInit() {
 
     this.formComercial = this.formBuilder.group({
-      lancamento: [{lancamento: false}, Validators.required],
-      anuncio: [null, Validators.required, Validators.maxLength(15)],
+      lancamento: [false, Validators.required],
+      anuncio: [null, Validators.required],
       valor: [null, Validators.required],
       cidade: [null, Validators.required],
       bairro: [null, Validators.required],
@@ -37,6 +37,7 @@ export class FormComercialComponent implements OnInit {
       descricao: [''],
       area_util: [null, Validators.required],
       tipo: [null, Validators.required],
+      finalidade: [null, Validators.required]
     });
   }
 

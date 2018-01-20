@@ -15,6 +15,8 @@ export class ImovelService {
   constructor(private http: HttpClient) {
   }
 
+  /*---------------- Residencial API Site ------------------------*/
+
   getAllResidencial(page, search = ''): Observable<any> {
 
     return this.http.get(`${this.uri}/imoveis/residencial`, {
@@ -27,7 +29,7 @@ export class ImovelService {
 
   filterResidencial(filter: FilterResidencial): Observable<any> {
 
-    let tipo = filter.tipo,
+    const tipo = filter.tipo,
       finalidade = filter.finalidade,
       minimo = filter.minimo ? filter.minimo : 1000,
       maximo = filter.maximo ? filter.maximo : 1000000;
@@ -42,6 +44,8 @@ export class ImovelService {
     });
   }
 
+  /*---------------- Comercial API Site ------------------------*/
+
   getAllComercial(page, search = ''): Observable<any> {
 
     return this.http.get(`${this.uri}/imoveis/comercial`, {
@@ -49,6 +53,16 @@ export class ImovelService {
       params: new HttpParams()
         .set('page', page)
         .set('search', search)
+    });
+  }
+
+  /*---------------- Lancamentos API Site ------------------------*/
+
+  getAllLancamentos(page): Observable<any> {
+
+    return this.http.get(`${this.uri}/imoveis/lancamentos`, {
+      params: new HttpParams()
+        .set('page', page)
     });
   }
 }

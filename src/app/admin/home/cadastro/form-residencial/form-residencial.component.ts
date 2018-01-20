@@ -28,8 +28,8 @@ export class FormResidencialComponent implements OnInit {
   ngOnInit() {
 
     this.formResidencial = this.formBuilder.group({
-      lancamento: [{lancamento: false}, Validators.required],
-      anuncio: [null, Validators.required, Validators.maxLength(15)],
+      lancamento: [false, Validators.required],
+      anuncio: [null, Validators.required],
       valor: [null, Validators.required],
       cidade: [null, Validators.required],
       bairro: [null, Validators.required],

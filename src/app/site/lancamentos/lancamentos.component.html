@@ -13,10 +13,10 @@
   <div class="meu-card-container">
 
     <!-- ngFor irá na tag abaixo -->
-    <div>
+    <div *ngFor="let lancamento of lancamentos">
 
       <!-- Card Residencial -->
-      <div>
+      <div *ngIf="lancamento.dormitorios !== undefined">
         <div class="card">
           <img
             class="card-imagem"
@@ -25,25 +25,25 @@
 
           <div class="card-content">
 
-            <h5 class="card-content-title">- Apartamento: Residencial Alto Mar -</h5>
+            <h5 class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null }} -</h5>
             <div class="card-details">
 
-              <p class="detail">R$ 450.000,00 - Venda</p>
+              <p class="detail">{{ (lancamento.valor | currency:'BRL')  || null }} - {{ (lancamento.finalidade | titlecase) || null  }}</p>
 
-              <p class="detail">Mogi das Cruzes - Alto Ipiranga</p>
+              <p class="detail">{{ lancamento.cidade || null  }} - {{ lancamento.bairro || null  }}</p>
 
               <div class="detail-icons">
                 <div class="detail-icon-quantity">
                   <img class="icon" src="../../../bedrooms.png" alt="quartos">
-                  <div>2</div>
+                  <div>{{ lancamento.dormitorios || null  }}</div>
                 </div>
                 <div class="detail-icon-quantity">
                   <img class="icon" src="../../../bathrooms.png" alt="banheiros">
-                  <div>3</div>
+                  <div>{{ lancamento.banheiros || null  }}</div>
                 </div>
                 <div class="detail-icon-quantity">
                   <img class="icon" src="../../../garages.png" alt="vagas">
-                  <div>1</div>
+                  <div>{{ lancamento.vagas || null  }}</div>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@
       </div>
 
       <!-- Card Comercial -->
-      <div>
+      <div *ngIf="lancamento.dormitorios === undefined">
         <div class="card">
           <img
             class="card-imagem"
@@ -64,19 +64,19 @@
             alt="">
 
           <div class="card-content">
-            <h5 class="card-content-title">- Sala comercial: Edifício Helbor -</h5>
+            <h5 class="card-content-title">- {{ lancamento.tipo || null }}: {{ lancamento.anuncio || null }} -</h5>
             <div class="card-details">
 
               <div class="card-details">
 
-                <p class="detail">R$ 450.000,00 - Venda</p>
+                <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ lancamento.finalidade || null }}</p>
 
-                <p class="detail">Mogi das Cruzes - Alto Ipiranga</p>
+                <p class="detail">{{ lancamento.cidade || null }} - {{ lancamento.bairro || null }}</p>
 
                 <div class="detail-description">
                   <h6>Descrição:</h6>
                   <p class="description">
-                    A descrição vem aqui...
+                    {{ lancamento.descricao || null }}
                   </p>
                 </div>
 

@@ -33,7 +33,7 @@ input.input-caracteristicas {
   text-align: right;
 }
 
-span {
+span, label {
   color: rgba(0, 0, 0, .70);
 }
 
@@ -58,4 +58,13 @@ mat-radio-button {
   display: inline-flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.radio-button-lancamento {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.radio-button-lancamento mat-radio-button {
+  margin-right: 5px;
 }
