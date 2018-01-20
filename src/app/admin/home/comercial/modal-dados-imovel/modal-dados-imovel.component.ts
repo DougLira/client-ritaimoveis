@@ -69,4 +69,8 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
   getErrorMessage(): string {
     return 'Campo obrigatório';
   }
+
+  verifyValidTouched(field) {
+    return !this.formComercial.get(field).valid && this.formComercial.get(field).touched;
+  }
 }

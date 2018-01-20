@@ -28,7 +28,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.openSubscription = this.open.subscribe((imovel: Imovel)=> {
+    this.openSubscription = this.open.subscribe((imovel: Imovel) => {
 
       this.idImovel = imovel._id;
       this.modalService.open(this.modal, {size: 'lg'});
@@ -79,5 +79,9 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   getErrorMessage() {
     return 'Campo obrigatório';
+  }
+
+  verifyValidTouched(field) {
+    return !this.formResidencial.get(field).valid && this.formResidencial.get(field).touched;
   }
 }
