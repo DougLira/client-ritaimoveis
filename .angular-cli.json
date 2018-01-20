@@ -18,7 +18,10 @@
         "email.png",
         "linkedin.png",
         "phone.png",
-        "facebook.png"
+        "facebook.png",
+        "bathrooms.png",
+        "bedrooms.png",
+        "garages.png"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -39,8 +42,7 @@
         "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.js",
         "../node_modules/hammerjs/hammer.js",
-        "../node_modules/materialize-css/dist/js/materialize.js",
-        "../node_modules/watermarkjs/dist/watermark.min.js"
+        "../node_modules/materialize-css/dist/js/materialize.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

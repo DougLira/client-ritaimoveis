@@ -12,29 +12,88 @@
 
   <div class="meu-card-container">
 
-    <!-- ngFor irá na div.card -->
-    <div class="card">
-      <img
-        class="card-imagem"
-        src="https://imoveisemceara.com.br/wp-content/uploads/2013/08/3-Apto-alto-luxo-na-Beira-Mar240m3-suites-com-closetandar-alto-Fortaleza.jpg"
-        alt="">
+    <!-- ngFor irá na tag abaixo -->
+    <div>
 
-      <div class="card-content">
-        <div class="card-details">
+      <!-- Card Residencial -->
+      <div>
+        <div class="card">
+          <img
+            class="card-imagem"
+            src="https://imoveisemceara.com.br/wp-content/uploads/2013/08/3-Apto-alto-luxo-na-Beira-Mar240m3-suites-com-closetandar-alto-Fortaleza.jpg"
+            alt="">
 
-          <h5 class="card-details-title">- Apartamento: Residencial Alto Mar -</h5>
+          <div class="card-content">
 
-        </div>
-        <div class="card-action">
-          <button mat-button>VER MAIS</button>
+            <h5 class="card-content-title">- Apartamento: Residencial Alto Mar -</h5>
+            <div class="card-details">
+
+              <p class="detail">R$ 450.000,00 - Venda</p>
+
+              <p class="detail">Mogi das Cruzes - Alto Ipiranga</p>
+
+              <div class="detail-icons">
+                <div class="detail-icon-quantity">
+                  <img class="icon" src="../../../bedrooms.png" alt="quartos">
+                  <div>2</div>
+                </div>
+                <div class="detail-icon-quantity">
+                  <img class="icon" src="../../../bathrooms.png" alt="banheiros">
+                  <div>3</div>
+                </div>
+                <div class="detail-icon-quantity">
+                  <img class="icon" src="../../../garages.png" alt="vagas">
+                  <div>1</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-action">
+              <button mat-button (click)="openModalResidencial()">VER MAIS</button>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!-- Card Comercial -->
+      <div>
+        <div class="card">
+          <img
+            class="card-imagem"
+            src="https://imoveisemceara.com.br/wp-content/uploads/2013/08/3-Apto-alto-luxo-na-Beira-Mar240m3-suites-com-closetandar-alto-Fortaleza.jpg"
+            alt="">
+
+          <div class="card-content">
+            <h5 class="card-content-title">- Sala comercial: Edifício Helbor -</h5>
+            <div class="card-details">
+
+              <div class="card-details">
+
+                <p class="detail">R$ 450.000,00 - Venda</p>
+
+                <p class="detail">Mogi das Cruzes - Alto Ipiranga</p>
+
+                <div class="detail-description">
+                  <h6>Descrição:</h6>
+                  <p class="description">
+                    A descrição vem aqui...
+                  </p>
+                </div>
+
+              </div>
+              <div class="card-action">
+                <button mat-button (click)="openModalComercial()">VER MAIS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--<app-paginator
+        (pageEvent)="onPageChanges($event)"
+        [length]="paginator.length">
+      </app-paginator>-->
     </div>
 
-    <!--<app-paginator
-      (pageEvent)="onPageChanges($event)"
-      [length]="paginator.length">
-    </app-paginator>-->
   </div>
-
-</div>

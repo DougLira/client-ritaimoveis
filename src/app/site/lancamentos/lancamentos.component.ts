@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-// import * as watermark from 'watermarkjs/dist/watermark.min.js';
 
 @Component({
   selector: 'app-lancamentos',
@@ -16,6 +15,8 @@ export class LancamentosComponent implements OnInit {
 
   ngOnInit() {
 
+    // console.log(Object.keys(this.person).length); maior que 10
+
     this.formLancamentos = this.formBuilder.group({
       tipo: [false]
     });
@@ -26,4 +27,9 @@ export class LancamentosComponent implements OnInit {
     console.log(this.formLancamentos.value);
   }
 
+  openModalResidencial() {
+  }
+
+  openModalComercial() {
+  }
 }
