@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 
-import {Imovel} from '../../models/imovel';
-import {ImovelService} from '../../services/imovel.service';
+import {Imovel} from '../../shared/models/imovel';
+import {ImovelService} from '../../shared/services/imovel.service';
 
 @Injectable()
 export class ImoveisGuard implements Resolve<Imovel> {

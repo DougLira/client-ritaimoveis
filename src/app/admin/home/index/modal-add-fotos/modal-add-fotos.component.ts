@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Subject} from 'rxjs/Subject';
-import {Imovel} from '../../../../models/imovel';
+import {Imovel} from '../../../../shared/models/imovel';
 import {Subscription} from 'rxjs/Subscription';
 import {HomeAdminService} from '../../home-admin.service';
 

@@ -7,6 +7,13 @@
 
       <div class="row">
         <div class="col s6">
+
+          <label>Lançamento comercial: </label>
+          <mat-radio-group class="radio-button-lancamento" formControlName="lancamento">
+            <mat-radio-button labelPosition="after" [value]="{lancamento: true}">Sim</mat-radio-button>
+            <mat-radio-button [value]="{lancamento: false}">Não</mat-radio-button>
+          </mat-radio-group>
+
           <mat-form-field>
             <input formControlName="anuncio" matInput type="text" placeholder="Anúncio:">
             <mat-error *ngIf="verifyValidTouched('anuncio')">{{getErrorMessage()}}</mat-error>

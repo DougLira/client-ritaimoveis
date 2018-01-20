@@ -5,7 +5,7 @@ import localePt from '@angular/common/locales/pt'
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app.routing.module';
-import {ImovelService} from './services/imovel.service';
+import {ImovelService} from './shared/services/imovel.service';
 import {SiteModule} from './site/site.module';
 
 registerLocaleData(localePt,'pt');

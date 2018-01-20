@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ImovelService} from '../../services/imovel.service';
-import {Imovel} from '../../models/imovel';
+import {ImovelService} from '../../shared/services/imovel.service';
+import {Imovel} from '../../shared/models/imovel';
 
 @Component({
   selector: 'app-painel',

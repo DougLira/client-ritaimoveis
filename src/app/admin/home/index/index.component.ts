@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 
 import {HomeAdminService} from '../home-admin.service';
-import {Imovel} from '../../../models/imovel';
+import {Imovel} from '../../../shared/models/imovel';
 import {Subscription} from 'rxjs/Subscription';
-import {ImovelService} from '../../../services/imovel.service';
+import {ImovelService} from '../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-index',

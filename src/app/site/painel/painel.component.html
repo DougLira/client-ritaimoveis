@@ -1,6 +1,6 @@
 <div class="content">
-  <p *ngIf="imovel.finalidade === 'venda'" class="finalidade venda">Venda</p>
-  <p *ngIf="imovel.finalidade === 'locacao'" class="finalidade locacao">Locação</p>
+  <!--<p *ngIf="imovel.finalidade === 'venda'" class="finalidade venda">Venda</p>
+  <p *ngIf="imovel.finalidade === 'locacao'" class="finalidade locacao">Locação</p>-->
   <h4>
     {{ imovel.anuncio }}
   </h4>
@@ -8,7 +8,7 @@
   <div class="div-detalhes">
     <div class="div-bairro">{{ imovel.bairro }}</div>
     <div class="div-cidade">{{ imovel.cidade }}</div>
-    <h2>{{ imovel.valor | currency:'BRL' }}</h2>
+    <p>{{ imovel.valor | currency:'BRL' }} - <span *ngIf="imovel.finalidade === 'venda'" class="venda">Venda</span><span *ngIf="imovel.finalidade === 'locacao'" class="locacao">Locação</span></p>
     <div class="icones">
       <div class="div-quartos">
         <img src="../../../bed.png" alt="quartos">

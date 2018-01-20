@@ -8,11 +8,11 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HomeAdminService} from './home-admin.service';
 import {MaterialDesignComponentsModule} from '../../material-design-components/material-design-components.module';
-import {ImovelService} from '../../services/imovel.service';
+import {ImovelService} from '../../shared/services/imovel.service';
 import {CadastroModule} from './cadastro/cadastro.module';
 import {MaterializeModule} from 'angular2-materialize';
 import {ComercialModule} from './comercial/comercial.module';
-import {PaginatorModule} from '../../shared/paginator/paginator.module';
+import {PaginatorModule} from '../../shared/components/paginator/paginator.module';
 
 @NgModule({
   imports: [

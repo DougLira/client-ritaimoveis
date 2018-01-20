@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ModalDirective} from './modal.directive';
-import {ImovelService} from '../../services/imovel.service';
-import {Imovel} from '../../models/imovel';
+import {ImovelService} from '../../shared/services/imovel.service';
+import {Imovel} from '../../shared/models/imovel';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({

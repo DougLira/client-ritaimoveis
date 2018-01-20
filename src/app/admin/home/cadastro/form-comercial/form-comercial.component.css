@@ -6,8 +6,15 @@ textarea {
   font-size: 14px;
 }
 
+label {
+  font-size: 15px;
+}
+
 mat-form-field {
   padding: 8px;
+}
+.radio-button-lancamento {
+  display: inline-flex;
 }
 
 input.input-valor::-webkit-outer-spin-button,
