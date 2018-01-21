@@ -65,4 +65,14 @@ export class ImovelService {
         .set('page', page)
     });
   }
+
+  filterLancamentos(filter): Observable<any> {
+
+    console.log(filter);
+    return this.http.get(`${this.uri}/imoveis/lancamentos/filter`, {
+      params: new HttpParams()
+        .set('comercial', filter.comercial || false)
+        .set('residencial', filter.residencial || false)
+    });
+  }
 }

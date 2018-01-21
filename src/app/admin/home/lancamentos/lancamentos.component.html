@@ -1,0 +1,146 @@
+<app-modal-dados-imovel #modal_dados></app-modal-dados-imovel>
+<app-modal-fotos-imovel #modal_fotos></app-modal-fotos-imovel>
+<app-modal-add-fotos #modal_add_fotos></app-modal-add-fotos>
+
+<div class="content">
+
+  <ul>
+    <li class="title">Lançamentos</li>
+  </ul>
+  <hr>
+
+  <p-messages [(value)]="msg"></p-messages>
+
+  <!-- *ngFor lancamentos -->
+  <div *ngFor="let lancamento of lancamentos" class="collection colecao">
+
+    <!-- *ngIf residencial -->
+    <div *ngIf="lancamento.dormitorios !== undefined" class="collection-item painel">
+      <img class="imagem"
+           src="{{lancamento.fotoPrincipal.url || null}}"
+           alt="">
+      <div class="descricao">
+        <div class="descricao-conteudo">
+          <li class="anuncio">
+            {{lancamento.anuncio || null}}
+          </li>
+          <li>
+            <span class="varejo" *ngIf="lancamento.tipo === 'Casa'">{{ lancamento.tipo  || null}}</span>
+            <span class="andar-corrido" *ngIf="lancamento.tipo === 'Apartamento'">{{ lancamento.tipo  || null}}</span>
+            <span class="galpao" *ngIf="lancamento.tipo === 'Locação'">{{ lancamento.tipo  || null}}</span>
+          </li>
+          <li class="localizacao">
+            <span>{{lancamento.cidade || null}} - {{lancamento.bairro || null}}</span>
+          </li>
+          <li class="preco">
+            {{lancamento.valor | currency: 'BRL'}} - <span *ngIf="lancamento.finalidade === 'Venda'" class="venda">{{lancamento.finalidade || null}}</span><span
+            *ngIf="lancamento.finalidade === 'Locação'" class="locacao">{{lancamento.finalidade || null}}</span>
+          </li>
+        </div>
+        <div class="descricao-icons">
+          <div class="descricao-icon">
+            <span class="secondary-content add-photo-icon"><i (click)="openModalAddFotos(lancamento)"
+                                                              class="material-icons">add_a_photo</i></span>
+          </div>
+          <div class="descricao-icon">
+            <span class="secondary-content edit-icon"><i [matMenuTriggerFor]="editMenu"
+                                                         class="material-icons">mode_edit</i></span>
+            <mat-menu #editMenu="matMenu">
+              <button (click)="openModalDados(lancamento)" mat-menu-item class="item-menu">
+                <mat-icon color="primary">home</mat-icon>
+                <span>Dados do imóvel</span>
+              </button>
+              <button (click)="openModalFotos(lancamento)" mat-menu-item class="item-menu">
+                <mat-icon color="accent">photo_camera</mat-icon>
+                <span>Fotos</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="descricao-icon">
+            <span class="secondary-content delete-icon"><i [matMenuTriggerFor]="deleteMenu" class="material-icons">delete_forever</i></span>
+            <mat-menu #deleteMenu="matMenu">
+              <button (click)="delete(lancamento)" mat-menu-item class="item-menu">
+                <mat-icon color="warn">remove_circle</mat-icon>
+                <span>Remover</span>
+              </button>
+              <button mat-menu-item class="item-menu">
+                <mat-icon color="primary">cancel</mat-icon>
+                <span>Cancela</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- *ngIf comercial -->
+    <div *ngIf="lancamento.dormitorios === undefined" class="collection-item painel">
+      <img class="imagem"
+           src="{{lancamento.fotoPrincipal.url || null}}"
+           alt="">
+      <div class="descricao">
+        <div class="descricao-conteudo">
+          <li class="anuncio">
+            {{lancamento.anuncio || null}}
+          </li>
+          <li>
+            <span class="varejo" *ngIf="lancamento.tipo === 'Varejo/Loja'">{{ lancamento.tipo  || null}}</span>
+            <span class="andar-corrido" *ngIf="lancamento.tipo === 'Andar Corrido'">{{ lancamento.tipo  || null}}</span>
+            <span class="sala-comercial"
+                  *ngIf="lancamento.tipo === 'Sala Comercial'">{{ lancamento.tipo  || null}}</span>
+            <span class="galpao" *ngIf="lancamento.tipo === 'Galpão/Depósito'">{{ lancamento.tipo  || null}}</span>
+            <span class="terreno" *ngIf="lancamento.tipo === 'Terreno'">{{ lancamento.tipo  || null}}</span>
+          </li>
+          <li class="localizacao">
+            <span>{{lancamento.cidade || null}} - {{lancamento.bairro || null}}</span>
+          </li>
+          <li class="preco">
+            {{lancamento.valor | currency: 'BRL'}} - <span *ngIf="lancamento.finalidade === 'Venda'" class="venda">{{lancamento.finalidade || null}}</span><span
+            *ngIf="lancamento.finalidade === 'Locação'" class="locacao">{{lancamento.finalidade || null}}</span>
+          </li>
+        </div>
+        <div class="descricao-icons">
+          <div class="descricao-icon">
+            <span class="secondary-content add-photo-icon"><i (click)="openModalAddFotos(lancamento)"
+                                                              class="material-icons">add_a_photo</i></span>
+          </div>
+          <div class="descricao-icon">
+            <span class="secondary-content edit-icon"><i [matMenuTriggerFor]="editMenu"
+                                                         class="material-icons">mode_edit</i></span>
+            <mat-menu #editMenu="matMenu">
+              <button (click)="openModalDados(lancamento)" mat-menu-item class="item-menu">
+                <mat-icon color="primary">home</mat-icon>
+                <span>Dados do imóvel</span>
+              </button>
+              <button (click)="openModalFotos(lancamento)" mat-menu-item class="item-menu">
+                <mat-icon color="accent">photo_camera</mat-icon>
+                <span>Fotos</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="descricao-icon">
+            <span class="secondary-content delete-icon"><i [matMenuTriggerFor]="deleteMenu" class="material-icons">delete_forever</i></span>
+            <mat-menu #deleteMenu="matMenu">
+              <button (click)="delete(lancamento)" mat-menu-item class="item-menu">
+                <mat-icon color="warn">remove_circle</mat-icon>
+                <span>Remover</span>
+              </button>
+              <button mat-menu-item class="item-menu">
+                <mat-icon color="primary">cancel</mat-icon>
+                <span>Cancela</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <app-paginator
+    (pageEvent)="onPageChanges($event)"
+    [length]="paginator.length">
+  </app-paginator>
+
+</div>

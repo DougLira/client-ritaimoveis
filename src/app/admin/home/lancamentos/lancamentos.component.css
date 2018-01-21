@@ -1,4 +1,5 @@
 @import "~materialize-css/dist/css/materialize.css";
+
 .content {
   width: 87%;
   padding: 15px;
@@ -56,17 +57,32 @@
   font-weight: bolder;
 }
 
-.locacao{
+.varejo {
   font-size: 14px;
-  color: #c62828;
+  color: #FBB13C;
 }
 
-.venda{
+.sala-comercial {
   font-size: 14px;
-  color: #5e35b1;
+  color: #A5044D;
 }
 
-.localizacao{
+.andar-corrido {
+  font-size: 14px;
+  color: #179f1a;
+}
+
+.galpao {
+  font-size: 14px;
+  color: #923b16;
+}
+
+.terreno {
+  font-size: 14px;
+  color: rgba(0, 0, 0, .74);
+}
+
+.localizacao {
   font-size: 12px;
   color: #00695c;
 }
@@ -86,21 +102,73 @@
   margin-left: 15px;
 }
 
-.add-photo-icon{
+.locacao{
+  font-size: 14px;
+  color: #c62828;
+}
+
+.venda{
+  font-size: 14px;
+  color: #5e35b1;
+}
+
+.anuncio {
+  color: #00695c;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.varejo {
+  font-size: 14px;
+  color: #FBB13C;
+}
+
+.sala-comercial {
+  font-size: 14px;
+  color: #A5044D;
+}
+
+.andar-corrido {
+  font-size: 14px;
+  color: #179f1a;
+}
+
+.galpao {
+  font-size: 14px;
+  color: #923b16;
+}
+
+.terreno {
+  font-size: 14px;
+  color: rgba(0, 0, 0, .74);
+}
+
+.localizacao {
+  font-size: 12px;
+  color: #00695c;
+}
+
+.preco {
+  font-size: 12.5px;
+  color: #7bb523;
+}
+
+.add-photo-icon {
   color: #49c6a9;
   cursor: pointer;
 }
 
-.edit-icon{
-color: #5e35b1;
-cursor: pointer;
+.edit-icon {
+  color: #5e35b1;
+  cursor: pointer;
 }
 
-.delete-icon{
+.delete-icon {
   color: #c62828;
   cursor: pointer;
 }
-.item-menu{
+
+.item-menu {
   font-size: 12px;
   font-weight: bolder;
 }

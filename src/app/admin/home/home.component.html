@@ -22,11 +22,13 @@
                opened="true">
     <mat-nav-list>
       <a class="sidenav-links" mat-list-item [routerLink]="['/']"><mat-icon class="exit-icon">public</mat-icon>WebSite</a>
+      <hr>
       <a class="sidenav-links" mat-list-item [routerLink]="['/admin/home']"><mat-icon class="exit-icon">home</mat-icon>Residencial</a>
       <a class="sidenav-links" mat-list-item [routerLink]="['comercial']"><mat-icon class="exit-icon">business</mat-icon>Comercial</a>
       <a class="sidenav-links" mat-list-item [routerLink]="['lancamentos']"><mat-icon class="exit-icon">new_releases</mat-icon>Lançamentos</a>
-      <a class="sidenav-links" mat-list-item [routerLink]="['posts']"><mat-icon class="exit-icon">view_list</mat-icon>Postagens</a>
+      <!--<a class="sidenav-links" mat-list-item [routerLink]="['posts']"><mat-icon class="exit-icon">view_list</mat-icon>Postagens</a>-->
       <a class="sidenav-links" mat-list-item [routerLink]="['cadastro']"><mat-icon class="exit-icon">add_box</mat-icon>Cadastro</a>
+      <hr>
       <a class="sidenav-links" mat-list-item (click)="logout()"><mat-icon class="exit-icon">exit_to_app</mat-icon>Logout</a>
     </mat-nav-list>
   </mat-sidenav>

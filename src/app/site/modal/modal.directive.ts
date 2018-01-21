@@ -1,7 +1,7 @@
 import {Directive, OnInit} from '@angular/core';
 
 @Directive({
-  selector: '[modal]'
+  selector: '[modalResidencial]'
 })
 export class ModalDirective implements OnInit{
 

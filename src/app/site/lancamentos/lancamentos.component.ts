@@ -21,15 +21,13 @@ export class LancamentosComponent implements OnInit {
 
   ngOnInit() {
 
-    // console.log(Object.keys(this.person).length); maior que 12
-
     this.formLancamentos = this.formBuilder.group({
       tipo: [null]
     });
     this.imovelService.getAllLancamentos(1)
       .subscribe(data => {
 
-        console.log(data);
+        // console.log(data);
         this.lancamentos = data.content;
         this.lancamentosCount = data.collectionSize;
       });
@@ -37,7 +35,13 @@ export class LancamentosComponent implements OnInit {
 
   onFilter() {
 
-    console.log(this.formLancamentos.value);
+    this.imovelService.filterLancamentos(this.formLancamentos.value.tipo)
+      .subscribe(data => {
+
+        console.log(data);
+        this.lancamentos = data.content;
+        this.lancamentosCount = data.collectionSize;
+      });
   }
 
   openModalResidencial() {

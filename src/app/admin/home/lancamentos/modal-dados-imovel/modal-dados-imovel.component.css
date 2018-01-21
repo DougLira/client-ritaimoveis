@@ -1,0 +1,81 @@
+.modal-header > * {
+  font-size: 20px;
+}
+
+.modal-title {
+  color: #00695c;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.botao-cancelar,
+.botao-salvar {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.botao-cancelar {
+  background-color: #F44336;
+}
+
+.botao-cancelar:hover {
+  background-color: rgba(244, 67, 54, .7);
+}
+
+.botao-salvar {
+  background-color: #00695c;
+}
+
+mat-form-field,
+mat-checkbox,
+mat-radio-button,
+textarea {
+  width: 100%;
+  font-size: 14px;
+}
+
+mat-form-field {
+  padding: 8px;
+}
+
+.input-caracteristicas {
+  text-align: left;
+}
+
+input.input-valor::-webkit-outer-spin-button,
+input.input-valor::-webkit-inner-spin-button,
+.input-caracteristicas::-webkit-outer-spin-button,
+.input-caracteristicas::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.input-valor,
+input.input-caracteristicas {
+  -moz-appearance: textfield;
+}
+
+mat-radio-group, .div-radio {
+  display: inline-flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+mat-radio-button {
+  margin: 5px;
+}
+
+.div-check {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+mat-checkbox {
+  margin: 5px 5px 5px 15px;
+}

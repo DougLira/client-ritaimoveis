@@ -1,0 +1,59 @@
+<ng-template #modal_fotos let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <mat-icon>mode_edit</mat-icon>
+      Lançamentos
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="alert alert-success" *ngIf="mensagem">{{mensagem}}</div>
+    <p style="margin-left: 30px">Alterar foto de capa:</p>
+    <div class="uploader">
+      <p-fileUpload
+        name="fotoPrincipal"
+        [customUpload]="true"
+        (uploadHandler)="uploadPrincipal($event)"
+        (onClear)="clear()"
+        (onRemove)="clear()"
+        accept="image/*"
+        chooseLabel="Escolher"
+        cancelLabel="Cancelar"
+        uploadLabel="Carregar">
+      </p-fileUpload>
+    </div>
+
+    <p style="margin-left: 30px">Selecione para excluir as fotos:</p>
+    <mat-selection-list #fotos (selectionChange)="selected(fotos)">
+      <mat-list-option *ngFor="let foto of fotosSecundarias" value="{{foto.url}}">
+        <img
+          (mouseenter)="hover(foto.url)"
+          matListAvatar
+          src="{{foto.url}}"
+          alt="...">
+      </mat-list-option>
+    </mat-selection-list>
+
+  </div>
+  <div class="modal-footer">
+    <button mat-button class="waves-effect waves-light btn botao-cancelar" (click)="c('Close click')">
+      <mat-icon class="left">cancel</mat-icon>
+      Cancelar
+    </button>
+    <button mat-button class="waves-effect waves-light btn botao-salvar"
+            (click)="c('Close click'); salvar()">
+      <mat-icon class="left">archive</mat-icon>
+      Salvar
+    </button>
+  </div>
+
+</ng-template>
+
+<ng-template #modal_hover let-c="close" let-d="dismiss">
+  <div class="modal-body">
+    <img class="img-hover" src="{{url}}" alt="">
+  </div>
+</ng-template>

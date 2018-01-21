@@ -5,6 +5,10 @@
 
 <div class="content">
 
+  <ul>
+    <li class="title">Comercial</li>
+  </ul>
+  <hr>
   <p-messages [(value)]="msg"></p-messages>
 
   <div class="row">
@@ -25,11 +29,11 @@
             {{imovel.anuncio}}
           </li>
           <li>
-            <span class="varejo" *ngIf="imovel.tipo === 'varejo'">Loja/Varejo</span>
-            <span class="andar-corrido" *ngIf="imovel.tipo === 'andar_corrido'">Andar corrido</span>
-            <span class="sala-comercial" *ngIf="imovel.tipo === 'sala_comercial'">Sala comercial</span>
-            <span class="galpao" *ngIf="imovel.tipo === 'galpao'">Galpão</span>
-            <span class="terreno" *ngIf="imovel.tipo === 'terreno'">Terreno</span>
+            <span class="varejo" *ngIf="imovel.tipo === 'Varejo/Loja'">{{ imovel.tipo }}</span>
+            <span class="andar-corrido" *ngIf="imovel.tipo === 'Andar Corrido'">{{ imovel.tipo }}</span>
+            <span class="sala-comercial" *ngIf="imovel.tipo === 'Sala Comercial'">{{ imovel.tipo }}</span>
+            <span class="galpao" *ngIf="imovel.tipo === 'Galpão/Depósito'">{{ imovel.tipo }}</span>
+            <span class="terreno" *ngIf="imovel.tipo === 'Terreno'">{{ imovel.tipo }}</span>
           </li>
           <li class="localizacao">
             <span>{{imovel.cidade}} - {{imovel.bairro}}</span>
