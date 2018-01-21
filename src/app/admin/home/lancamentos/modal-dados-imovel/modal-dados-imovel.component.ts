@@ -32,7 +32,6 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
     this.openSubscription = this.open.subscribe((imovel: Imovel) => {
 
-      console.log(imovel);
       if (imovel.dormitorios === undefined) {
 
         this.imovel = imovel;

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ImovelService} from '../../shared/services/imovel.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class LancamentosComponent implements OnInit, OnDestroy {
 
+  @ViewChild('modal') modal;
   formLancamentos: FormGroup;
   lancamentos = [];
   lancamentosCount: number;
@@ -52,9 +53,14 @@ export class LancamentosComponent implements OnInit, OnDestroy {
       });
   }
 
-  openModalResidencial() {
+  clearFilter() {
+    
+    this.ngOnInit();
   }
 
-  openModalComercial() {
+  openModal(lancamento) {
+
+    this.modal.open.next(lancamento);
   }
+
 }

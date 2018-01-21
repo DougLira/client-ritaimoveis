@@ -18,6 +18,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import {ResidencialGuard} from './guards/residencial.guard';
 import { LancamentosComponent } from './lancamentos/lancamentos.component';
 import {LancamentoGuard} from './guards/lancamento.guard';
+import { ModalDadosComponent } from './lancamentos/modal-dados/modal-dados.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {LancamentoGuard} from './guards/lancamento.guard';
     HeaderComponent,
     IndexComponent,
     PaginationComponent,
-    LancamentosComponent
+    LancamentosComponent,
+    ModalDadosComponent
   ],
   exports: [
     SiteComponent

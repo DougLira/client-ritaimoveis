@@ -1,3 +1,5 @@
+<app-modal-dados #modal></app-modal-dados>
+
 <div class="content">
 
 
@@ -7,6 +9,7 @@
       <mat-radio-button class="right-margin" [value]="{residencial: true}">Residencial</mat-radio-button>
       <mat-radio-button [value]="{comercial: true}">Comercial</mat-radio-button>
     </mat-radio-group>
+    <span class="filter-clear" (click)="clearFilter()">- Limpar filtros</span>
   </form>
 
 
@@ -48,7 +51,7 @@
               </div>
             </div>
             <div class="card-action">
-              <button mat-button (click)="openModalResidencial()">VER MAIS</button>
+              <button mat-button (click)="openModal(lancamento)">VER MAIS</button>
             </div>
 
           </div>
@@ -82,7 +85,7 @@
 
               </div>
               <div class="card-action">
-                <button mat-button (click)="openModalComercial()">VER MAIS</button>
+                <button mat-button (click)="openModal(lancamento)">VER MAIS</button>
               </div>
             </div>
           </div>
