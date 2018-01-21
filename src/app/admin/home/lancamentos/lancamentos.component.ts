@@ -58,6 +58,10 @@ export class LancamentosComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.subscriptionLancamentos) this.subscriptionLancamentos.unsubscribe();
     if (this.subscriptionDelete) this.subscriptionDelete.unsubscribe();
+    if (this.subscriptionUpdateDados) this.subscriptionUpdateDados.unsubscribe();
+    if (this.subscriptionPages) this.subscriptionPages.unsubscribe();
+    if (this.subscriptionUpdateFotos) this.subscriptionUpdateFotos.unsubscribe();
+    if (this.subscriptionUpdateAddFotos) this.subscriptionUpdateAddFotos.unsubscribe();
   }
 
   obterImoveis() {

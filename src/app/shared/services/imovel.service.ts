@@ -68,7 +68,6 @@ export class ImovelService {
 
   filterLancamentos(filter): Observable<any> {
 
-    console.log(filter);
     return this.http.get(`${this.uri}/imoveis/lancamentos/filter`, {
       params: new HttpParams()
         .set('comercial', filter.comercial || false)

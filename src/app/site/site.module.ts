@@ -15,8 +15,9 @@ import { HeaderComponent } from './header/header.component';
 import {PainelModule} from './painel/painel.module';
 import { IndexComponent } from './index/index.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import {ImoveisGuard} from './guards/imoveis.guard';
+import {ResidencialGuard} from './guards/residencial.guard';
 import { LancamentosComponent } from './lancamentos/lancamentos.component';
+import {LancamentoGuard} from './guards/lancamento.guard';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { LancamentosComponent } from './lancamentos/lancamentos.component';
     SiteComponent
   ],
   providers:[
-    ImoveisGuard
+    ResidencialGuard,
+    LancamentoGuard
   ]
 })
 export class SiteModule { }
