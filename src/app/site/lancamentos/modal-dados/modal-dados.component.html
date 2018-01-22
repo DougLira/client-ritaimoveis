@@ -1,12 +1,63 @@
 <ng-template #modal_dados let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title title">{{ imovel.tipo || null }}: {{ imovel.anuncio || null }}</h4>
     <button type="button" class="close cursor-pointer" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>One fine body&hellip;</p>
+
+    <div class="carrossel">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img height="400" width="400" class="d-block w-100" [src]="imovel.fotoPrincipal.url" alt="">
+          </div>
+          <div *ngFor="let foto of imovel.fotos" class="carousel-item">
+            <img height="400" width="400" class="d-block w-100" [src]="foto.url" alt="First slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Próxima</span>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="imovel.dormitorios !== undefined" class="dados-residencial">
+
+      <div class="div-tabela">
+        <table class="table table-hover">
+          <tbody>
+          <tr>
+            <th><mat-icon>hotel</mat-icon></th>
+            <td>Dormitórios - {{ imovel.dormitorios }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="div-tabela">
+        <table class="table table-hover">
+          <tbody>
+          <tr>
+            <th><mat-icon>hotel</mat-icon></th>
+            <td>Dormitórios - {{ imovel.dormitorios }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div *ngIf="imovel.dormitorios === undefined" class="dados-comercial">
+
+    </div>
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark cursor-pointer" (click)="c('Close click')">Close</button>

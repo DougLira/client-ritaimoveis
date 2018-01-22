@@ -31,7 +31,6 @@ export class LancamentosComponent implements OnInit, OnDestroy {
     this.subscriptionResolverLancamentos = this.route.data
       .subscribe(data => {
 
-        console.log(data);
         this.lancamentos = data.response.content;
         this.lancamentosCount = data.response.collectionSize;
       }, err => console.log(err));
@@ -54,7 +53,7 @@ export class LancamentosComponent implements OnInit, OnDestroy {
   }
 
   clearFilter() {
-    
+
     this.ngOnInit();
   }
 
