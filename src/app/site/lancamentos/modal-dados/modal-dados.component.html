@@ -1,6 +1,6 @@
 <ng-template #modal_dados let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title title">{{ imovel.tipo || null }}: {{ imovel.anuncio || null }}</h4>
+    <h4 class="modal-title title">{{ imovel.tipo || null }} - {{ imovel.anuncio || null }}</h4>
     <button type="button" class="close cursor-pointer" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -28,25 +28,126 @@
       </div>
     </div>
 
-    <div *ngIf="imovel.dormitorios !== undefined" class="dados-residencial">
+    <div *ngIf="imovel.dormitorios !== undefined">
 
-      <div class="div-tabela">
+      <div class="table-responsive">
         <table class="table table-hover">
           <tbody>
           <tr>
-            <th><mat-icon>hotel</mat-icon></th>
-            <td>Dormitórios - {{ imovel.dormitorios }}</td>
+            <td class="td-principal">
+              <div>
+                <img class="icon" src="../../../../modal-icons/cidade.png" alt="cidade"><span>{{ imovel.cidade }} - {{ imovel.bairro }}</span>
+              </div>
+              <div>
+                <img class="icon" src="../../../../modal-icons/endereco.png" alt="endereço"><span>{{ imovel.endereco }}</span>
+              </div>
+            </td>
           </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="div-tabela">
+      <div class="table-responsive">
         <table class="table table-hover">
           <tbody>
           <tr>
-            <th><mat-icon>hotel</mat-icon></th>
-            <td>Dormitórios - {{ imovel.dormitorios }}</td>
+            <td class="td-principal">
+              <div>
+                <img class="icon" src="../../../../modal-icons/valor.png" alt="valor"><span style="font-weight: bolder;">{{ imovel.valor | currency: 'BRL' }}</span>
+              </div>
+              <div>
+                <img class="icon" src="../../../../modal-icons/area.png" alt="area construida"><span>Á. Contruída - {{ imovel.area_construida }}m²</span>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tbody>
+          <tr>
+            <td class="td-principal">
+              <div>
+                <img class="icon" src="../../../../modal-icons/finalidade.png" alt="finalidade"><span>{{ imovel.finalidade }}</span>
+              </div>
+              <div>
+                <img class="icon" src="../../../../modal-icons/area.png" alt="area util"><span>Á. Útil - {{ imovel.area_util }}m²</span>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="dados-residencial">
+
+        <div class="div-tabela table-responsive">
+          <table class="table table-hover">
+            <tbody>
+            <tr>
+              <td>
+                <img class="icon" src="../../../../modal-icons/dormitorios.png" alt="dormitorios"><span>{{ imovel.dormitorios | number: '2.0-0' }} - Dormitórios</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img class="icon" src="../../../../modal-icons/banheiros.png" alt="dormitorios"><span>{{ imovel.banheiros | number: '2.0-0' }} - Banheiros</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img class="icon" src="../../../../modal-icons/vagas.png" alt="vagas"><span>{{ imovel.vagas | number: '2.0-0' }} - Vagas</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img class="icon" src="../../../../modal-icons/sala_estar.png" alt="sala de estar"><span>{{ imovel.sala_estar | number: '2.0-0' }} - Sala de estar</span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="div-tabela table-responsive">
+          <table class="table table-hover">
+            <tbody>
+            <tr>
+              <td>
+                <img class="icon" src="../../../../modal-icons/sala_jantar.png" alt="sala de jantar"><span>{{ imovel.sala_jantar | number: '2.0-0' }} - Sala de jantar</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img class="icon" src="../../../../modal-icons/banheiros.png" alt="suites"><span>{{ imovel.suites | number: '2.0-0' }} - Suítes</span>
+              </td>
+            </tr>
+            <tr *ngIf="imovel.piscina">
+              <td>
+                <img class="icon" src="../../../../modal-icons/piscina.png" alt="piscina"><span>{{ imovel.piscina? 'Piscina' : '' }}</span>
+              </td>
+            </tr>
+            <tr *ngIf="imovel.churrasqueira">
+              <td>
+                <img class="icon" src="../../../../modal-icons/churrasqueiras.png" alt="churrasqueira"><span>{{ imovel.churrasqueira? 'Churrasqueira' : ''}}</span>
+              </td>
+            </tr>
+            <tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tbody>
+          <tr>
+            <td class="td-principal">
+              <div>
+                <img class="icon" src="../../../../modal-icons/descricao.png" alt="descrição"><span>Descrição: {{ imovel.descricao }}</span>
+              </div>
+            </td>
           </tr>
           </tbody>
         </table>
