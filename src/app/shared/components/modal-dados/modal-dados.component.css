@@ -36,3 +36,16 @@ td div {
   display: flex;
   justify-content: space-between;
 }
+
+span {
+  font-size: .925em;
+  color: rgba(0, 0, 0, .65);
+}
+
+.align__right {
+  justify-content: flex-end;
+}
+
+h6 {
+  font-size: 19px;
+}

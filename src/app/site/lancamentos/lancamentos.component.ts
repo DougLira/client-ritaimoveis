@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ImovelService} from '../../shared/services/imovel.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -11,12 +11,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class LancamentosComponent implements OnInit, OnDestroy {
 
-  @ViewChild('modal') modal;
   formLancamentos: FormGroup;
   lancamentos = [];
-  lancamentosCount: number;
   subscriptionResolverLancamentos: Subscription;
   subscriptionFilter: Subscription;
+  subscriptionPages: Subscription;
+  paginator = {
+    length: 1
+  };
 
   constructor(private formBuilder: FormBuilder,
               private imovelService: ImovelService,
@@ -32,7 +34,7 @@ export class LancamentosComponent implements OnInit, OnDestroy {
       .subscribe(data => {
 
         this.lancamentos = data.response.content;
-        this.lancamentosCount = data.response.collectionSize;
+        this.paginator.length = data.response.collectionSize;
       }, err => console.log(err));
   }
 
@@ -42,13 +44,29 @@ export class LancamentosComponent implements OnInit, OnDestroy {
     if (this.subscriptionFilter) this.subscriptionFilter.unsubscribe();
   }
 
+  onPageChanges(event) {
+
+    const page: string = event.pageIndex + 1;
+    this.subscriptionPages = this.imovelService.getAllResidencial(page)
+      .subscribe(res => {
+
+        if (res.status == 200) {
+
+          this.lancamentos = res.body.content;
+          this.paginator.length = res.body.collectionSize;
+        } else {
+
+        }
+      });
+  }
+
   onFilter() {
 
     this.subscriptionFilter = this.imovelService.filterLancamentos(this.formLancamentos.value.tipo)
       .subscribe(data => {
 
         this.lancamentos = data.content;
-        this.lancamentosCount = data.collectionSize;
+        this.paginator.length = data.collectionSize;
       });
   }
 
@@ -59,7 +77,7 @@ export class LancamentosComponent implements OnInit, OnDestroy {
 
   openModal(lancamento) {
 
-    this.modal.open.next(lancamento);
+    this.imovelService.openModal.next(lancamento);
   }
 
 }

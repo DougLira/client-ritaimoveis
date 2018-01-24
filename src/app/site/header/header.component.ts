@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleNavbar() {
-    let cabecalho = document.getElementById('cabecalho');
+    const cabecalho = document.getElementById('cabecalho');
     if (cabecalho.className === 'cabecalho') {
       cabecalho.className += ' responsive';
     } else {
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   linkClick() {
-    let cabecalho = document.getElementById('cabecalho');
+    const cabecalho = document.getElementById('cabecalho');
     if (cabecalho.className === 'cabecalho responsive') {
       cabecalho.className = 'cabecalho';
     }

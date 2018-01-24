@@ -8,17 +8,16 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { SiteRoutingModule } from './site-routing.module';
 import { SiteComponent } from './site.component';
-import { ModalComponent } from './modal/modal.component';
-import { ModalDirective } from './modal/modal.directive';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { HeaderComponent } from './header/header.component';
 import {PainelModule} from './painel/painel.module';
 import { IndexComponent } from './index/index.component';
-import { PaginationComponent } from './pagination/pagination.component';
 import {ResidencialGuard} from './guards/residencial.guard';
 import { LancamentosComponent } from './lancamentos/lancamentos.component';
 import {LancamentoGuard} from './guards/lancamento.guard';
-import { ModalDadosComponent } from './lancamentos/modal-dados/modal-dados.component';
+import {ModalDadosModule} from '../shared/components/modal-dados/modal-dados.module';
+import {PaginatorModule} from '../shared/components/paginator/paginator.module';
+import { ComercialComponent } from './comercial/comercial.component';
 
 
 @NgModule({
@@ -31,18 +30,17 @@ import { ModalDadosComponent } from './lancamentos/modal-dados/modal-dados.compo
     NgbModule.forRoot(),
     HttpClientModule,
     CommonModule,
-    PainelModule
+    PainelModule,
+    ModalDadosModule,
+    PaginatorModule
   ],
   declarations: [
     SiteComponent,
-    ModalComponent,
-    ModalDirective,
     CatalogoComponent,
     HeaderComponent,
     IndexComponent,
-    PaginationComponent,
     LancamentosComponent,
-    ModalDadosComponent
+    ComercialComponent
   ],
   exports: [
     SiteComponent

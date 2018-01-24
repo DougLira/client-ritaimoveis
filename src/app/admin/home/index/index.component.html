@@ -30,8 +30,12 @@
             {{imovel.anuncio}}
           </li>
           <li>
-            <span class="locacao" *ngIf="imovel.finalidade === 'locacao'">Locação</span>
-            <span class="venda" *ngIf="imovel.finalidade === 'venda'">Venda</span>
+            <span [ngClass]="{
+                'locacao': imovel.finalidade === 'Locação',
+                'venda': imovel.finalidade === 'Venda'
+            }">
+              {{ imovel.finalidade }}
+            </span>
           </li>
           <li class="localizacao">
             <span>{{imovel.cidade}} - {{imovel.bairro}}</span>

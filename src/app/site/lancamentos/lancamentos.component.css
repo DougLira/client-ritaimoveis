@@ -28,9 +28,6 @@ form.filtro {
   font-weight: bolder;
 }
 
-.filter-clear:hover {
-  text-decoration: underline;
-}
 
 .right-margin {
   margin-right: 10px;
@@ -172,3 +169,10 @@ form.filtro {
   font-size: .850em;
 }
 
+.paginacao {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}

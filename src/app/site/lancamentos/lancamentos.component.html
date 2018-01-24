@@ -1,4 +1,4 @@
-<app-modal-dados #modal></app-modal-dados>
+<app-modal-dados></app-modal-dados>
 
 <div class="content">
 
@@ -28,25 +28,27 @@
 
           <div class="card-content">
 
-            <h5 class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null }} -</h5>
+            <h5 class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null
+              }} -</h5>
             <div class="card-details">
 
-              <p class="detail">{{ (lancamento.valor | currency:'BRL')  || null }} - {{ (lancamento.finalidade | titlecase) || null  }}</p>
+              <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ (lancamento.finalidade |
+                titlecase) || null }}</p>
 
-              <p class="detail">{{ lancamento.cidade || null  }} - {{ lancamento.bairro || null  }}</p>
+              <p class="detail">{{ lancamento.cidade || null }} - {{ lancamento.bairro || null }}</p>
 
               <div class="detail-icons">
                 <div class="detail-icon-quantity">
                   <img class="icon" src="../../../bedrooms.png" alt="quartos">
-                  <div>{{ lancamento.dormitorios || null  }}</div>
+                  <div>{{ lancamento.dormitorios || null }}</div>
                 </div>
                 <div class="detail-icon-quantity">
                   <img class="icon" src="../../../bathrooms.png" alt="banheiros">
-                  <div>{{ lancamento.banheiros || null  }}</div>
+                  <div>{{ lancamento.banheiros || null }}</div>
                 </div>
                 <div class="detail-icon-quantity">
                   <img class="icon" src="../../../garages.png" alt="vagas">
-                  <div>{{ lancamento.vagas || null  }}</div>
+                  <div>{{ lancamento.vagas || null }}</div>
                 </div>
               </div>
             </div>
@@ -72,7 +74,8 @@
 
               <div class="card-details">
 
-                <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ lancamento.finalidade || null }}</p>
+                <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ lancamento.finalidade || null
+                  }}</p>
 
                 <p class="detail">{{ lancamento.cidade || null }} - {{ lancamento.bairro || null }}</p>
 
@@ -93,10 +96,13 @@
 
       </div>
 
-      <!--<app-paginator
+    </div>
+
+    <div class="paginacao">
+      <app-paginator
         (pageEvent)="onPageChanges($event)"
         [length]="paginator.length">
-      </app-paginator>-->
+      </app-paginator>
     </div>
 
   </div>

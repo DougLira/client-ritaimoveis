@@ -9,7 +9,7 @@ import {MatPaginatorIntl, PageEvent} from '@angular/material';
 export class PaginatorComponent extends MatPaginatorIntl implements OnInit {
 
   itemsPerPageLabel = 'Itens por página:';
-  nextPageLabel     = 'Próxima';
+  nextPageLabel = 'Próxima';
   previousPageLabel = 'Anterior';
 
   @Input() length;
@@ -17,7 +17,7 @@ export class PaginatorComponent extends MatPaginatorIntl implements OnInit {
   @Output() pageEvent = new EventEmitter<PageEvent>();
 
   constructor() {
-    super()
+    super();
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class PaginatorComponent extends MatPaginatorIntl implements OnInit {
     return startIndex + 1 + ' - ' + endIndex + ' de ' + length;
   };
 
-  onPageChanges(event){
+  onPageChanges(event) {
 
     this.pageEvent.emit(event);
   }

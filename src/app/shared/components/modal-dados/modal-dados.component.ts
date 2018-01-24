@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
-import {Imovel} from '../../../shared/models/imovel';
+import {Imovel} from '../../models/imovel';
+import {ImovelService} from '../../services/imovel.service';
 
 @Component({
   selector: 'app-modal-dados',
@@ -12,16 +13,16 @@ import {Imovel} from '../../../shared/models/imovel';
 export class ModalDadosComponent implements OnInit, OnDestroy {
 
   @ViewChild('modal_dados') modalDados;
-  open = new Subject();
   openSubscription: Subscription;
   imovel: Imovel;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal,
+              private imovelService: ImovelService) {
   }
 
   ngOnInit() {
 
-    this.openSubscription = this.open.subscribe((imovel: Imovel) => {
+    this.openSubscription = this.imovelService.openModal.subscribe((imovel: Imovel) => {
 
       this.imovel = imovel;
       this.modalService.open(this.modalDados, {size: 'lg'});

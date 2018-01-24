@@ -9,7 +9,8 @@ import {environment} from '../../../environments/environment';
 @Injectable()
 export class ImovelService {
 
-  imovelModal = new Subject();
+  // imovelModal = new Subject();
+  openModal = new Subject();
   uri: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {

@@ -14,6 +14,6 @@ export class ResidencialGuard implements Resolve<Imovel> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | any {
 
-    return this.imovelService.getAllResidencial(route.params['page']);
+    return this.imovelService.getAllResidencial(1);
   }
 }

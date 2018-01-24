@@ -86,7 +86,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   onPageChanges(event) {
 
-    let page: string = event.pageIndex + 1;
+    const page: string = event.pageIndex + 1;
     this.subscriptionPages = this.homeService.getAllResidencial(page)
       .subscribe(res => {
 

@@ -11,6 +11,7 @@ export class PainelComponent implements OnInit {
 
   @Input() imovel: Imovel;
 
+
   constructor(private imovelService: ImovelService) {
   }
 
@@ -20,8 +21,9 @@ export class PainelComponent implements OnInit {
 
   showModal() {
 
-    this.imovelService.imovelModal.next(this.imovel);
-    document.getElementById('simpleModal').style.display = 'block';
+    this.imovelService.openModal.next(this.imovel);
+    // this.imovelService.imovelModal.next(this.imovel);
+    // document.getElementById('simpleModal').style.display = 'block';
   }
 
 }
