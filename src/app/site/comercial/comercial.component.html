@@ -1,3 +1,137 @@
-<p>
-  comercial works!
-</p>
+<app-modal-dados></app-modal-dados>
+
+<div class="bg-image">
+</div>
+
+<div class="div-filtro">
+  <div class="div-filtro-content">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Filtrar
+          </mat-panel-title>
+          <mat-panel-description>
+            Filtre sua busca aqui...
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="filterComercial"
+              ngSubmit="onFilter()">
+
+          <mat-form-field class="form-select-tipo">
+            <mat-select formControlName="tipo">
+              <mat-option value="Casa">Casa</mat-option>
+              <mat-option value="Apartamento">Apartamento</mat-option>
+              <mat-option value="Terreno">Terreno</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="form-select-tipo">
+            <mat-select formControlName="finalidade">
+              <mat-option value="Venda">Venda</mat-option>
+              <mat-option value="Locação">Locação</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="valores-filtro">
+            <input formControlName="minimo" matInput placeholder="Valor mínimo" type="number">
+            <span matPrefix>R$&nbsp;</span>
+          </mat-form-field>
+
+          <mat-form-field class="valores-filtro">
+            <input formControlName="maximo" matInput placeholder="Valor máximo" type="number">
+            <span matPrefix>R$&nbsp;</span>
+          </mat-form-field>
+
+          <span class="filter-clear" (click)="search()">Limpar filtros</span>
+          <hr>
+          <div class="button-row">
+            <button (click)="onFilter()" mat-raised-button>Buscar</button>
+          </div>
+
+        </form>
+        <hr>
+
+        <mat-form-field class="form-input-busca">
+          <input #buscaAnuncio matInput placeholder="Procurar imóvel...">
+        </mat-form-field>
+        <div class="button-row">
+          <button (click)="search(buscaAnuncio.value)" mat-raised-button>Buscar</button>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+<div class="conteudo">
+
+  <div class="div-conteudo-paineis">
+    <section class="paineis">
+      <app-painel *ngFor="let imovel of imoveis" [imovel]="imovel"></app-painel>
+    </section>
+  </div>
+
+</div>
+<div class="paginacao">
+  <app-paginator
+    (pageEvent)="onPageChanges($event)"
+    [length]="paginator.length">
+  </app-paginator>
+</div>
+
+
+<!--<div class="filtros">
+  <div class="button-row">
+    <button id="btn-collapse-filter" mat-raised-button (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      Filtrar
+    </button>
+  </div>
+
+  <div id="collapseExample" [ngbCollapse]="!isCollapsed">
+    <div class="example-container">
+      <form [formGroup]="filterComercial"
+            ngSubmit="onFilter()">
+
+        <mat-form-field class="form-select-tipo">
+          <mat-select formControlName="tipo">
+            <mat-option value="casa">Casa</mat-option>
+            <mat-option value="apartamento">Apartamento</mat-option>
+            <mat-option value="terreno">Terreno</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-select-tipo">
+          <mat-select formControlName="finalidade">
+            <mat-option value="venda">Venda</mat-option>
+            <mat-option value="locacao">Locação</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="valores-filtro">
+          <input formControlName="minimo" matInput placeholder="Valor mínimo" type="number">
+          <span matPrefix>R$&nbsp;</span>
+        </mat-form-field>
+
+        <mat-form-field class="valores-filtro">
+          <input formControlName="maximo" matInput placeholder="Valor máximo" type="number">
+          <span matPrefix>R$&nbsp;</span>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button (click)="onFilter()" mat-raised-button>Buscar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <mat-form-field class="form-input-busca">
+    <input #buscaAnuncio matInput placeholder="Procurar imóvel...">
+  </mat-form-field>
+  <div class="button-row">
+    <button (click)="search(buscaAnuncio.value)" mat-raised-button>Buscar</button>
+  </div>
+</div>-->

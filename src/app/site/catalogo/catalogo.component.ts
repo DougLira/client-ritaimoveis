@@ -34,8 +34,8 @@ export class CatalogoComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.filterResidencial = this.formBuilder.group({
-      tipo: ['casa'],
-      finalidade: ['venda'],
+      tipo: ['Casa'],
+      finalidade: ['Venda'],
       minimo: [''],
       maximo: [''],
     });

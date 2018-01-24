@@ -18,6 +18,7 @@ import {LancamentoGuard} from './guards/lancamento.guard';
 import {ModalDadosModule} from '../shared/components/modal-dados/modal-dados.module';
 import {PaginatorModule} from '../shared/components/paginator/paginator.module';
 import { ComercialComponent } from './comercial/comercial.component';
+import {ComercialGuard} from './guards/comercial.guard';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ComercialComponent } from './comercial/comercial.component';
   ],
   providers:[
     ResidencialGuard,
-    LancamentoGuard
+    LancamentoGuard,
+    ComercialGuard
   ]
 })
 export class SiteModule { }

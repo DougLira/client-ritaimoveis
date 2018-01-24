@@ -7,13 +7,14 @@ import {ResidencialGuard} from './guards/residencial.guard';
 import {LancamentosComponent} from './lancamentos/lancamentos.component';
 import {LancamentoGuard} from './guards/lancamento.guard';
 import {ComercialComponent} from './comercial/comercial.component';
+import {ComercialGuard} from './guards/comercial.guard';
 
 const siteRoutes: Routes = [
   {path: '', component: SiteComponent, children: [
       {path: '', component: IndexComponent},
       {path: 'catalogo', component: CatalogoComponent, resolve: {response: ResidencialGuard}},
       {path: 'lancamentos', component: LancamentosComponent, resolve: {response: LancamentoGuard}},
-      {path: 'comercial', component: ComercialComponent}
+      {path: 'comercial', component: ComercialComponent, resolve: {response: ComercialGuard}}
     ]
   }
 ];
