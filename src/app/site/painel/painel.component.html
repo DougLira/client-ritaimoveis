@@ -8,8 +8,8 @@
   <div class="div-detalhes">
     <div class="div-bairro">{{ imovel.bairro }}</div>
     <div class="div-cidade">{{ imovel.cidade }}</div>
-    <p>{{ imovel.valor | currency:'BRL' }} - <span *ngIf="imovel.finalidade === 'venda'" class="venda">Venda</span><span *ngIf="imovel.finalidade === 'locacao'" class="locacao">Locação</span></p>
-    <div class="icones">
+    <p>{{ imovel.valor | currency:'BRL' }} - <span ngClass="{'venda': imovel.finalidade === 'Venda', 'locacao': imovel.finalidade === 'Locação'}">{{ imovel.finalidade }}</span></p>
+    <div class="icones" *ngIf="imovel.dormitorios !== undefined">
       <div class="div-quartos">
         <img src="../../../bed.png" alt="quartos">
         <p>{{ imovel.dormitorios }}</p>
@@ -22,6 +22,9 @@
         <img src="../../../bathtub.png" alt="banheiros">
         <p>{{ imovel.banheiros }}</p>
       </div>
+    </div>
+    <div class="icones" *ngIf="imovel.dormitorios === undefined">
+
     </div>
     <button (click)="showModal()" class="button">VER MAIS</button>
   </div>
