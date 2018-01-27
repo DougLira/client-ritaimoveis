@@ -19,6 +19,7 @@ import {ModalDadosModule} from '../shared/components/modal-dados/modal-dados.mod
 import {PaginatorModule} from '../shared/components/paginator/paginator.module';
 import { ComercialComponent } from './comercial/comercial.component';
 import {ComercialGuard} from './guards/comercial.guard';
+import { SobreMimComponent } from './sobre-mim/sobre-mim.component';
 
 
 @NgModule({
@@ -37,11 +38,12 @@ import {ComercialGuard} from './guards/comercial.guard';
   ],
   declarations: [
     SiteComponent,
-    CatalogoComponent,
     HeaderComponent,
     IndexComponent,
+    CatalogoComponent,
     LancamentosComponent,
-    ComercialComponent
+    ComercialComponent,
+    SobreMimComponent
   ],
   exports: [
     SiteComponent

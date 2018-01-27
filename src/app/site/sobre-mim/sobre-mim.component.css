@@ -1,0 +1,83 @@
+.bg-image {
+  background-image: url("../../../negotiation.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: auto;
+  height: 100%;
+  position: relative;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, .7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content-sobre-mim {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, .4);
+}
+
+.photo {
+  width: 25%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 0px solid #000000;
+}
+
+.text {
+  width: 70%;
+  height: fit-content;
+  padding: 20px;
+}
+
+.title {
+  color: rgba(146, 59, 22, .9);
+  font-size: 50px;
+  font-style: italic;
+  /*font-weight: lighter;*/
+}
+
+.text p {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.15em;
+  line-height: 1.5em;
+  color: rgba(0, 0, 0, .7);
+  text-align: justify;
+}
+
+.text p:not(:first-child) {
+  margin-top: 8px;
+}
+
+blockquote {
+  background-color: rgba(146, 59, 22, .1);
+  padding: 5px;
+  width: fit-content;
+  margin: 0 !important;
+  display: inline-block;
+  float: right;
+  margin-top: 10px !important;
+}
+
+blockquote p:first-child {
+  font-weight: bolder;
+  color: rgba(0, 0, 0, .54);
+}
+
+blockquote p:last-child {
+  font-style: italic;
+  font-weight: normal;
+  font-size: .895em;
+  text-align: end;
+}
