@@ -67,10 +67,12 @@
 
 <div class="conteudo">
 
-  <div class="div-conteudo-paineis">
-    <section class="paineis">
-      <app-painel *ngFor="let imovel of imoveis" [imovel]="imovel"></app-painel>
-    </section>
+  <div class="conteudo-bg-image">
+    <div class="div-conteudo-paineis">
+      <section class="paineis">
+        <app-painel *ngFor="let imovel of imoveis" [imovel]="imovel"></app-painel>
+      </section>
+    </div>
   </div>
 
 </div>

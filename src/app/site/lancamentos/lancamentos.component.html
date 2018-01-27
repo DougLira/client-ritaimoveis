@@ -1,109 +1,113 @@
 <app-modal-dados></app-modal-dados>
 
-<div class="content">
+<div class="bg-image">
+  <div class="content">
 
 
-  <form class="filtro" [formGroup]="formLancamentos">
-    <span class="right-margin">Filtrar: </span>
-    <mat-radio-group formControlName="tipo" (change)="onFilter()">
-      <mat-radio-button class="right-margin" [value]="{residencial: true}">Residencial</mat-radio-button>
-      <mat-radio-button [value]="{comercial: true}">Comercial</mat-radio-button>
-    </mat-radio-group>
-    <span class="filter-clear" (click)="clearFilter()">- Limpar filtros</span>
-  </form>
+    <form class="filtro" [formGroup]="formLancamentos">
+      <span class="right-margin">Filtrar: </span>
+      <mat-radio-group formControlName="tipo" (change)="onFilter()">
+        <mat-radio-button class="right-margin" [value]="{residencial: true}">Residencial</mat-radio-button>
+        <mat-radio-button [value]="{comercial: true}">Comercial</mat-radio-button>
+      </mat-radio-group>
+      <span class="filter-clear" (click)="clearFilter()">- Limpar filtros</span>
+    </form>
 
 
-  <div class="meu-card-container">
+    <div class="meu-card-container">
 
-    <!-- ngFor irá na tag abaixo -->
-    <div *ngFor="let lancamento of lancamentos">
+      <!-- ngFor irá na tag abaixo -->
+      <div *ngFor="let lancamento of lancamentos">
 
-      <!-- Card Residencial -->
-      <div *ngIf="lancamento.dormitorios !== undefined">
-        <div class="card">
-          <img
-            class="card-imagem"
-            [src]="lancamento.fotoPrincipal.url"
-            alt="">
+        <!-- Card Residencial -->
+        <div *ngIf="lancamento.dormitorios !== undefined">
+          <div class="card">
+            <img
+              class="card-imagem"
+              [src]="lancamento.fotoPrincipal.url"
+              alt="">
 
-          <div class="card-content">
+            <div class="card-content">
 
-            <p class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null
-              }} -</p>
-            <div class="card-details">
-
-              <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ (lancamento.finalidade |
-                titlecase) || null }}</p>
-
-              <p class="detail">{{ lancamento.cidade || null }} - {{ lancamento.bairro || null }}</p>
-
-              <div class="detail-icons">
-                <div class="detail-icon-quantity">
-                  <img class="icon" src="../../../bedrooms.png" alt="quartos">
-                  <div>{{ lancamento.dormitorios || null }}</div>
-                </div>
-                <div class="detail-icon-quantity">
-                  <img class="icon" src="../../../bathrooms.png" alt="banheiros">
-                  <div>{{ lancamento.banheiros || null }}</div>
-                </div>
-                <div class="detail-icon-quantity">
-                  <img class="icon" src="../../../garages.png" alt="vagas">
-                  <div>{{ lancamento.vagas || null }}</div>
-                </div>
-              </div>
-
-            </div>
-            <div class="card-action">
-              <button mat-button (click)="openModal(lancamento)">VER MAIS</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Card Comercial -->
-      <div *ngIf="lancamento.dormitorios === undefined">
-        <div class="card">
-          <img
-            class="card-imagem"
-            [src]="lancamento.fotoPrincipal.url"
-            alt="">
-
-          <div class="card-content">
-            <p class="card-content-title">- {{ lancamento.tipo || null }}: {{ lancamento.anuncio || null }} -</p>
-            <div class="card-details">
-
+              <p class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null
+                }} -</p>
               <div class="card-details">
 
-                <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ lancamento.finalidade || null
-                  }}</p>
+                <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ (lancamento.finalidade |
+                  titlecase) || null }}</p>
 
                 <p class="detail">{{ lancamento.cidade || null }} - {{ lancamento.bairro || null }}</p>
 
-                <div class="detail-description">
-                  <h6>Descrição:</h6>
-                  <p class="description">
-                    {{ lancamento.descricao || null }}
-                  </p>
+                <div class="detail-icons">
+                  <div class="detail-icon-quantity">
+                    <img class="icon" src="../../../bedrooms.png" alt="quartos">
+                    <div>{{ lancamento.dormitorios || null }}</div>
+                  </div>
+                  <div class="detail-icon-quantity">
+                    <img class="icon" src="../../../bathrooms.png" alt="banheiros">
+                    <div>{{ lancamento.banheiros || null }}</div>
+                  </div>
+                  <div class="detail-icon-quantity">
+                    <img class="icon" src="../../../garages.png" alt="vagas">
+                    <div>{{ lancamento.vagas || null }}</div>
+                  </div>
                 </div>
 
               </div>
               <div class="card-action">
                 <button mat-button (click)="openModal(lancamento)">VER MAIS</button>
               </div>
+
             </div>
           </div>
         </div>
 
+        <!-- Card Comercial -->
+        <div *ngIf="lancamento.dormitorios === undefined">
+          <div class="card">
+            <img
+              class="card-imagem"
+              [src]="lancamento.fotoPrincipal.url"
+              alt="">
+
+            <div class="card-content">
+              <p class="card-content-title">- {{ lancamento.tipo || null }}: {{ lancamento.anuncio || null }} -</p>
+              <div class="card-details">
+
+                <div class="card-details">
+
+                  <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ lancamento.finalidade || null
+                    }}</p>
+
+                  <p class="detail">{{ lancamento.cidade || null }} - {{ lancamento.bairro || null }}</p>
+
+                  <div class="detail-description">
+                    <h6>Descrição:</h6>
+                    <p class="description">
+                      {{ lancamento.descricao || null }}
+                    </p>
+                  </div>
+
+                </div>
+                <div class="card-action">
+                  <button mat-button (click)="openModal(lancamento)">VER MAIS</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="paginacao">
+        <app-paginator
+          (pageEvent)="onPageChanges($event)"
+          [length]="paginator.length">
+        </app-paginator>
       </div>
 
     </div>
-
-    <div class="paginacao">
-      <app-paginator
-        (pageEvent)="onPageChanges($event)"
-        [length]="paginator.length">
-      </app-paginator>
-    </div>
-
   </div>
+</div>
+
