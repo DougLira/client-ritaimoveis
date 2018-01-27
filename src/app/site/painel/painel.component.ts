@@ -22,8 +22,6 @@ export class PainelComponent implements OnInit {
   showModal() {
 
     this.imovelService.openModal.next(this.imovel);
-    // this.imovelService.imovelModal.next(this.imovel);
-    // document.getElementById('simpleModal').style.display = 'block';
   }
 
 }

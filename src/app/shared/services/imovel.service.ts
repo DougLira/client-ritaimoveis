@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
-import {FilterResidencial} from '../models/filterResidencial';
+import {Filter} from '../models/filter';
 import {environment} from '../../../environments/environment';
 
 @Injectable()
@@ -28,7 +28,7 @@ export class ImovelService {
     });
   }
 
-  filterResidencial(filter: FilterResidencial): Observable<any> {
+  filterResidencial(filter: Filter): Observable<any> {
 
     const tipo = filter.tipo,
       finalidade = filter.finalidade,
@@ -54,6 +54,23 @@ export class ImovelService {
       params: new HttpParams()
         .set('page', page)
         .set('search', search)
+    });
+  }
+
+  filterComercial(filter: Filter): Observable<any> {
+
+    const tipo = filter.tipo,
+      finalidade = filter.finalidade,
+      minimo = filter.minimo ? filter.minimo : 1000,
+      maximo = filter.maximo ? filter.maximo : 1000000;
+
+    return this.http.get(`${this.uri}/imoveis/comercial/filter`, {
+      observe: 'response',
+      params: new HttpParams()
+        .set('tipo', tipo.toString())
+        .set('finalidade', finalidade.toString())
+        .set('minimo', minimo.toString())
+        .set('maximo', maximo.toString())
     });
   }
 

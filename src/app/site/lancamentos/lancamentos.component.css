@@ -12,7 +12,7 @@ form.filtro {
   justify-content: center;
   align-items: center;
   width: 100%;
-  line-height: 3em;
+  height: 60px;
   margin-top: 15px;
   background-color: #e7e7e7;
   color: rgba(0, 0, 0, .54);
@@ -27,7 +27,6 @@ form.filtro {
   cursor: pointer;
   font-weight: bolder;
 }
-
 
 .right-margin {
   margin-right: 10px;
@@ -175,4 +174,69 @@ form.filtro {
   width: 100%;
   height: auto;
   margin: auto;
+}
+
+@media screen and (max-width: 769px) {
+  form.filtro {
+    height: 180px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .card-imagem {
+    height: 300px;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+  }
+
+  .card-content-title {
+    width: max-content;
+    font-size: 14px;
+  }
+
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100% !important;
+  }
+
+  .detail {
+    text-align: center;
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+    font-size: 12.5px !important;
+  }
+
+  .detail-icons {
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 10px;
+    justify-content: space-around !important;
+  }
+
+  .card-action, .card-action button {
+    width: 100% !important;
+  }
+
+  .detail-description h6 {
+    font-size: 12.5px !important;
+  }
+
+  .description {
+    font-size: 12px !important;
+  }
 }

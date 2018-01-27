@@ -163,9 +163,9 @@ span {
 /*------------------------- MOBILE ------------------------------*/
 
 @media screen and (max-width: 769px) {
-  .carrosel img {
-    height: 200px !important;
-    object-fit: cover;
+  .div-filtro-content,
+  .div-conteudo-paineis {
+    width: 100% !important;
   }
 
   #btn-collapse-filter {

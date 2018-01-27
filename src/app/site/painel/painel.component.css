@@ -4,11 +4,11 @@
   position: relative;
 }
 
-h4 {
+h2 {
   text-align: center;
   padding: 10px;
   margin-bottom: 2px;
-  font-size: 1.25em;
+  font-size: 14.5px;
   color: rgba(0,0,0,.74);
 }
 
@@ -25,15 +25,19 @@ img {
 }
 
 .div-bairro{
-  font-size: 16px;
+  font-size: 13px;
   padding: 8px 8px 4px 8px;
   color: rgba(0,0,0,.74);
 }
 
 .div-cidade{
-  font-size: 10px;
+  font-size: 11px;
   padding: 4px 8px 8px 8px;
   color: rgba(0,0,0,.54);
+}
+
+.preco {
+  font-size: 12.5px;
 }
 
 .div-detalhes p {
@@ -80,8 +84,8 @@ img {
 }
 
 .icones img {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   background-color: inherit;
 }
 
@@ -91,7 +95,7 @@ img {
   font-size: .975em;
   text-align: center;
   height: fit-content;
-  width: 35px;
+  width: 32px;
   background-color: #923b16;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;

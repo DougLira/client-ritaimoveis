@@ -1,4 +1,4 @@
-export class FilterResidencial {
+export class Filter {
 
   tipo: string;
   finalidade: string;

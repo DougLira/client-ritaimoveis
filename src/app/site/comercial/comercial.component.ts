@@ -85,19 +85,19 @@ export class ComercialComponent implements OnInit, OnDestroy {
       });
   }
 
-  // onFilter() {
-  //
-  //   this.subscriptionFilter = this.imovelService.filterComercial(this.filterComercial.value)
-  //     .subscribe(resp => {
-  //
-  //       if (resp.status == 200) {
-  //
-  //         this.collectionSizeImoveis = resp.body.collectionSize;
-  //         this.imoveis = resp.body.content;
-  //       }
-  //     }, err => {
-  //       console.log(err);
-  //     });
-  // }
+  onFilter() {
+
+    this.subscriptionFilter = this.imovelService.filterComercial(this.filterComercial.value)
+      .subscribe(resp => {
+
+        if (resp.status === 200) {
+
+          this.collectionSizeImoveis = resp.body.collectionSize;
+          this.imoveis = resp.body.content;
+        }
+      }, err => {
+        console.log(err);
+      });
+  }
 
 }

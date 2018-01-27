@@ -28,8 +28,8 @@
 
           <div class="card-content">
 
-            <h5 class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null
-              }} -</h5>
+            <p class="card-content-title">- {{ (lancamento.tipo | titlecase) || null }}: {{ lancamento.anuncio || null
+              }} -</p>
             <div class="card-details">
 
               <p class="detail">{{ (lancamento.valor | currency:'BRL') || null }} - {{ (lancamento.finalidade |
@@ -51,6 +51,7 @@
                   <div>{{ lancamento.vagas || null }}</div>
                 </div>
               </div>
+
             </div>
             <div class="card-action">
               <button mat-button (click)="openModal(lancamento)">VER MAIS</button>
@@ -69,7 +70,7 @@
             alt="">
 
           <div class="card-content">
-            <h5 class="card-content-title">- {{ lancamento.tipo || null }}: {{ lancamento.anuncio || null }} -</h5>
+            <p class="card-content-title">- {{ lancamento.tipo || null }}: {{ lancamento.anuncio || null }} -</p>
             <div class="card-details">
 
               <div class="card-details">
