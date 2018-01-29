@@ -98,6 +98,6 @@ export class ImovelService {
   sendEmail(email): Observable<any> {
 
     return this.http
-      .post(`${this.uri}/duvida`, JSON.stringify(email));
+      .post(`${this.uri}/duvida`, email);
   }
 }

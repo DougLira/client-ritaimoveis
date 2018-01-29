@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ImovelService} from '../../shared/services/imovel.service';
 import {Subscription} from 'rxjs/Subscription';
+import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-duvidas',
@@ -12,6 +13,10 @@ export class DuvidasComponent implements OnInit {
 
   formDuvidas: FormGroup;
   subscriptionDuvida: Subscription;
+  alert = {
+    success: false,
+    danger: false
+  }
 
   constructor(private formBuilder: FormBuilder,
               private imovelService: ImovelService) {
@@ -33,7 +38,13 @@ export class DuvidasComponent implements OnInit {
       .subscribe(response => {
 
         this.resetForm();
-      }, err => console.log(err));
+        this.alert.success = true;
+        setTimeout(() => this.alert.success = false, 3000);
+      }, err => {
+        console.log(err)
+        this.alert.danger = true;
+        setTimeout(() => this.alert.danger = false, 3000);
+      });
   }
 
   resetForm() {

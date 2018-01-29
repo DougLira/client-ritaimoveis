@@ -5,11 +5,17 @@
 
       <h1 class="title">Dúvidas</h1>
       <hr width="100%">
+      <div class="alert alert-success" role="alert" *ngIf="alert.success">
+        <strong>Dúvida enviada! </strong>Em breve entrarei em contato.
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="alert.danger">
+        <strong>Erro inesperado! </strong>Tente novamente mais tarde.
+      </div>
       <form class="formulario"
             (ngSubmit)="onSubmit()"
             [formGroup]="formDuvidas"
             autocomplete="off">
-        <mat-form-field [floatPlaceholder]="always">
+        <mat-form-field>
           <mat-placeholder><mat-icon matPrefix>person</mat-icon> <span>Nome</span></mat-placeholder>
           <input matInput formControlName="nome">
           <mat-error *ngIf="verifyValidTouched('nome')">{{getErrorMessage('nome')}}</mat-error>
