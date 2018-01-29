@@ -20,7 +20,7 @@ import {PaginatorModule} from '../shared/components/paginator/paginator.module';
 import { ComercialComponent } from './comercial/comercial.component';
 import {ComercialGuard} from './guards/comercial.guard';
 import { SobreMimComponent } from './sobre-mim/sobre-mim.component';
-import { ContatoComponent } from './contato/contato.component';
+import { DuvidasComponent } from './duvidas/duvidas.component';
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { ContatoComponent } from './contato/contato.component';
     LancamentosComponent,
     ComercialComponent,
     SobreMimComponent,
-    ContatoComponent
+    DuvidasComponent
   ],
   exports: [
     SiteComponent

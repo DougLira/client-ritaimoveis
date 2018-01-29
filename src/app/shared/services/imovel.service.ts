@@ -92,4 +92,12 @@ export class ImovelService {
         .set('residencial', filter.residencial || false)
     });
   }
+
+  /*----------------- Dúvidas API Site -------------------------*/
+
+  sendEmail(email): Observable<any> {
+
+    return this.http
+      .post(`${this.uri}/duvida`, JSON.stringify(email));
+  }
 }
