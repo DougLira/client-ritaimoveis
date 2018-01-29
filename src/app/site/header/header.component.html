@@ -12,10 +12,8 @@
       <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/catalogo']">Residencial</a>
       <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/comercial']">Comercial</a>
       <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/lancamentos']">Lançamentos</a>
-      <a (click)="linkClick()" class="navegacao-link" [routerLink]="['/sobre-mim']">Sobre Mim</a>
-      <a (click)="linkClick()" style="color: rgba(0, 0, 0, .54)" class="navegacao-link" routerLink="">Contato<strong> :
-        Em Breve</strong><span
-        class="navegacao-link"></span></a>
+      <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/sobre-mim']">Sobre Mim</a>
+      <a (click)="linkClick()" class="navegacao-link ativo" [routerLink]="['/contato']">Dúvidas</a>
       <a style="color: rgba(0, 0, 0, .54)" class="icon" (click)="toggleNavbar()">
         <mat-icon>menu</mat-icon>
       </a>

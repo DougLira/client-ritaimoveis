@@ -9,6 +9,7 @@ import {LancamentoGuard} from './guards/lancamento.guard';
 import {ComercialComponent} from './comercial/comercial.component';
 import {ComercialGuard} from './guards/comercial.guard';
 import {SobreMimComponent} from './sobre-mim/sobre-mim.component';
+import {ContatoComponent} from './contato/contato.component';
 
 const siteRoutes: Routes = [
   {path: '', component: SiteComponent, children: [
@@ -16,7 +17,8 @@ const siteRoutes: Routes = [
       {path: 'catalogo', component: CatalogoComponent, resolve: {response: ResidencialGuard}},
       {path: 'lancamentos', component: LancamentosComponent, resolve: {response: LancamentoGuard}},
       {path: 'comercial', component: ComercialComponent, resolve: {response: ComercialGuard}},
-      {path: 'sobre-mim', component: SobreMimComponent}
+      {path: 'sobre-mim', component: SobreMimComponent},
+      {path: 'contato', component: ContatoComponent}
     ]
   }
 ];

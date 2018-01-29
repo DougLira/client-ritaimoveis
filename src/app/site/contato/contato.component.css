@@ -1,0 +1,92 @@
+.bg-image {
+  background-image: url("../../../contato1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  width: 100%;
+  height: auto !important;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, .5);
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+.duvidas {
+  margin: auto;
+  padding: 20px;
+  width: 70%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, .75);
+  border-radius: 5px;
+}
+
+.title {
+  color: rgba(146, 59, 22, .9);
+  font-size: 50px;
+  font-style: italic;
+  width: 100%;
+}
+
+hr {
+  border-style: inset;
+  border-width: .5px;
+  border-color: rgba(146, 59, 22, .25);
+}
+
+.duvidas-conteudo {
+  width: 100%;
+  height: auto;
+  background-color: rgba(255, 255, 255, .75);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario > * {
+  width: 100%;
+}
+
+.formulario button {
+  width: max-content;
+}
+
+input, textarea {
+  color: rgba(0, 0, 0, .6);
+}
+
+mat-icon {
+  color: rgba(146, 59, 22, .9);
+}
+
+mat-placeholder {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+mat-form-field {
+  margin-bottom: 5px;
+}
+
+mat-placeholder span {
+  margin-left: 3px;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 769px) {
+  .content {
+    padding: 10px;
+  }
+
+  .duvidas {
+    width: 100%;
+  }
+}

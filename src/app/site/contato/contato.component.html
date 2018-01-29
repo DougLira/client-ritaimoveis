@@ -1,0 +1,37 @@
+<div class="bg-image">
+  <div class="content">
+
+    <div class="duvidas">
+
+      <h1 class="title">Dúvidas</h1>
+      <hr width="100%">
+      <form class="formulario"
+            (ngSubmit)="onSubmit()"
+            [formGroup]="formDuvidas"
+            autocomplete="off">
+        <mat-form-field [floatPlaceholder]="always">
+          <mat-placeholder><mat-icon matPrefix>person</mat-icon> <span>Nome</span></mat-placeholder>
+          <input matInput formControlName="nome">
+          <mat-error *ngIf="verifyValidTouched('nome')">{{getErrorMessage('nome')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-placeholder><mat-icon matPrefix>email</mat-icon> <span>Email</span></mat-placeholder>
+          <input matInput formControlName="email">
+          <mat-error *ngIf="verifyValidTouched('email')">{{getErrorMessage('email')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-placeholder><mat-icon matPrefix>message</mat-icon> <span>Assunto</span></mat-placeholder>
+          <textarea matInput formControlName="assunto" #assunto maxlength="500" rows="10"></textarea>
+          <mat-hint align="end">{{assunto.value?.length || 0}}/500</mat-hint>
+          <mat-error *ngIf="verifyValidTouched('assunto')">{{getErrorMessage('assunto')}}</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button [disabled]="formDuvidas.invalid">Enviar</button>
+      </form>
+
+    </div>
+
+  </div>
+</div>

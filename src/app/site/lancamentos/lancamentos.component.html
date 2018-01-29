@@ -100,13 +100,12 @@
 
       </div>
 
-      <div class="paginacao">
-        <app-paginator
-          (pageEvent)="onPageChanges($event)"
-          [length]="paginator.length">
-        </app-paginator>
-      </div>
-
+    </div>
+    <div class="paginacao">
+      <app-paginator
+        (pageEvent)="onPageChanges($event)"
+        [length]="paginator.length">
+      </app-paginator>
     </div>
   </div>
 </div>

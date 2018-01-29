@@ -86,4 +86,12 @@ blockquote p:last-child {
   .content-sobre-mim {
     flex-direction: column;
   }
+
+  .photo {
+    width: 50%;
+  }
+
+  .text {
+    width: 100%;
+  }
 }

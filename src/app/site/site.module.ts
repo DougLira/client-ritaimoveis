@@ -20,6 +20,7 @@ import {PaginatorModule} from '../shared/components/paginator/paginator.module';
 import { ComercialComponent } from './comercial/comercial.component';
 import {ComercialGuard} from './guards/comercial.guard';
 import { SobreMimComponent } from './sobre-mim/sobre-mim.component';
+import { ContatoComponent } from './contato/contato.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SobreMimComponent } from './sobre-mim/sobre-mim.component';
     CatalogoComponent,
     LancamentosComponent,
     ComercialComponent,
-    SobreMimComponent
+    SobreMimComponent,
+    ContatoComponent
   ],
   exports: [
     SiteComponent
