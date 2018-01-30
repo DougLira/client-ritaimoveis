@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ImovelService} from '../../shared/services/imovel.service';
-import {Subscription} from 'rxjs/Subscription';
-import { setTimeout } from 'timers';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ImovelService } from '../../shared/services/imovel.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-duvidas',
@@ -18,8 +17,9 @@ export class DuvidasComponent implements OnInit {
     danger: false
   }
 
-  constructor(private formBuilder: FormBuilder,
-              private imovelService: ImovelService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private imovelService: ImovelService) {
   }
 
   ngOnInit() {

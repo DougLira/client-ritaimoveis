@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {ImovelService} from '../../shared/services/imovel.service';
-import {Subscription} from 'rxjs/Subscription';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ImovelService } from '../../shared/services/imovel.service';
+import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lancamentos',
@@ -20,9 +20,10 @@ export class LancamentosComponent implements OnInit, OnDestroy {
     length: 1
   };
 
-  constructor(private formBuilder: FormBuilder,
-              private imovelService: ImovelService,
-              private route: ActivatedRoute) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private imovelService: ImovelService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
