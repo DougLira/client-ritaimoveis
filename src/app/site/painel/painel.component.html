@@ -11,15 +11,15 @@
     <p class="preco">{{ imovel.valor | currency:'BRL' }} - <span ngClass="{'venda': imovel.finalidade === 'Venda', 'locacao': imovel.finalidade === 'Locação'}">{{ imovel.finalidade }}</span></p>
     <div class="icones" *ngIf="imovel.dormitorios !== undefined">
       <div class="div-quartos">
-        <img src="../../../bed.png" alt="quartos">
+        <img src="../../../pictures/bed.png" alt="quartos">
         <p>{{ imovel.dormitorios }}</p>
       </div>
       <div class="div-garagem">
-        <img src="../../../garage.png" alt="garagem">
+        <img src="../../../pictures/garage.png" alt="garagem">
         <p>{{ imovel.vagas }}</p>
       </div>
       <div class="div-banheiros">
-        <img src="../../../bathtub.png" alt="banheiros">
+        <img src="../../../pictures/bathtub.png" alt="banheiros">
         <p>{{ imovel.banheiros }}</p>
       </div>
     </div>

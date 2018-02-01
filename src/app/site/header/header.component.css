@@ -74,11 +74,11 @@
 }
 
 .email .icon {
-  background-image: url("../../../email.png");
+  background-image: url("../../../pictures/email.png");
 }
 
 .phone .icon {
-  background-image: url("../../../phone.png");
+  background-image: url("../../../pictures/phone.png");
 }
 
 .facebook-linkedin {
@@ -88,11 +88,11 @@
 }
 
 .facebook {
-  background-image: url("../../../facebook.png");
+  background-image: url("../../../pictures/facebook.png");
 }
 
 .linkedin {
-  background-image: url("../../../linkedin.png");
+  background-image: url("../../../pictures/linkedin.png");
 }
 
 .cabecalho {
