@@ -3,7 +3,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Subject} from 'rxjs/Subject';
 import {Imovel} from '../../../../shared/models/imovel';
 import {Subscription} from 'rxjs/Subscription';
-import {HomeAdminService} from '../../home-admin.service';
+import {ImovelService} from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-modal-add-fotos',
@@ -21,7 +21,7 @@ export class ModalAddFotosComponent implements OnInit, OnDestroy {
   mensagem: string;
 
   constructor(private modalService: NgbModal,
-              private homeService: HomeAdminService) {
+              private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class ModalAddFotosComponent implements OnInit, OnDestroy {
 
   salvar(){
 
-    this.homeService.updateImagesResidencial(this.idImovel, this.fotos)
+    this.imovelService.updateImagesResidencial(this.idImovel, this.fotos)
       .subscribe(res => {
 
         this.updateView.next('Fotos adicionadas com sucesso');

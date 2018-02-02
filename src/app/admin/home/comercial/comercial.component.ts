@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Imovel} from '../../../shared/models/imovel';
 import {Subscription} from 'rxjs/Subscription';
-import {HomeAdminService} from '../home-admin.service';
 import {ImovelService} from '../../../shared/services/imovel.service';
 
 @Component({
@@ -28,8 +27,7 @@ export class ComercialComponent implements OnInit, OnDestroy {
     length: ''
   };
 
-  constructor(private homeService: HomeAdminService,
-              private imovelService: ImovelService) {
+  constructor(private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -69,7 +67,7 @@ export class ComercialComponent implements OnInit, OnDestroy {
   }
 
   obterImoveis() {
-    this.subscriptionImoveis = this.homeService.getAllComercial()
+    this.subscriptionImoveis = this.imovelService.getAllComercial()
       .subscribe(res => {
 
         if (res.status == 200) {
@@ -85,7 +83,7 @@ export class ComercialComponent implements OnInit, OnDestroy {
   onPageChanges(event) {
 
     let page: string = event.pageIndex + 1;
-    this.subscriptionPages = this.homeService.getAllComercial(page)
+    this.subscriptionPages = this.imovelService.getAllComercial(page)
       .subscribe(res => {
 
         if (res.status == 200) {
@@ -102,7 +100,7 @@ export class ComercialComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
 
-      this.subscriptionSearch = this.imovelService.getAllComercial(1, this.search)
+      this.subscriptionSearch = this.imovelService.getAllComercial('1', this.search)
         .subscribe(resp => {
 
           if (resp.status == 200) {
@@ -118,10 +116,10 @@ export class ComercialComponent implements OnInit, OnDestroy {
 
   delete(imovel) {
 
-    this.subscriptionDelete = this.homeService.deleteComercial(imovel._id)
+    this.subscriptionDelete = this.imovelService.deleteComercial(imovel._id)
       .subscribe(res => {
 
-        this.subscriptionImoveis = this.homeService.getAllComercial()
+        this.subscriptionImoveis = this.imovelService.getAllComercial()
           .subscribe(res => {
 
             if (res.status == 200) {

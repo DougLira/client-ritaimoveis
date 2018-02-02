@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatHorizontalStepper} from '@angular/material';
-import {HomeAdminService} from '../../home-admin.service';
+import {ImovelService} from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-form-residencial',
@@ -22,7 +22,7 @@ export class FormResidencialComponent implements OnInit {
   };
 
   constructor(private formBuilder: FormBuilder,
-              private homeService: HomeAdminService) {
+              private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -56,13 +56,13 @@ export class FormResidencialComponent implements OnInit {
 
     if (this.formResidencial.valid) {
 
-      this.homeService.createResidencial(
+      this.imovelService.createResidencial(
         this.formResidencial.value,
         this.fotoPrincipal.urlBase64,
         this.fotosSecundarias.fotos);
     }
 
-    this.homeService.message.subscribe(msg => {
+    this.imovelService.message.subscribe((msg: any) => {
       if (msg.severity === 'success') {
 
         this.resetForm(this.formResidencial);

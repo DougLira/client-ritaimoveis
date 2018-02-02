@@ -13,6 +13,6 @@ export class ComercialGuard implements Resolve<Imovel> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | any {
 
-    return this.imovelService.getAllComercial(1);
+    return this.imovelService.getAllComercial('1');
   }
 }

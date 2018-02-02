@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Imovel} from '../../../../shared/models/imovel';
-import {HomeAdminService} from '../../home-admin.service';
+import {ImovelService} from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-modal-dados-imovel',
@@ -23,7 +23,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,
-              private homeService: HomeAdminService) {
+              private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -53,7 +53,7 @@ export class ModalDadosImovelComponent implements OnInit, OnDestroy {
 
   salvar() {
 
-    this.updateSubscription = this.homeService
+    this.updateSubscription = this.imovelService
       .updateComercial(
         this.formComercial.value,
         this.idImovel)

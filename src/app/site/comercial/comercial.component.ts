@@ -73,7 +73,7 @@ export class ComercialComponent implements OnInit, OnDestroy {
 
   search(search?) {
     this.subscriptionSearch = this.imovelService
-      .getAllComercial(1, search)
+      .getAllComercial('1', search)
       .subscribe(
         resp => {
           if (resp.status === 200) {

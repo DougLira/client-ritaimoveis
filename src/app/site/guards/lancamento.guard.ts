@@ -14,6 +14,6 @@ export class LancamentoGuard implements Resolve<Imovel> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | any {
 
-    return this.imovelService.getAllLancamentos(1);
+    return this.imovelService.getAllLancamentos('1');
   }
 }

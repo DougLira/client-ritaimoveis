@@ -3,7 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {Subscription} from 'rxjs/Subscription';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Imovel} from '../../../../shared/models/imovel';
-import {HomeAdminService} from '../../home-admin.service';
+import {ImovelService} from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-modal-fotos-imovel',
@@ -27,7 +27,7 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
   url: string;
 
   constructor(private modalService: NgbModal,
-              private homeService: HomeAdminService) {
+              private homeService: ImovelService) {
   }
 
   ngOnInit() {

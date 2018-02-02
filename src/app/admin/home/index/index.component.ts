@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 
-import {HomeAdminService} from '../home-admin.service';
 import {Imovel} from '../../../shared/models/imovel';
 import {Subscription} from 'rxjs/Subscription';
 import {ImovelService} from '../../../shared/services/imovel.service';
@@ -29,8 +28,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     length: ''
   };
 
-  constructor(private homeService: HomeAdminService,
-              private imovelService: ImovelService) {
+  constructor(private imovelService: ImovelService) {
   }
 
 
@@ -71,7 +69,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   obterImoveis() {
-    this.subscriptionImoveis = this.homeService.getAllResidencial()
+    this.subscriptionImoveis = this.imovelService.getAllResidencial()
       .subscribe(res => {
 
         if (res.status == 200) {
@@ -87,7 +85,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   onPageChanges(event) {
 
     const page: string = event.pageIndex + 1;
-    this.subscriptionPages = this.homeService.getAllResidencial(page)
+    this.subscriptionPages = this.imovelService.getAllResidencial(page)
       .subscribe(res => {
 
         if (res.status == 200) {
@@ -104,7 +102,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
 
-      this.subscriptionSearch = this.imovelService.getAllResidencial(1, this.search)
+      this.subscriptionSearch = this.imovelService.getAllResidencial('1', this.search)
         .subscribe(resp => {
 
           if (resp.status == 200) {
@@ -120,10 +118,10 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   delete(imovel) {
 
-    this.subscriptionDelete = this.homeService.deleteResidencial(imovel._id)
+    this.subscriptionDelete = this.imovelService.deleteResidencial(imovel._id)
       .subscribe(res => {
 
-        this.subscriptionImoveis = this.homeService.getAllResidencial()
+        this.subscriptionImoveis = this.imovelService.getAllResidencial()
           .subscribe(res => {
 
             if (res.status == 200) {

@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatHorizontalStepper} from '@angular/material';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HomeAdminService} from '../../home-admin.service';
+import {ImovelService} from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-form-comercial',
@@ -22,7 +22,7 @@ export class FormComercialComponent implements OnInit {
   };
 
   constructor(private formBuilder: FormBuilder,
-              private homeService: HomeAdminService) {
+              private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -45,13 +45,13 @@ export class FormComercialComponent implements OnInit {
 
     if (this.formComercial.valid) {
 
-      this.homeService.createComercial(
+      this.imovelService.createComercial(
         this.formComercial.value,
         this.fotoPrincipal.urlBase64,
         this.fotosSecundarias.fotos);
     }
 
-    this.homeService.message.subscribe(msg => {
+    this.imovelService.message.subscribe((msg: any) => {
       if (msg.severity === 'success') {
 
         this.resetForm(this.formComercial);

@@ -6,7 +6,6 @@ import {IndexModule} from './index/index.module';
 import {HomeRoutingModule} from './home-routing.module';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {HomeAdminService} from './home-admin.service';
 import {MaterialDesignComponentsModule} from '../../material-design-components/material-design-components.module';
 import {ImovelService} from '../../shared/services/imovel.service';
 import {CadastroModule} from './cadastro/cadastro.module';
@@ -37,7 +36,6 @@ import {LancamentosModule} from './lancamentos/lancamentos.module';
       useClass: AuthInterceptor,
       multi: true
     },
-    HomeAdminService,
     ImovelService
   ]
 })

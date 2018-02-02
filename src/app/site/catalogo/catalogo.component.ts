@@ -75,7 +75,7 @@ export class CatalogoComponent implements OnInit, OnDestroy {
 
   search(search?) {
 
-    this.subscriptionSearch = this.imovelService.getAllResidencial(1, search)
+    this.subscriptionSearch = this.imovelService.getAllResidencial('1', search)
       .subscribe(resp => {
 
         if (resp.status === 200) {

@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {HomeAdminService} from '../home-admin.service';
 import {ImovelService} from '../../../shared/services/imovel.service';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -25,8 +24,7 @@ export class LancamentosComponent implements OnInit, OnDestroy {
     length: 0
   };
 
-  constructor(private homeService: HomeAdminService,
-              private imovelService: ImovelService) {
+  constructor(private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -88,14 +86,14 @@ export class LancamentosComponent implements OnInit, OnDestroy {
 
     if (lancamento.dormitorios === undefined) {
 
-      this.subscriptionDelete = this.homeService.deleteComercial(lancamento._id)
+      this.subscriptionDelete = this.imovelService.deleteComercial(lancamento._id)
         .subscribe(res => {
 
           this.obterImoveis();
         });
     } else {
 
-      this.subscriptionDelete = this.homeService.deleteResidencial(lancamento._id)
+      this.subscriptionDelete = this.imovelService.deleteResidencial(lancamento._id)
         .subscribe(res => {
 
           this.obterImoveis();
