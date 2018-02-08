@@ -10,7 +10,7 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-const port = process.env.PORT || '3001';
+const port = '3001';
 app.set('port', port);
 
 const server = http.createServer(app);
