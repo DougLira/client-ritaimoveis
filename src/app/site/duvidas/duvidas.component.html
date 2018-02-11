@@ -40,7 +40,7 @@
           <mat-error *ngIf="verifyValidTouched('mensagem')">{{getErrorMessage('mensagem')}}</mat-error>
         </mat-form-field>
 
-        <button mat-raised-button [disabled]="formDuvidas.invalid">Enviar</button>
+        <button type="submit" mat-raised-button [disabled]="formDuvidas.invalid">Enviar</button>
       </form>
 
     </div>

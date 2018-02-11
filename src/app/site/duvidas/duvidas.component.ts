@@ -15,7 +15,7 @@ export class DuvidasComponent implements OnInit {
   alert = {
     success: false,
     danger: false
-  }
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,27 +34,19 @@ export class DuvidasComponent implements OnInit {
 
   onSubmit() {
 
-    this.subscriptionDuvida = this.imovelService.sendEmail(this.formDuvidas.value)
-      .subscribe(response => {
+    if (this.formDuvidas.valid) {
 
-        this.resetForm();
-        this.alert.success = true;
-        setTimeout(() => this.alert.success = false, 3000);
-      }, err => {
-        console.log(err)
-        this.alert.danger = true;
-        setTimeout(() => this.alert.danger = false, 3000);
-      });
-  }
-
-  resetForm() {
-    let control: AbstractControl = null;
-    this.formDuvidas.reset();
-    this.formDuvidas.markAsUntouched();
-    Object.keys(this.formDuvidas.controls).forEach((name) => {
-      control = this.formDuvidas.controls[name];
-      control.setErrors(null);
-    });
+      this.subscriptionDuvida = this.imovelService.sendEmail(this.formDuvidas.value)
+        .subscribe(response => {
+          this.formDuvidas.reset();
+          this.alert.success = true;
+          setTimeout(() => this.alert.success = false, 3000);
+        }, err => {
+          console.log(err);
+          this.alert.danger = true;
+          setTimeout(() => this.alert.danger = false, 3000);
+        });
+    }
   }
 
   verifyValidTouched(field) {

@@ -46,7 +46,8 @@
         "pictures/sala_estar.png",
         "pictures/sala_jantar.png",
         "pictures/valor.png",
-        "pictures/vagas.png"
+        "pictures/vagas.png",
+        "pictures/logo.png"
       ],
       "index": "index.html",
       "main": "main.ts",

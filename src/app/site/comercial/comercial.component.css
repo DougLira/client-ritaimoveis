@@ -121,21 +121,13 @@
   transform: scaleX(1);
 }
 
-.example-container > * {
-  width: 99%;
+mat-panel-title,
+mat-panel-description {
+  font-size: .875em;
 }
 
-.example-right-align {
-  text-align: right;
-}
-
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
-  display: none;
-}
-
-input.example-right-align {
-  -moz-appearance: textfield;
+form * {
+  font-size: .925em;
 }
 
 span {

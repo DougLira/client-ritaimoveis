@@ -48,6 +48,12 @@
   /*font-weight: lighter;*/
 }
 
+.subtitle {
+  color: #923b16;
+  font-size: 32px;
+  font-style: italic;
+}
+
 .text p {
   font-family: Verdana, Arial, sans-serif;
   font-size: 1.15em;

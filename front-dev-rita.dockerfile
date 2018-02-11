@@ -5,4 +5,4 @@ WORKDIR /var/www
 RUN npm install
 EXPOSE 4200 49153
 LABEL author="Douglas Lira"
-ENTRYPOINT npm run dev
+ENTRYPOINT npm run docker

@@ -25,6 +25,7 @@ td {
   display: inline-flex;
   align-items: center;
   width: 100%;
+  font-size: .875em;
 }
 
 td div {
