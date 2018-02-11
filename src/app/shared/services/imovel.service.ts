@@ -13,7 +13,7 @@ export class ImovelService {
   openModal = new Subject();
   uri: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /*---------------- Residencial API ------------------------*/
 
@@ -42,9 +42,9 @@ export class ImovelService {
 
   createResidencial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
     let fotos = {
-        fotoPrincipal: fotoPrincipal,
-        fotosSecundarias: fotosSecundarias
-      },
+      fotoPrincipal: fotoPrincipal,
+      fotosSecundarias: fotosSecundarias
+    },
       createdId;
 
     this.http
@@ -182,9 +182,9 @@ export class ImovelService {
 
   createComercial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
     let fotos = {
-        fotoPrincipal: fotoPrincipal,
-        fotosSecundarias: fotosSecundarias
-      },
+      fotoPrincipal: fotoPrincipal,
+      fotosSecundarias: fotosSecundarias
+    },
       createdId;
 
     this.http

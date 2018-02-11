@@ -14,9 +14,9 @@ import {DuvidasComponent} from './duvidas/duvidas.component';
 const siteRoutes: Routes = [
   {path: '', component: SiteComponent, children: [
       {path: '', component: IndexComponent},
-      {path: 'catalogo', component: CatalogoComponent, resolve: {response: ResidencialGuard}},
-      {path: 'lancamentos', component: LancamentosComponent, resolve: {response: LancamentoGuard}},
-      {path: 'comercial', component: ComercialComponent, resolve: {response: ComercialGuard}},
+      {path: 'imoveis-residenciais', component: CatalogoComponent, resolve: {response: ResidencialGuard}},
+      {path: 'imoveis-lancamentos', component: LancamentosComponent, resolve: {response: LancamentoGuard}},
+      {path: 'imoveis-comerciais', component: ComercialComponent, resolve: {response: ComercialGuard}},
       {path: 'sobre-mim', component: SobreMimComponent},
       {path: 'duvidas', component: DuvidasComponent}
     ]
