@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "ng serve -H 0.0.0.0 -o --aot --poll --watch",
     "docker": "ng serve -H 0.0.0.0 --poll --watch",
-    "build": "ng build",
+    "build": "ng build --prod --build-optimizer -env=prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
