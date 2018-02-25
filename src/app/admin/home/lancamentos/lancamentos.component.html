@@ -17,7 +17,7 @@
     <!-- *ngIf residencial -->
     <div *ngIf="lancamento.dormitorios !== undefined" class="collection-item painel">
       <img class="imagem"
-           src="{{lancamento.fotoPrincipal.url || null}}"
+           src="{{lancamento.foto || null}}"
            alt="">
       <div class="descricao">
         <div class="descricao-conteudo">
@@ -76,7 +76,7 @@
     <!-- *ngIf comercial -->
     <div *ngIf="lancamento.dormitorios === undefined" class="collection-item painel">
       <img class="imagem"
-           src="{{lancamento.fotoPrincipal.url || null}}"
+           src="{{lancamento.foto || null}}"
            alt="">
       <div class="descricao">
         <div class="descricao-conteudo">

@@ -93,7 +93,7 @@
 
     <div class="content">
 
-      <p class="alert alert-success" *ngIf="fotoPrincipal.message">{{fotoPrincipal.message}}</p>
+      <p class="alert alert-success" *ngIf="messagePrincipal">{{messagePrincipal}}</p>
       <br>
       <p style="font-size: 12px; font-weight: bold;">Selecione a foto de capa:</p>
       <p-fileUpload
@@ -109,7 +109,7 @@
       </p-fileUpload>
       <br>
       <br>
-      <p class="alert alert-success" *ngIf="fotosSecundarias.message">{{fotosSecundarias.message}}</p>
+      <p class="alert alert-success" *ngIf="messageSecundarias">{{messageSecundarias}}</p>
       <br>
       <p style="font-size: 12px; font-weight: bold;">Selecione as fotos secundárias:</p>
       <p-fileUpload

@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatHorizontalStepper} from '@angular/material';
-import {ImovelService} from '../../../../shared/services/imovel.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatHorizontalStepper } from '@angular/material';
+import { ImovelService } from '../../../../shared/services/imovel.service';
+import { Imovel } from '../../../../shared/models/imovel';
 
 @Component({
   selector: 'app-form-residencial',
@@ -12,17 +13,13 @@ export class FormResidencialComponent implements OnInit {
 
   @ViewChild('step') step: MatHorizontalStepper;
   formResidencial: FormGroup;
-  fotoPrincipal = {
-    urlBase64: '',
-    message: ''
-  };
-  fotosSecundarias = {
-    fotos: [],
-    message: ''
-  };
+  foto: File[];
+  fotos: File[];
+  messagePrincipal;
+  messageSecundarias;
 
   constructor(private formBuilder: FormBuilder,
-              private imovelService: ImovelService) {
+    private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -51,15 +48,15 @@ export class FormResidencialComponent implements OnInit {
     });
   }
 
-
   onSubmit() {
 
     if (this.formResidencial.valid) {
 
-      this.imovelService.createResidencial(
-        this.formResidencial.value,
-        this.fotoPrincipal.urlBase64,
-        this.fotosSecundarias.fotos);
+      this.imovelService.uploadImages(this.foto, this.fotos)
+        .subscribe(path => {
+          const imovel: Imovel = this.buildImovel(path);
+          this.imovelService.createResidencial(imovel);
+        }, err => console.log(err));
     }
 
     this.imovelService.message.subscribe((msg: any) => {
@@ -93,58 +90,75 @@ export class FormResidencialComponent implements OnInit {
 
   uploadPrincipal(event) {
 
-    const file: File = event.files[0];
+    this.foto = [];
+    this.foto = event.files;
+    this.messagePrincipal = 'Foto carregada com sucesso.';
+    setTimeout(() => this.messagePrincipal = '', 3000);
+  }
+
+  uploadSecundarias(event) {
+
+    this.fotos = [];
+    this.fotos = event.files;
+    this.messageSecundarias = 'Foto carregada com sucesso.';
+    setTimeout(() => this.messageSecundarias = '', 3000);
+  }
+
+  clearPrincipal() {
+
+    this.foto = [];
+  }
+
+  clearSecundarias() {
+
+    this.fotos = [];
+  }
+
+  removeSecundarias(event) {
+
+    const file = event.file;
     const fileReader: FileReader = new FileReader();
     fileReader.readAsDataURL(file);
 
     fileReader.onloadend = e => {
 
-      this.fotoPrincipal.urlBase64 = fileReader.result;
-      this.fotoPrincipal.message = 'Foto carregada com sucesso';
-      setTimeout(() => this.fotoPrincipal.message = '', 3000);
+      const index = this.fotos.indexOf(fileReader.result);
+      this.fotos.splice(index, 1);
     };
   }
 
-  uploadSecundarias(event) {
+  buildImovel(fotos = []): Imovel {
 
-    this.fotosSecundarias.fotos = [];
-    const files: File[] = event.files;
+    let foto: string;
 
-    for (const file of files) {
-
-      const fileReader: FileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onloadend = e => {
-
-        this.fotosSecundarias.fotos.push(fileReader.result);
-      };
+    if (fotos.length > 0) {
+      foto = fotos.pop();
     }
 
-    this.fotosSecundarias.message = 'Fotos carregadas com sucesso.';
-    setTimeout(() => this.fotosSecundarias.message = '', 3000);
-  }
-
-  clearPrincipal() {
-
-    this.fotoPrincipal.urlBase64 = undefined;
-  }
-
-  clearSecundarias() {
-
-    this.fotosSecundarias.fotos = [];
-  }
-
-  removeSecundarias(event) {
-
-    let file = event.file;
-    let fileReader: FileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-
-    fileReader.onloadend = e => {
-
-      let index = this.fotosSecundarias.fotos.indexOf(fileReader.result);
-      this.fotosSecundarias.fotos.splice(index, 1);
-    };
+    return new Imovel(
+      '',
+      this.formResidencial.get('anuncio').value,
+      this.formResidencial.get('valor').value,
+      foto,
+      fotos,
+      this.formResidencial.get('dormitorios').value,
+      this.formResidencial.get('banheiros').value,
+      this.formResidencial.get('vagas').value,
+      this.formResidencial.get('suites').value,
+      this.formResidencial.get('sala_estar').value,
+      this.formResidencial.get('sala_jantar').value,
+      this.formResidencial.get('churrasqueira').value,
+      this.formResidencial.get('piscina').value,
+      this.formResidencial.get('area_construida').value,
+      this.formResidencial.get('area_util').value,
+      this.formResidencial.get('cidade').value,
+      this.formResidencial.get('bairro').value,
+      this.formResidencial.get('endereco').value,
+      this.formResidencial.get('tipo').value,
+      this.formResidencial.get('condominio').value,
+      this.formResidencial.get('finalidade').value,
+      this.formResidencial.get('descricao').value,
+      this.formResidencial.get('lancamento').value
+    );
   }
 }

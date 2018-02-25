@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://api-ritaimoveis-com.umbler.net'
+  apiUrl: 'http://www.imovelritacorretora.com.br/api'
 };

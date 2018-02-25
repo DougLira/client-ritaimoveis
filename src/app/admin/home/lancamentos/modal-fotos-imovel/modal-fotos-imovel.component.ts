@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
-import {Subscription} from 'rxjs/Subscription';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Imovel} from '../../../../shared/models/imovel';
-import {ImovelService} from '../../../../shared/services/imovel.service';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Subscription } from 'rxjs/Subscription';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Imovel } from '../../../../shared/models/imovel';
+import { ImovelService } from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-modal-fotos-imovel',
@@ -18,23 +18,23 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
   updateView = new Subject();
   openSubscription: Subscription;
   updateSubscription: Subscription;
-  fotoPrincipal = undefined;
-  fotosSecundarias = [];
-  fotosSecundariasSelecionadas = [];
-  fotosFiltradas = [];
+  fotoPrincipal: File[] = undefined;
+  fotosSecundarias: File[];
+  fotosSecundariasSelecionadas: File[];
+  fotosFiltradas: File[];
   imovel: Imovel;
   mensagem: string;
-  url: string;
+  url: File[];
 
   constructor(private modalService: NgbModal,
-              private imovelService: ImovelService) {
+    private imovelService: ImovelService) {
   }
 
   ngOnInit() {
 
     this.openSubscription = this.open.subscribe((imovel: Imovel) => {
 
-      this.modalService.open(this.modal, {size: 'lg'});
+      this.modalService.open(this.modal, { size: 'lg' });
       this.fotosSecundarias = imovel.fotos;
       this.fotosFiltradas = imovel.fotos;
       this.imovel = imovel;
@@ -51,24 +51,32 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
 
     if (this.imovel.dormitorios === undefined) {
 
-      this.updateSubscription = this.imovelService.addImagesComercial(
-        this.imovel._id,
-        this.fotoPrincipal,
-        this.fotosFiltradas
-      ).subscribe(res => {
+      this.imovelService.uploadImages(this.fotoPrincipal)
+        .subscribe(path => {
 
-        this.updateView.next('Fotos do imóvel atualizadas com sucesso');
-      }, err => console.log(err));
+          this.updateSubscription = this.imovelService.updateImagesComercial(
+            this.imovel._id,
+            path,
+            this.fotosFiltradas
+          ).subscribe(res => {
+
+            this.updateView.next('Fotos do imóvel atualizadas com sucesso');
+          }, err => console.log(err));
+        });
     } else {
 
-      this.updateSubscription = this.imovelService.addImagesResidencial(
-        this.imovel._id,
-        this.fotoPrincipal,
-        this.fotosFiltradas
-      ).subscribe(res => {
+      this.imovelService.uploadImages(this.fotoPrincipal)
+        .subscribe(path => {
 
-        this.updateView.next('Fotos do imóvel atualizadas com sucesso');
-      }, err => console.log(err));
+          this.updateSubscription = this.imovelService.updateImagesResidencial(
+            this.imovel._id,
+            path,
+            this.fotosFiltradas
+          ).subscribe(res => {
+
+            this.updateView.next('Fotos do imóvel atualizadas com sucesso');
+          }, err => console.log(err));
+        });
     }
 
 
@@ -81,35 +89,29 @@ export class ModalFotosImovelComponent implements OnInit, OnDestroy {
 
     if (fotosSelecionadas) {
 
-      fotosSelecionadas.forEach(option => {
+      fotosSelecionadas.forEach((option: any) => {
 
-        this.fotosSecundariasSelecionadas.push({url: option.value});
+        this.fotosSecundariasSelecionadas.push(option.value);
       });
     }
 
     this.fotosFiltradas = this.fotosSecundarias.filter(foto =>
       !this.fotosSecundariasSelecionadas.some(fotoSelecionada =>
-        foto.url === fotoSelecionada.url)
+        foto === fotoSelecionada)
     );
   }
 
   uploadPrincipal(event) {
 
-    const file: File = event.files[0];
-    const fileReader: FileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-
-    fileReader.onloadend = e => {
-
-      this.fotoPrincipal = fileReader.result;
-      this.mensagem = 'Foto carregada com sucesso.';
-      setTimeout(() => this.mensagem = undefined, 3000);
-    };
+    this.fotoPrincipal = [];
+    this.fotoPrincipal = event.files;
+    this.mensagem = 'Foto carregada com sucesso.';
+    setTimeout(() => this.mensagem = undefined, 3000);
   }
 
   clear() {
 
-    this.fotoPrincipal = undefined;
+    this.fotoPrincipal = [];
   }
 
   hover(url) {

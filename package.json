@@ -5,11 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "node app.js",
-    "dev": "ng serve -o --watch",
-    "build": "ng build",
+    "dev": "ng serve -o --watch --aot",
+    "build": "ng build --prod --build-optimizer --env=prod",
     "test": "ng test",
     "lint": "ng lint",
-    "postinstall": "ng build --prod --env=prod",
     "e2e": "ng e2e"
   },
   "private": true,

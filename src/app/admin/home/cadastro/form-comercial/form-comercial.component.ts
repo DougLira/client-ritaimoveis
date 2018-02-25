@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatHorizontalStepper} from '@angular/material';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ImovelService} from '../../../../shared/services/imovel.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatHorizontalStepper } from '@angular/material';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ImovelService } from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-form-comercial',
@@ -12,17 +12,13 @@ export class FormComercialComponent implements OnInit {
 
   @ViewChild('step') step: MatHorizontalStepper;
   formComercial: FormGroup;
-  fotoPrincipal = {
-    urlBase64: '',
-    message: ''
-  };
-  fotosSecundarias = {
-    fotos: [],
-    message: ''
-  };
+  foto: File[];
+  fotos: File[];
+  messagePrincipal;
+  messageSecundarias;
 
   constructor(private formBuilder: FormBuilder,
-              private imovelService: ImovelService) {
+    private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -45,10 +41,11 @@ export class FormComercialComponent implements OnInit {
 
     if (this.formComercial.valid) {
 
-      this.imovelService.createComercial(
-        this.formComercial.value,
-        this.fotoPrincipal.urlBase64,
-        this.fotosSecundarias.fotos);
+      this.imovelService.uploadImages(this.foto, this.fotos)
+        .subscribe(path => {
+          const imovel = this.buildImovel(path);
+          this.imovelService.createComercial(imovel);
+        }, err => console.log(err));
     }
 
     this.imovelService.message.subscribe((msg: any) => {
@@ -82,46 +79,28 @@ export class FormComercialComponent implements OnInit {
 
   uploadPrincipal(event) {
 
-    const file: File = event.files[0];
-    const fileReader: FileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-
-    fileReader.onloadend = e => {
-
-      this.fotoPrincipal.urlBase64 = fileReader.result;
-      this.fotoPrincipal.message = 'Foto carregada com sucesso';
-      setTimeout(() => this.fotoPrincipal.message = '', 3000);
-    };
+    this.foto = [];
+    this.foto = event.files;
+    this.messagePrincipal = 'Foto carregada com sucesso';
+    setTimeout(() => this.messagePrincipal = '', 3000);
   }
 
   uploadSecundarias(event) {
 
-    this.fotosSecundarias.fotos = [];
-    const files: File[] = event.files;
-
-    for (const file of files) {
-
-      const fileReader: FileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onloadend = e => {
-
-        this.fotosSecundarias.fotos.push(fileReader.result);
-      };
-    }
-
-    this.fotosSecundarias.message = 'Fotos carregadas com sucesso.';
-    setTimeout(() => this.fotosSecundarias.message = '', 3000);
+    this.fotos = [];
+    this.fotos = event.files;
+    this.messageSecundarias = 'Fotos carregadas com sucesso.';
+    setTimeout(() => this.messageSecundarias = '', 3000);
   }
 
   clearPrincipal() {
 
-    this.fotoPrincipal.urlBase64 = undefined;
+    this.foto = [];
   }
 
   clearSecundarias() {
 
-    this.fotosSecundarias.fotos = [];
+    this.fotos = [];
   }
 
   removeSecundarias(event) {
@@ -132,8 +111,22 @@ export class FormComercialComponent implements OnInit {
 
     fileReader.onloadend = e => {
 
-      const index = this.fotosSecundarias.fotos.indexOf(fileReader.result);
-      this.fotosSecundarias.fotos.splice(index, 1);
+      const index = this.fotos.indexOf(fileReader.result);
+      this.fotos.splice(index, 1);
     };
+  }
+
+  buildImovel(fotos = []): Object {
+
+    const imovel = this.formComercial.value;
+    let foto: string;
+
+    if (fotos.length > 0) {
+      foto = fotos.pop();
+    }
+
+    imovel.foto = foto;
+    imovel.fotos = fotos;
+    return imovel;
   }
 }

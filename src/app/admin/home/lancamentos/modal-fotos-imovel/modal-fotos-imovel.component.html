@@ -28,11 +28,11 @@
 
     <p style="margin-left: 30px">Selecione para excluir as fotos:</p>
     <mat-selection-list #fotos (selectionChange)="selected(fotos)">
-      <mat-list-option *ngFor="let foto of fotosSecundarias" value="{{foto.url}}">
+      <mat-list-option *ngFor="let foto of fotosSecundarias" value="{{foto}}">
         <img
-          (mouseenter)="hover(foto.url)"
+          (mouseenter)="hover(foto)"
           matListAvatar
-          src="{{foto.url}}"
+          src="{{foto}}"
           alt="...">
       </mat-list-option>
     </mat-selection-list>

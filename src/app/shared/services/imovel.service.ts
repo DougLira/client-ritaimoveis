@@ -5,6 +5,7 @@ import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { Filter } from "../models/filter";
 import { environment } from "../../../environments/environment";
+import { Imovel } from "../models/imovel";
 
 @Injectable()
 export class ImovelService {
@@ -13,7 +14,21 @@ export class ImovelService {
   openModal = new Subject();
   uri: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+
+  /*---------------- Uploads API ------------------------*/
+
+  uploadImages(foto = [], fotos = []): Observable<any> | any {
+    const all = fotos.concat(foto);
+
+    const formData: FormData = new FormData();
+    for (const file of all) {
+      formData.append(file.name, file, file.name);
+    }
+
+    return this.http.post(`${this.uri}/upload`, formData);
+  }
+
 
   /*---------------- Residencial API ------------------------*/
 
@@ -40,119 +55,49 @@ export class ImovelService {
     });
   }
 
-  createResidencial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
-    let fotos = {
-        fotoPrincipal: fotoPrincipal,
-        fotosSecundarias: fotosSecundarias
-      },
-      createdId;
+  createResidencial(imovel: Imovel) {
 
     this.http
-      .post(`${this.uri}/admin/imoveis/residencial`, JSON.stringify(imovel), {
-        observe: "response"
-      })
-      .subscribe(
-        res => {
-          if (res.status == 201) {
-            createdId = res.body;
-
-            return this.http
-              .post(
-                `${this.uri}/admin/imoveis/residencial/images/${createdId}`,
-                fotos,
-                {
-                  observe: "response",
-                  headers: new HttpHeaders().set(
-                    "content-type",
-                    "application/octet-stream"
-                  )
-                }
-              )
-              .subscribe(
-                res => {
-                  this.message.next({
-                    severity: "success",
-                    summary: "Imóvel Residencial:",
-                    detail: "Imóvel cadastrado com sucesso."
-                  });
-                },
-                err => {
-                  console.log(err);
-                  this.message.next({
-                    severity: "error",
-                    summary: "Imóvel Residencial:",
-                    detail: "Não foi possível cadastrar o imóvel."
-                  });
-                }
-              );
-          }
-
-          this.message.next({
-            severity: "error",
-            summary: "Imóvel Residencial:",
-            detail: "Não foi possível cadastrar o imóvel."
-          });
-        },
+      .post(`${this.uri}/admin/imoveis/residencial`, imovel)
+      .subscribe(res => {
+        this.message.next({
+          severity: "success",
+          summary: "Imóvel Residencial:",
+          detail: "Cadastrado com sucesso."
+        });
+      },
         err => {
           console.log(err);
           this.message.next({
             severity: "error",
             summary: "Imóvel Residencial:",
-            detail: "Não foi possível cadastrar o imóvel."
+            detail: "Não foi possível cadastrar."
           });
-        }
-      );
+        });
   }
 
   updateResidencial(imovel, id): Observable<any> | any {
     return this.http.put(
-      `${this.uri}/admin/imoveis/residencial/${id}`,
-      JSON.stringify(imovel),
-      { observe: "response" }
-    );
+      `${this.uri}/admin/imoveis/residencial/${id}`, imovel);
   }
 
   deleteResidencial(id): Observable<any> | any {
-    return this.http.delete(`${this.uri}/admin/imoveis/residencial/${id}`, {
-      observe: "response"
-    });
+    return this.http.delete(`${this.uri}/admin/imoveis/residencial/${id}`);
   }
 
-  addImagesResidencial(
-    id,
-    fotoPrincipal = undefined,
-    fotosSecundarias = []
-  ): Observable<any> | any {
-    let fotos = {
-      fotoPrincipal: fotoPrincipal,
-      fotosSecundarias: fotosSecundarias
+  updateImagesResidencial(id, foto = [], fotos = []): Observable<any> | any {
+    const all = {
+      foto: foto,
+      fotos: fotos
     };
 
     return this.http.put(
-      `${this.uri}/admin/imoveis/residencial/images/${id}`,
-      fotos,
-      {
-        observe: "response",
-        headers: new HttpHeaders().set(
-          "content-type",
-          "application/octet-stream"
-        )
-      }
-    );
+      `${this.uri}/admin/imoveis/residencial/images/${id}`, all);
   }
 
-  updateImagesResidencial(id, fotos): Observable<any> | any {
+  addImagesResidencial(id, fotos): Observable<any> | any {
     return this.http.put(
-      `${this.uri}/admin/imoveis/residencial/images/add/${id}`,
-      fotos,
-      {
-        observe: "response",
-        headers: new HttpHeaders().set(
-          "content-type",
-          "application/octet-stream"
-        )
-      }
-    );
+      `${this.uri}/admin/imoveis/residencial/images/add/${id}`, fotos);
   }
 
   /*---------------- Comercial API ------------------------*/
@@ -180,119 +125,50 @@ export class ImovelService {
     });
   }
 
-  createComercial(imovel, fotoPrincipal = undefined, fotosSecundarias = []) {
-    let fotos = {
-        fotoPrincipal: fotoPrincipal,
-        fotosSecundarias: fotosSecundarias
-      },
-      createdId;
+  createComercial(imovel) {
 
     this.http
-      .post(`${this.uri}/admin/imoveis/comercial`, JSON.stringify(imovel), {
-        observe: "response"
-      })
-      .subscribe(
-        res => {
-          if (res.status == 201) {
-            createdId = res.body;
-
-            return this.http
-              .post(
-                `${this.uri}/admin/imoveis/comercial/images/${createdId}`,
-                fotos,
-                {
-                  observe: "response",
-                  headers: new HttpHeaders().set(
-                    "content-type",
-                    "application/octet-stream"
-                  )
-                }
-              )
-              .subscribe(
-                res => {
-                  this.message.next({
-                    severity: "success",
-                    summary: "Imóvel Comercial",
-                    detail: "Imóvel cadastrado com sucesso."
-                  });
-                },
-                err => {
-                  console.log(err);
-                  this.message.next({
-                    severity: "error",
-                    summary: "Imóvel Comercial",
-                    detail: "Não foi possível cadastrar o imóvel."
-                  });
-                }
-              );
-          }
-
-          this.message.next({
-            severity: "error",
-            summary: "Imóvel Comercial",
-            detail: "Não foi possível cadastrar o imóvel."
-          });
-        },
-        err => {
-          console.log(err);
-          this.message.next({
-            severity: "error",
-            summary: "Imóvel Comercial",
-            detail: "Não foi possível cadastrar o imóvel."
-          });
-        }
+      .post(`${this.uri}/admin/imoveis/comercial`, imovel)
+      .subscribe(res => {
+        this.message.next({
+          severity: "success",
+          summary: "Imóvel Comercial",
+          detail: "Imóvel cadastrado com sucesso."
+        });
+      }, err => {
+        console.log(err);
+        this.message.next({
+          severity: "error",
+          summary: "Imóvel Comercial",
+          detail: "Não foi possível cadastrar o imóvel."
+        });
+      }
       );
+
   }
 
   updateComercial(imovel, id): Observable<HttpEvent<Response>> | any {
     return this.http.put(
-      `${this.uri}/admin/imoveis/comercial/${id}`,
-      JSON.stringify(imovel),
-      { observe: "response" }
-    );
+      `${this.uri}/admin/imoveis/comercial/${id}`, imovel);
   }
 
   deleteComercial(id) {
-    return this.http.delete(`${this.uri}/admin/imoveis/comercial/${id}`, {
-      observe: "response"
-    });
+    return this.http.delete(`${this.uri}/admin/imoveis/comercial/${id}`);
   }
 
-  addImagesComercial(
-    id,
-    fotoPrincipal = undefined,
-    fotosSecundarias = []
-  ): Observable<any> | any {
-    let fotos = {
-      fotoPrincipal: fotoPrincipal,
-      fotosSecundarias: fotosSecundarias
+  updateImagesComercial(id, foto = [], fotos = []): Observable<any> | any {
+    const all = {
+      foto: foto,
+      fotos: fotos
     };
 
     return this.http.put(
-      `${this.uri}/admin/imoveis/comercial/images/${id}`,
-      fotos,
-      {
-        observe: "response",
-        headers: new HttpHeaders().set(
-          "content-type",
-          "application/octet-stream"
-        )
-      }
-    );
+      `${this.uri}/admin/imoveis/comercial/images/${id}`, all);
   }
 
-  updateImagesComercial(id, fotos): Observable<any> | any {
+  addImagesComercial(id, fotos): Observable<any> | any {
     return this.http.put(
-      `${this.uri}/admin/imoveis/comercial/images/add/${id}`,
-      fotos,
-      {
-        observe: "response",
-        headers: new HttpHeaders().set(
-          "content-type",
-          "application/octet-stream"
-        )
-      }
-    );
+      `${this.uri}/admin/imoveis/comercial/images/add/${id}`, fotos);
   }
 
   /*---------------- Lancamentos API ------------------------*/

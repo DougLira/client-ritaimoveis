@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Subject} from 'rxjs/Subject';
-import {Imovel} from '../../../../shared/models/imovel';
-import {Subscription} from 'rxjs/Subscription';
-import {ImovelService} from '../../../../shared/services/imovel.service';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs/Subject';
+import { Imovel } from '../../../../shared/models/imovel';
+import { Subscription } from 'rxjs/Subscription';
+import { ImovelService } from '../../../../shared/services/imovel.service';
 
 @Component({
   selector: 'app-modal-add-fotos',
@@ -21,7 +21,7 @@ export class ModalAddFotosComponent implements OnInit, OnDestroy {
   mensagem: string;
 
   constructor(private modalService: NgbModal,
-              private imovelService: ImovelService) {
+    private imovelService: ImovelService) {
   }
 
   ngOnInit() {
@@ -42,37 +42,33 @@ export class ModalAddFotosComponent implements OnInit, OnDestroy {
 
     if (this.imovel.dormitorios === undefined) {
 
-      this.imovelService.updateImagesComercial(this.imovel._id, this.fotos)
-        .subscribe(res => {
+      this.imovelService.uploadImages([], this.fotos)
+        .subscribe(path => {
 
-          this.updateView.next('Fotos adicionadas com sucesso');
-        }, err => console.log(err));
+          this.imovelService.addImagesComercial(this.imovel._id, this.fotos)
+            .subscribe(res => {
+
+              this.updateView.next('Fotos adicionadas com sucesso');
+            }, err => console.log(err));
+        });
     } else {
 
-      this.imovelService.updateImagesResidencial(this.imovel._id, this.fotos)
-        .subscribe(res => {
+      this.imovelService.uploadImages([], this.fotos)
+        .subscribe(path => {
 
-          this.updateView.next('Fotos adicionadas com sucesso');
-        }, err => console.log(err));
+          this.imovelService.addImagesResidencial(this.imovel._id, this.fotos)
+            .subscribe(res => {
+
+              this.updateView.next('Fotos adicionadas com sucesso');
+            }, err => console.log(err));
+        });
     }
   }
 
   upload(event) {
 
     this.fotos = [];
-    const files: File[] = event.files;
-
-    for (const file of files) {
-
-      const fileReader: FileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onloadend = e => {
-
-        this.fotos.push({url: fileReader.result});
-      };
-    }
-
+    this.fotos = event.files;
     this.mensagem = 'Fotos carregadas com sucesso.';
     setTimeout(() => this.mensagem = '', 3000);
   }

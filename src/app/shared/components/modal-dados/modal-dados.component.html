@@ -11,10 +11,10 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img height="400" class="d-block w-100" [src]="imovel.fotoPrincipal.url" alt="">
+            <img height="400" class="d-block w-100" [src]="imovel.foto" alt="">
           </div>
           <div *ngFor="let foto of imovel.fotos" class="carousel-item">
-            <img height="400" class="d-block w-100" [src]="foto.url" alt="First slide">
+            <img height="400" class="d-block w-100" [src]="foto" alt="First slide">
           </div>
         </div>
         <a class="carousel-control-prev control-carousel" href="#carouselExampleControls" role="button" data-slide="prev">
